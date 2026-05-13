@@ -1,0 +1,1060 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEWRONIQ | Outcome Driven Intelligence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --nq-red: #a12027; /* Deep Red signature color */
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #ffffff;
+        color: #1a1a1a;
+      }
+      .text-nq-red {
+        color: var(--nq-red);
+      }
+      .bg-nq-red {
+        background-color: var(--nq-red);
+      }
+      .border-nq-red {
+        border-color: var(--nq-red);
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+      .nav-link:hover {
+        color: var(--nq-red);
+      }
+
+      .card-shadow {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s ease;
+        border: 1px solid #f0f0f0;
+      }
+      .card-shadow:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(161, 32, 39, 0.1);
+        border-color: var(--nq-red);
+      }
+
+      .view-section {
+        display: none;
+      }
+      .view-section.active {
+        display: block;
+      }
+    </style>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KXTJW9R8");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body class="antialiased">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KXTJW9R8"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <nav
+      class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-20 items-center">
+          <div
+            class="flex items-center cursor-pointer"
+            onclick="showView('home')"
+          >
+            <span class="text-2xl font-extrabold tracking-tighter text-nq-red"
+              >NEWRONIQ</span
+            >
+          </div>
+
+          <div
+            class="hidden md:flex space-x-10 text-sm uppercase tracking-wider"
+          >
+            <a
+              href="javascript:void(0)"
+              onclick="showView('home')"
+              class="nav-link"
+              >Home</a
+            >
+            <a
+              href="javascript:void(0)"
+              onclick="
+                showView('home');
+                setTimeout(
+                  () => document.getElementById('products').scrollIntoView(),
+                  100,
+                );
+              "
+              class="nav-link"
+              >Products</a
+            >
+            <a
+              href="javascript:void(0)"
+              onclick="
+                showView('home');
+                setTimeout(
+                  () => document.getElementById('services').scrollIntoView(),
+                  100,
+                );
+              "
+              class="nav-link"
+              >Services</a
+            >
+            <a
+              href="javascript:void(0)"
+              onclick="showView('whitepapers')"
+              class="nav-link"
+              >White Papers</a
+            >
+          </div>
+
+          <div class="flex items-center space-x-4">
+            <button
+              onclick="showView('contact')"
+              class="border-2 border-nq-red text-nq-red px-6 py-2 rounded-sm text-xs font-bold uppercase hover:bg-nq-red hover:text-white transition-all"
+            >
+              Contact
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main id="view-home" class="view-section active">
+      <!-- Hero Section -->
+      <section class="pt-40 pb-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+              Intelligence that drives
+              <span class="text-nq-red">Outcomes.</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+              We bridge the gap between complex enterprise systems and
+              measurable business value. Focused on cost optimization, revenue
+              growth, and risk mitigation.
+            </p>
+            <div class="flex flex-wrap gap-4">
+              <button
+                onclick="document.getElementById('products').scrollIntoView()"
+                class="bg-nq-red text-white px-8 py-4 font-bold uppercase text-sm rounded-sm hover:opacity-90 transition-all"
+              >
+                View Products
+              </button>
+              <button
+                onclick="showView('whitepapers')"
+                class="bg-white border border-gray-200 px-8 py-4 font-bold uppercase text-sm rounded-sm hover:border-nq-red transition-all"
+              >
+                Research Papers
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Outcome Focus Areas -->
+      <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="border-l-4 border-nq-red pl-6">
+              <h4 class="text-nq-red font-bold uppercase text-xs mb-2">
+                Focus 01
+              </h4>
+              <h3 class="text-xl font-bold mb-3">Cost Optimization</h3>
+              <p class="text-gray-500 text-sm">
+                Reducing operational overhead through lean composable
+                architectures and automated content supply chains.
+              </p>
+            </div>
+            <div class="border-l-4 border-nq-red pl-6">
+              <h4 class="text-nq-red font-bold uppercase text-xs mb-2">
+                Focus 02
+              </h4>
+              <h3 class="text-xl font-bold mb-3">Revenue Boosting</h3>
+              <p class="text-gray-500 text-sm">
+                AI-enabled experience optimization and omni-channel delivery to
+                increase conversion and retention.
+              </p>
+            </div>
+            <div class="border-l-4 border-nq-red pl-6">
+              <h4 class="text-nq-red font-bold uppercase text-xs mb-2">
+                Focus 03
+              </h4>
+              <h3 class="text-xl font-bold mb-3">Risk Mitigation</h3>
+              <p class="text-gray-500 text-sm">
+                Ensuring enterprise compliance, resilient system design, and
+                data traceability across all global touchpoints.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section (Priority) -->
+      <section id="products" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div
+            class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
+          >
+            <div>
+              <h2
+                class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+              >
+                Proprietary Products
+              </h2>
+              <h3 class="text-4xl font-extrabold">Next-Gen Engines</h3>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+            <!-- StylePulse -->
+            <div class="card-shadow bg-white p-10 rounded-sm">
+              <div class="mb-6 flex justify-between items-start">
+                <h4 class="text-2xl font-bold">StylePulse</h4>
+                <span
+                  class="bg-gray-100 text-[10px] font-bold px-3 py-1 uppercase tracking-tighter"
+                  >Fashion Retail</span
+                >
+              </div>
+              <p class="text-gray-600 mb-8 leading-relaxed">
+                A high-velocity Trend Insight Engine designed specifically for
+                fashion retail. Aggregates global data patterns to predict
+                shifts in consumer behavior before they happen.
+              </p>
+              <ul class="space-y-3 mb-8 text-sm text-gray-500">
+                <li class="flex items-center">
+                  <svg
+                    class="w-4 h-4 mr-2 text-nq-red"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    />
+                  </svg>
+                  Predictive Inventory Optimization
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-4 h-4 mr-2 text-nq-red"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    />
+                  </svg>
+                  Real-time Sentiment Mapping
+                </li>
+              </ul>
+              <button
+                onclick="showView('stylepulse')"
+                class="text-nq-red font-bold text-xs uppercase border-b-2 border-nq-red pb-1"
+              >
+                Explore StylePulse
+              </button>
+            </div>
+
+            <!-- IQPublish -->
+            <div class="card-shadow bg-white p-10 rounded-sm">
+              <div class="mb-6 flex justify-between items-start">
+                <h4 class="text-2xl font-bold">IQPublish</h4>
+                <span
+                  class="bg-gray-100 text-[10px] font-bold px-3 py-1 uppercase tracking-tighter"
+                  >Enterprise Media</span
+                >
+              </div>
+              <p class="text-gray-600 mb-8 leading-relaxed">
+                A ready-to-use, high-integrity content publishing platform
+                engineered for speed, compliance, and massive scale across
+                global institutions.
+              </p>
+              <ul class="space-y-3 mb-8 text-sm text-gray-500">
+                <li class="flex items-center">
+                  <svg
+                    class="w-4 h-4 mr-2 text-nq-red"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    />
+                  </svg>
+                  Enterprise-Grade Content Hierarchy
+                </li>
+                <li class="flex items-center">
+                  <svg
+                    class="w-4 h-4 mr-2 text-nq-red"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    />
+                  </svg>
+                  Automated Distribution Logic
+                </li>
+              </ul>
+              <button
+                onclick="showView('iqpublish')"
+                class="text-nq-red font-bold text-xs uppercase border-b-2 border-nq-red pb-1"
+              >
+                Explore IQPublish
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-nq-red font-bold uppercase tracking-widest text-sm mb-12"
+          >
+            Services & Consulting
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <!-- AEC Consulting -->
+            <div>
+              <h3 class="text-3xl font-extrabold mb-8">
+                Adobe Experience Cloud
+              </h3>
+              <div class="grid grid-cols-1 gap-6">
+                <div class="flex gap-4">
+                  <div class="mt-1">
+                    <div class="w-2 h-2 rounded-full bg-nq-red"></div>
+                  </div>
+                  <div>
+                    <h5 class="font-bold mb-1">
+                      Composable Architecture Migration
+                    </h5>
+                    <p class="text-sm text-gray-500">
+                      Strategic transition into AEC or moving towards modular
+                      decoupled stacks.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="mt-1">
+                    <div class="w-2 h-2 rounded-full bg-nq-red"></div>
+                  </div>
+                  <div>
+                    <h5 class="font-bold mb-1">Omni-channel Supply Chain</h5>
+                    <p class="text-sm text-gray-500">
+                      End-to-end content flow optimization, workflows, and brand
+                      positioning.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="mt-1">
+                    <div class="w-2 h-2 rounded-full bg-nq-red"></div>
+                  </div>
+                  <div>
+                    <h5 class="font-bold mb-1">Data 360 & Analytics</h5>
+                    <p class="text-sm text-gray-500">
+                      Consolidating downstream systems for web/campaign
+                      performance measurement.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex gap-4">
+                  <div class="mt-1">
+                    <div class="w-2 h-2 rounded-full bg-nq-red"></div>
+                  </div>
+                  <div>
+                    <h5 class="font-bold mb-1">Resilient Enterprise Design</h5>
+                    <p class="text-sm text-gray-500">
+                      Traceability, compliance, and AI-enabled experience
+                      optimization.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Custom Java Dev -->
+            <div class="bg-white p-12 border-t-8 border-nq-red card-shadow">
+              <h3 class="text-3xl font-extrabold mb-6">
+                Custom Java Development
+              </h3>
+              <p class="text-gray-600 mb-8">
+                High-performance backend engineering for enterprise systems. We
+                build mission-critical applications that demand zero downtime
+                and massive throughput.
+              </p>
+              <div class="space-y-4">
+                <div class="p-4 bg-gray-50 rounded-sm">
+                  <span
+                    class="block font-bold text-xs uppercase text-gray-400 mb-1"
+                    >Expertise</span
+                  >
+                  <span class="text-sm"
+                    >Spring Boot, Microservices, Cloud Native Java</span
+                  >
+                </div>
+                <div class="p-4 bg-gray-50 rounded-sm">
+                  <span
+                    class="block font-bold text-xs uppercase text-gray-400 mb-1"
+                    >Focus</span
+                  >
+                  <span class="text-sm"
+                    >Scalability, Distributed Computing, Legacy
+                    Modernization</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="py-24 bg-nq-red text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+          <h2 class="text-4xl font-extrabold mb-6 uppercase tracking-tight">
+            Ready to drive measurable outcomes?
+          </h2>
+          <p class="text-xl mb-10 opacity-90">
+            Partner with NEWRONIQ to optimize costs, boost revenue, and mitigate
+            enterprise risk through outcome-driven intelligence.
+          </p>
+          <button
+            onclick="showView('contact')"
+            class="bg-white text-nq-red px-10 py-4 font-bold uppercase text-sm rounded-sm hover:bg-gray-100 transition-all shadow-xl"
+          >
+            Get in Touch
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <main id="view-stylepulse" class="view-section">
+      <section class="pt-40 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            onclick="showView('home')"
+            class="text-gray-400 hover:text-nq-red flex items-center gap-2 mb-12 uppercase text-xs font-bold tracking-widest"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Back to Overview
+          </button>
+
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24"
+          >
+            <div>
+              <h2
+                class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+              >
+                Product Deep Dive
+              </h2>
+              <h3 class="text-5xl font-extrabold mb-6">StylePulse™</h3>
+              <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                The definitive Trend Insight Engine for the fashion industry.
+                StylePulse leverages neural analytics to decode consumer
+                sentiment, allowing retailers to move from reactive stocking to
+                proactive demand fulfillment.
+              </p>
+              <div
+                class="flex items-center gap-6 p-6 bg-gray-50 border-l-4 border-nq-red"
+              >
+                <div>
+                  <span class="block text-2xl font-bold text-nq-red"
+                    >Revenue Boost</span
+                  >
+                  <span class="text-xs uppercase font-bold text-gray-400"
+                    >Primary Outcome</span
+                  >
+                </div>
+                <p class="text-sm text-gray-500">
+                  Reduces markdown frequency by aligning production cycles with
+                  validated trend velocity.
+                </p>
+              </div>
+            </div>
+            <div
+              class="bg-gray-100 aspect-video rounded-sm flex items-center justify-center border border-gray-200 relative overflow-hidden"
+            >
+              <div
+                class="absolute inset-0 opacity-10"
+                style="
+                  background-image: radial-gradient(
+                    #a12027 1px,
+                    transparent 1px
+                  );
+                  background-size: 20px 20px;
+                "
+              ></div>
+              <span
+                class="text-gray-400 font-bold uppercase tracking-tighter text-4xl"
+                >Visual Dashboard</span
+              >
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="p-8 border border-gray-100 rounded-sm">
+              <h5 class="font-bold text-lg mb-4 text-nq-red">
+                Predictive Inventory
+              </h5>
+              <p class="text-sm text-gray-500">
+                AI-driven forecasting that suggests optimal stock levels per SKU
+                based on localized trend emergence.
+              </p>
+            </div>
+            <div class="p-8 border border-gray-100 rounded-sm">
+              <h5 class="font-bold text-lg mb-4 text-nq-red">
+                Sentiment Mapping
+              </h5>
+              <p class="text-sm text-gray-500">
+                Real-time processing of social signals and runway data to
+                identify the "Next Big Thing" before it hits the street.
+              </p>
+            </div>
+            <div class="p-8 border border-gray-100 rounded-sm">
+              <h5 class="font-bold text-lg mb-4 text-nq-red">Trend Velocity</h5>
+              <p class="text-sm text-gray-500">
+                Mathematical modeling of how fast a trend is growing and where
+                it is likely to peak globally.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="mt-20 p-12 bg-gray-50 border-t border-gray-200 text-center"
+          >
+            <h4 class="text-2xl font-bold mb-4">Request a StylePulse Demo</h4>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+              See how predictive trend insights can transform your fashion
+              retail inventory performance.
+            </p>
+            <button
+              onclick="showView('contact')"
+              class="bg-nq-red text-white px-8 py-3 font-bold uppercase text-xs rounded-sm hover:opacity-90 transition-all"
+            >
+              Schedule Consultation
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="view-iqpublish" class="view-section">
+      <section class="pt-40 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <button
+            onclick="showView('home')"
+            class="text-gray-400 hover:text-nq-red flex items-center gap-2 mb-12 uppercase text-xs font-bold tracking-widest"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            Back to Overview
+          </button>
+
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24"
+          >
+            <div
+              class="order-2 lg:order-1 bg-gray-100 aspect-square rounded-sm flex items-center justify-center border border-gray-200"
+            >
+              <span
+                class="text-gray-400 font-bold uppercase tracking-tighter text-4xl"
+                >Enterprise Portal</span
+              >
+            </div>
+            <div class="order-1 lg:order-2">
+              <h2
+                class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+              >
+                Enterprise Content Platform
+              </h2>
+              <h3 class="text-5xl font-extrabold mb-6">IQPublish</h3>
+              <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                Engineered for organizations that treat content as critical
+                data. IQPublish provides a structured, compliant, and
+                lightning-fast publishing hierarchy modeled after leading global
+                financial institutions.
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="p-4 bg-gray-50 border-t-2 border-nq-red">
+                  <span class="block font-bold text-nq-red italic"
+                    >Cost Optimization</span
+                  >
+                  <span class="text-[10px] uppercase text-gray-400"
+                    >Streamlined Workflows</span
+                  >
+                </div>
+                <div class="p-4 bg-gray-50 border-t-2 border-nq-red">
+                  <span class="block font-bold text-nq-red italic"
+                    >Risk Mitigation</span
+                  >
+                  <span class="text-[10px] uppercase text-gray-400"
+                    >Audit & Compliance</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gray-50 p-12 rounded-sm border border-gray-200">
+            <h4 class="text-2xl font-bold mb-8">System Capabilities</h4>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+              <div>
+                <h6 class="font-bold mb-2">Content Hierarchy Management</h6>
+                <p class="text-sm text-gray-500">
+                  Advanced nesting and categorization modeled after financial
+                  rating systems for absolute clarity.
+                </p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-2">Automated Distribution</h6>
+                <p class="text-sm text-gray-500">
+                  Push-once, publish-anywhere logic ensuring consistency across
+                  web, terminals, and mobile apps.
+                </p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-2">Immutable Traceability</h6>
+                <p class="text-sm text-gray-500">
+                  Full version history and authorship tracking required for
+                  enterprise-level compliance.
+                </p>
+              </div>
+              <div>
+                <h6 class="font-bold mb-2">Massive Scale API</h6>
+                <p class="text-sm text-gray-500">
+                  Built to serve millions of requests with sub-millisecond
+                  latency for real-time content delivery.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-20 text-center">
+            <h4 class="text-2xl font-bold mb-4">
+              Deploy IQPublish for your Institution
+            </h4>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+              Ensure your content supply chain is compliant, resilient, and
+              optimized for global scale.
+            </p>
+            <button
+              onclick="showView('contact')"
+              class="bg-nq-red text-white px-8 py-3 font-bold uppercase text-xs rounded-sm hover:opacity-90 transition-all"
+            >
+              Request System Spec
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="view-contact" class="view-section">
+      <section class="pt-40 pb-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <h2
+            class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+          >
+            Get in Touch
+          </h2>
+          <h3 class="text-5xl font-extrabold mb-12">
+            Start your <span class="text-nq-red">Outcome</span> Journey.
+          </h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
+            <div>
+              <p class="text-lg text-gray-600 mb-8">
+                Whether you're looking for enterprise AEC consulting, custom
+                Java engineering, or demoing our proprietary products, we're
+                ready to discuss your business goals.
+              </p>
+              <div class="space-y-6">
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-10 h-10 bg-gray-50 flex items-center justify-center rounded-full"
+                  >
+                    <svg
+                      class="w-5 h-5 text-nq-red"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      class="block text-[10px] uppercase font-bold text-gray-400"
+                      >Email</span
+                    >
+                    <span class="font-bold">outcomes@newroniq.com</span>
+                  </div>
+                </div>
+                <div class="flex items-center gap-4">
+                  <div
+                    class="w-10 h-10 bg-gray-50 flex items-center justify-center rounded-full"
+                  >
+                    <svg
+                      class="w-5 h-5 text-nq-red"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                      ></path>
+                      <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <span
+                      class="block text-[10px] uppercase font-bold text-gray-400"
+                      >Office</span
+                    >
+                    <span class="font-bold">Global Strategic Hubs</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              id="contact-form-container"
+              class="bg-gray-50 p-8 border-t-4 border-nq-red shadow-lg"
+            >
+              <form
+                onsubmit="
+                  event.preventDefault();
+                  document.getElementById('contact-form-container').innerHTML =
+                    '<div class=\'text-center py-12\'><h4 class=\'text-2xl font-bold text-nq-red mb-2\'>Message Sent.</h4><p class=\'text-gray-500\'>An Outcome Specialist will contact you shortly.</p></div>';
+                "
+                class="space-y-4"
+              >
+                <div>
+                  <label
+                    class="block text-[10px] font-bold uppercase text-gray-500 mb-1"
+                    >Full Name</label
+                  >
+                  <input
+                    type="text"
+                    required
+                    class="w-full p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-nq-red transition-colors"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-[10px] font-bold uppercase text-gray-500 mb-1"
+                    >Business Email</label
+                  >
+                  <input
+                    type="email"
+                    required
+                    class="w-full p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-nq-red transition-colors"
+                  />
+                </div>
+                <div>
+                  <label
+                    class="block text-[10px] font-bold uppercase text-gray-500 mb-1"
+                    >Inquiry Type</label
+                  >
+                  <select
+                    class="w-full p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-nq-red transition-colors"
+                  >
+                    <option>Adobe Experience Cloud Consulting</option>
+                    <option>StylePulse Engine</option>
+                    <option>IQPublish Platform</option>
+                    <option>Custom Java Development</option>
+                  </select>
+                </div>
+                <div>
+                  <label
+                    class="block text-[10px] font-bold uppercase text-gray-500 mb-1"
+                    >Message</label
+                  >
+                  <textarea
+                    rows="4"
+                    class="w-full p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-nq-red transition-colors"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="w-full bg-nq-red text-white py-4 font-bold uppercase text-xs tracking-widest hover:opacity-90 transition-all"
+                >
+                  Send Inquiry
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="view-whitepapers" class="view-section">
+      <section class="pt-40 pb-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+          >
+            Research & Insights
+          </h2>
+          <h3 class="text-4xl font-extrabold mb-12">White Paper Hub</h3>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Paper 1 -->
+            <div
+              class="bg-white p-8 card-shadow cursor-pointer group"
+              onclick="openPaper('paper-aec')"
+            >
+              <span
+                class="text-[10px] font-bold uppercase text-gray-400 tracking-widest mb-2 block"
+                >Technology Strategy</span
+              >
+              <h4
+                class="text-xl font-bold mb-4 group-hover:text-nq-red transition-colors"
+              >
+                The Future of Composable Adobe Experience Cloud
+              </h4>
+              <p class="text-sm text-gray-500 mb-6">
+                A deep dive into strategic transitions into AEC and moving
+                towards modular decoupled stacks.
+              </p>
+              <span
+                class="text-nq-red font-bold text-xs uppercase border-b border-nq-red pb-1"
+                >Read Full Paper</span
+              >
+            </div>
+            <!-- Paper 2 -->
+            <div
+              class="bg-white p-8 card-shadow cursor-pointer group"
+              onclick="openPaper('paper-java')"
+            >
+              <span
+                class="text-[10px] font-bold uppercase text-gray-400 tracking-widest mb-2 block"
+                >Engineering</span
+              >
+              <h4
+                class="text-xl font-bold mb-4 group-hover:text-nq-red transition-colors"
+              >
+                Scaling Java Microservices for Resilience
+              </h4>
+              <p class="text-sm text-gray-500 mb-6">
+                How we build mission-critical applications that demand zero
+                downtime and massive throughput.
+              </p>
+              <span
+                class="text-nq-red font-bold text-xs uppercase border-b border-nq-red pb-1"
+                >Read Full Paper</span
+              >
+            </div>
+            <!-- Paper 3 -->
+            <div
+              class="bg-white p-8 card-shadow cursor-pointer group"
+              onclick="openPaper('paper-retail')"
+            >
+              <span
+                class="text-[10px] font-bold uppercase text-gray-400 tracking-widest mb-2 block"
+                >Retail Science</span
+              >
+              <h4
+                class="text-xl font-bold mb-4 group-hover:text-nq-red transition-colors"
+              >
+                Predictive Trend Engines: Methodology
+              </h4>
+              <p class="text-sm text-gray-500 mb-6">
+                Using neural patterns to predict fashion retail shifts and
+                consumer sentiment in real-time.
+              </p>
+              <span
+                class="text-nq-red font-bold text-xs uppercase border-b border-nq-red pb-1"
+                >Read Full Paper</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <main id="view-paper-content" class="view-section">
+      <section class="pt-40 pb-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+          <button
+            onclick="showView('whitepapers')"
+            class="text-gray-400 hover:text-nq-red flex items-center gap-2 mb-12 uppercase text-xs font-bold tracking-widest"
+          >
+            <svg
+              class="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
+            </svg>
+            All White Papers
+          </button>
+
+          <div id="paper-content-area" class="prose prose-lg max-w-none">
+            <!-- Dynamic content injected here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-100 py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center border-b border-gray-100 pb-12 mb-12"
+        >
+          <span
+            class="text-2xl font-black tracking-tighter text-nq-red mb-4 md:mb-0"
+            >NEWRONIQ</span
+          >
+          <div
+            class="flex space-x-8 text-xs font-bold uppercase tracking-widest text-gray-400"
+          >
+            <a href="#" class="hover:text-nq-red transition-colors">LinkedIn</a>
+            <a href="#" class="hover:text-nq-red transition-colors"
+              >Global Insights</a
+            >
+            <a href="#" class="hover:text-sp-red transition-colors">Careers</a>
+          </div>
+        </div>
+        <div
+          class="text-center md:text-left text-[10px] text-gray-400 uppercase tracking-widest"
+        >
+          &copy; 2024 NEWRONIQ GLOBAL. All outcomes reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      function showView(viewId) {
+        const targetView = document.getElementById("view-" + viewId);
+
+        if (targetView) {
+          document
+            .querySelectorAll(".view-section")
+            .forEach((s) => s.classList.remove("active"));
+          targetView.classList.add("active");
+          window.scrollTo(0, 0);
+        } else {
+          console.error(`View "view-${viewId}" not found in document.`);
+        }
+      }
+
+      const paperData = {
+        "paper-aec": {
+          title: "The Future of Composable Adobe Experience Cloud",
+          content: `
+                    <h1 class="text-4xl font-extrabold mb-6">The Future of Composable Adobe Experience Cloud</h1>
+                    <p class="text-gray-600 mb-4 italic text-lg">Strategic transitions into AEC and moving towards modular decoupled stacks.</p>
+                    <p class="mb-6">The shift from monolithic platforms to composable architectures represents the most significant evolution in enterprise experience technology. This paper explores how global institutions are leveraging Adobe Experience Cloud (AEC) as a modular core rather than a rigid suite.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">Key Methodology: The "Micro-Migration"</h2>
+                    <p class="mb-4">Rather than a "big bang" replacement, we advocate for a value-first migration path. This involves isolating specific content flows or campaign data points and transitioning them into AEC's composable ecosystem one step at a time.</p>
+                    <ul class="list-disc pl-6 mb-6 space-y-2">
+                        <li>Decoupling the presentation layer from content logic.</li>
+                        <li>Establishing 360-degree data views via downstream system integration.</li>
+                        <li>Implementing AI-enabled optimization loops for real-time campaign refinement.</li>
+                    </ul>
+                `,
+        },
+        "paper-java": {
+          title: "Scaling Java Microservices for Resilience",
+          content: `
+                    <h1 class="text-4xl font-extrabold mb-6">Scaling Java Microservices for Resilience</h1>
+                    <p class="text-gray-600 mb-4 italic text-lg">Engineering mission-critical applications for zero downtime.</p>
+                    <p class="mb-6">Enterprise Java remains the backbone of global commerce. However, the move to cloud-native microservices requires a fundamental shift in how we handle concurrency, state, and distribution.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">The Resilient Design Framework</h2>
+                    <p class="mb-4">At NEWRONIQ, we utilize a proprietary pattern for Java resilience that focuses on three pillars:</p>
+                    <ol class="list-decimal pl-6 mb-6 space-y-2 font-bold">
+                        <li>Isolation (Bulkheading)</li>
+                        <li>Graceful Degradation</li>
+                        <li>Circuit Breaking & Automated Recovery</li>
+                    </ol>
+                `,
+        },
+        "paper-retail": {
+          title: "Predictive Trend Engines: Methodology",
+          content: `
+                    <h1 class="text-4xl font-extrabold mb-6">Predictive Trend Engines: Methodology</h1>
+                    <p class="text-gray-600 mb-4 italic text-lg">Using neural patterns to predict fashion retail shifts.</p>
+                    <p class="mb-6">Standard inventory management is reactive. StylePulse transforms this into a proactive outcome. By analyzing signal velocity across disparate global data points, we identify the peak of a trend before it appears in consumer sales data.</p>
+                    <h2 class="text-2xl font-bold mt-8 mb-4">Neural Signal Processing</h2>
+                    <p class="mb-4">Our methodology involves monitoring 'early-adopter' clusters and calculating the acceleration rate of visual keywords. When a pattern exceeds a specific "Critical Mass" threshold, it is flagged for production prioritization.</p>
+                `,
+        },
+      };
+
+      function openPaper(paperId) {
+        const area = document.getElementById("paper-content-area");
+        const data = paperData[paperId];
+
+        if (data && area) {
+          area.innerHTML = data.content;
+          showView("paper-content");
+        } else {
+          console.error("Paper content not found for ID:", paperId);
+        }
+      }
+    </script>
+  </body>
+</html>
