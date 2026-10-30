@@ -1,0 +1,81 @@
+<main id="view-whitepapers" class="view-section">
+    <section class="pt-40 pb-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2
+                    class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+            >
+                {{ site.data.copy.research_insights }}
+            </h2>
+            <h3 class="text-4xl font-extrabold mb-12">{{ site.data.copy.white_paper_hub }}</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Paper 1 -->
+                <div
+                        class="bg-white p-8 card-shadow cursor-pointer group"
+                        onclick="openPaper('paper-aec')"
+                >
+              <span
+                      class="text-[10px] font-bold uppercase text-gray-400 tracking-widest mb-2 block"
+              >{{ site.data.copy.technology_strategy }}</span
+              >
+                    <h4
+                            class="text-xl font-bold mb-4 group-hover:text-nq-red transition-colors"
+                    >
+                        {{ site.data.copy.the_future_of_composable_adobe_experience }}
+                    </h4>
+                    <p class="text-sm text-gray-500 mb-6">
+                        {{ site.data.copy.a_deep_dive_into_strategic_transitions }}
+                    </p>
+                    <span
+                            class="text-nq-red font-bold text-xs uppercase border-b border-nq-red pb-1"
+                    >{{ site.data.copy.read_full_paper }}</span
+                    >
+                </div>
+                <!-- Paper 2 -->
+                <div
+                        class="bg-white p-8 card-shadow cursor-pointer group"
+                        onclick="openPaper('paper-java')"
+                >
+              <span
+                      class="text-[10px] font-bold uppercase text-gray-400 tracking-widest mb-2 block"
+              >{{ site.data.copy.engineering_2 }}</span
+              >
+                    <h4
+                            class="text-xl font-bold mb-4 group-hover:text-nq-red transition-colors"
+                    >
+                        {{ site.data.copy.scaling_java_microservices_for_resilience }}
+                    </h4>
+                    <p class="text-sm text-gray-500 mb-6">
+                        {{ site.data.copy.how_we_build_mission_critical_applications }}
+                    </p>
+                    <span
+                            class="text-nq-red font-bold text-xs uppercase border-b border-nq-red pb-1"
+                    >{{ site.data.copy.read_full_paper_2 }}</span
+                    >
+                </div>
+                <!-- Paper 3 -->
+                <div
+                        class="bg-white p-8 card-shadow cursor-pointer group"
+                        onclick="openPaper('paper-retail')"
+                >
+              <span
+                      class="text-[10px] font-bold uppercase text-gray-400 tracking-widest mb-2 block"
+              >{{ site.data.copy.retail_science }}</span
+              >
+                    <h4
+                            class="text-xl font-bold mb-4 group-hover:text-nq-red transition-colors"
+                    >
+                        {{ site.data.copy.predictive_trend_engines_methodology }}
+                    </h4>
+                    <p class="text-sm text-gray-500 mb-6">
+                        {{ site.data.copy.using_neural_patterns_to_predict_fashion }}
+                    </p>
+                    <span
+                            class="text-nq-red font-bold text-xs uppercase border-b border-nq-red pb-1"
+                    >{{ site.data.copy.read_full_paper_3 }}</span
+                    >
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

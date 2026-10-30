@@ -1,0 +1,29 @@
+<main id="view-paper-content" class="view-section">
+    <section class="pt-40 pb-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6">
+            <button
+                    onclick="showView('whitepapers')"
+                    class="text-gray-400 hover:text-nq-red flex items-center gap-2 mb-12 uppercase text-xs font-bold tracking-widest"
+            >
+                <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                >
+                    <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
+                </svg>
+                {{ site.data.copy.all_white_papers }}
+            </button>
+
+            <div id="paper-content-area" class="prose prose-lg max-w-none">
+                <!-- Dynamic content injected here -->
+            </div>
+        </div>
+    </section>
+</main>

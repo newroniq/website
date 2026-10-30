@@ -1,0 +1,112 @@
+<main id="view-iqpublish" class="view-section">
+    <section class="pt-40 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button
+                    onclick="showView('home')"
+                    class="text-gray-400 hover:text-nq-red flex items-center gap-2 mb-12 uppercase text-xs font-bold tracking-widest"
+            >
+                <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                >
+                    <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
+                </svg>
+                {{ site.data.copy.back_to_overview_2 }}
+            </button>
+
+            <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24"
+            >
+                <div
+                        class="order-2 lg:order-1 bg-gray-100 aspect-square rounded-sm flex items-center justify-center border border-gray-200"
+                >
+              <span
+                      class="text-gray-400 font-bold uppercase tracking-tighter text-4xl"
+              >{{ site.data.copy.enterprise_portal }}</span
+              >
+                </div>
+                <div class="order-1 lg:order-2">
+                    <h2
+                            class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+                    >
+                        {{ site.data.copy.enterprise_content_platform }}
+                    </h2>
+                    <h3 class="text-5xl font-extrabold mb-6">{{ site.data.copy.iqpublish }}</h3>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        {{ site.data.copy.engineered_for_organizations_that_treat_content }}
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="p-4 bg-gray-50 border-t-2 border-nq-red">
+                  <span class="block font-bold text-nq-red italic"
+                  >{{ site.data.copy.cost_optimization }}</span
+                  >
+                            <span class="text-[10px] uppercase text-gray-400"
+                            >{{ site.data.copy.streamlined_workflows }}</span
+                            >
+                        </div>
+                        <div class="p-4 bg-gray-50 border-t-2 border-nq-red">
+                  <span class="block font-bold text-nq-red italic"
+                  >{{ site.data.copy.risk_mitigation }}</span
+                  >
+                            <span class="text-[10px] uppercase text-gray-400"
+                            >{{ site.data.copy.audit_compliance }}</span
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 p-12 rounded-sm border border-gray-200">
+                <h4 class="text-2xl font-bold mb-8">{{ site.data.copy.system_capabilities }}</h4>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-8">
+                    <div>
+                        <h6 class="font-bold mb-2">{{ site.data.copy.content_hierarchy_management }}</h6>
+                        <p class="text-sm text-gray-500">
+                            {{ site.data.copy.advanced_nesting_and_categorization_modeled_afte }}
+                        </p>
+                    </div>
+                    <div>
+                        <h6 class="font-bold mb-2">{{ site.data.copy.automated_distribution }}</h6>
+                        <p class="text-sm text-gray-500">
+                            {{ site.data.copy.push_once_publish_anywhere_logic_ensuring }}
+                        </p>
+                    </div>
+                    <div>
+                        <h6 class="font-bold mb-2">{{ site.data.copy.immutable_traceability }}</h6>
+                        <p class="text-sm text-gray-500">
+                            {{ site.data.copy.full_version_history_and_authorship_tracking }}
+                        </p>
+                    </div>
+                    <div>
+                        <h6 class="font-bold mb-2">{{ site.data.copy.massive_scale_api }}</h6>
+                        <p class="text-sm text-gray-500">
+                            {{ site.data.copy.built_to_serve_millions_of_requests }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center">
+                <h4 class="text-2xl font-bold mb-4">
+                    {{ site.data.copy.deploy_iqpublish_for_your_institution }}
+                </h4>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    {{ site.data.copy.ensure_your_content_supply_chain_is }}
+                </p>
+                <button
+                        onclick="showView('contact')"
+                        class="bg-nq-red text-white px-8 py-3 font-bold uppercase text-xs rounded-sm hover:opacity-90 transition-all"
+                >
+                    {{ site.data.copy.request_system_spec }}
+                </button>
+            </div>
+        </div>
+    </section>
+</main>

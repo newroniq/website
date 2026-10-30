@@ -1,0 +1,114 @@
+<main id="view-stylepulse" class="view-section">
+    <section class="pt-40 pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <button
+                    onclick="showView('home')"
+                    class="text-gray-400 hover:text-nq-red flex items-center gap-2 mb-12 uppercase text-xs font-bold tracking-widest"
+            >
+                <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                >
+                    <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                    />
+                </svg>
+                {{ site.data.copy.back_to_overview }}
+            </button>
+
+            <div
+                    class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24"
+            >
+                <div>
+                    <h2
+                            class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4"
+                    >
+                        {{ site.data.copy.product_deep_dive }}
+                    </h2>
+                    <h3 class="text-5xl font-extrabold mb-6">{{ site.data.copy.stylepulse }}</h3>
+                    <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                        {{ site.data.copy.the_definitive_trend_insight_engine_for }}
+                    </p>
+                    <div
+                            class="flex items-center gap-6 p-6 bg-gray-50 border-l-4 border-nq-red"
+                    >
+                        <div>
+                  <span class="block text-2xl font-bold text-nq-red"
+                  >{{ site.data.copy.revenue_boost }}</span
+                  >
+                            <span class="text-xs uppercase font-bold text-gray-400"
+                            >{{ site.data.copy.primary_outcome }}</span
+                            >
+                        </div>
+                        <p class="text-sm text-gray-500">
+                            {{ site.data.copy.reduces_markdown_frequency_by_aligning_productio }}
+                        </p>
+                    </div>
+                </div>
+                <div
+                        class="bg-gray-100 aspect-video rounded-sm flex items-center justify-center border border-gray-200 relative overflow-hidden"
+                >
+                    <div
+                            class="absolute inset-0 opacity-10"
+                            style="
+                  background-image: radial-gradient(
+                    #a12027 1px,
+                    transparent 1px
+                  );
+                  background-size: 20px 20px;
+                "
+                    ></div>
+                    <span
+                            class="text-gray-400 font-bold uppercase tracking-tighter text-4xl"
+                    >{{ site.data.copy.visual_dashboard }}</span
+                    >
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 border border-gray-100 rounded-sm">
+                    <h5 class="font-bold text-lg mb-4 text-nq-red">
+                        {{ site.data.copy.predictive_inventory }}
+                    </h5>
+                    <p class="text-sm text-gray-500">
+                        {{ site.data.copy.ai_driven_forecasting_that_suggests_optimal }}
+                    </p>
+                </div>
+                <div class="p-8 border border-gray-100 rounded-sm">
+                    <h5 class="font-bold text-lg mb-4 text-nq-red">
+                        {{ site.data.copy.sentiment_mapping }}
+                    </h5>
+                    <p class="text-sm text-gray-500">
+                        {{ site.data.copy.real_time_processing_of_social_signals }}
+                    </p>
+                </div>
+                <div class="p-8 border border-gray-100 rounded-sm">
+                    <h5 class="font-bold text-lg mb-4 text-nq-red">{{ site.data.copy.trend_velocity }}</h5>
+                    <p class="text-sm text-gray-500">
+                        {{ site.data.copy.mathematical_modeling_of_how_fast_a }}
+                    </p>
+                </div>
+            </div>
+
+            <div
+                    class="mt-20 p-12 bg-gray-50 border-t border-gray-200 text-center"
+            >
+                <h4 class="text-2xl font-bold mb-4">{{ site.data.copy.request_a_stylepulse_demo }}</h4>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">
+                    {{ site.data.copy.see_how_predictive_trend_insights_can }}
+                </p>
+                <button
+                        onclick="showView('contact')"
+                        class="bg-nq-red text-white px-8 py-3 font-bold uppercase text-xs rounded-sm hover:opacity-90 transition-all"
+                >
+                    {{ site.data.copy.schedule_consultation }}
+                </button>
+            </div>
+        </div>
+    </section>
+</main>

@@ -1,0 +1,410 @@
+<main id="view-home" class="view-section active">
+    <!-- Hero Section -->
+    <section class="pt-40 pb-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-5xl">
+                <p class="text-sm md:text-base font-bold uppercase tracking-[0.22em] text-nq-red mb-4">
+                    {{ site.data.copy.think_bold_build_reality }}
+                </p>
+                <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
+                    {{ site.data.copy.turning_complex_challenges_into }}
+                    <span class="text-nq-red">{{ site.data.copy.powerful_technology }}</span>
+                </h1>
+
+                <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                    {{ site.data.copy.we_help_businesses_turn_ambitious_ideas }}
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                            onclick="document.getElementById('products').scrollIntoView()"
+                            class="bg-nq-red text-white px-8 py-4 font-bold uppercase text-sm rounded-sm hover:opacity-90 transition-all"
+                    >
+                        {{ site.data.copy.discuss_your_challenge }}
+                    </button>
+                    <button
+                            onclick="showView('whitepapers')"
+                            class="bg-white border border-gray-200 px-8 py-4 font-bold uppercase text-sm rounded-sm hover:border-nq-red transition-all"
+                    >
+                        {{ site.data.copy.explore_our_capabilities }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Outcome Focus Areas -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+                <div>
+                    <h2 class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4">
+                        {{ site.data.copy.what_drives_us }}
+                    </h2>
+                    <h3 class="text-4xl font-extrabold">{{ site.data.copy.innovation_with_purpose }}<br/>
+                        <span class="text-nq-red">{{ site.data.copy.engineering_with_precision }}</span></h3>
+                </div>
+            </div>
+
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                {{ site.data.copy.we_believe_technology_should_create_measurable }}
+            </p>
+            <p class="text-xl text-gray-600 mb-10 leading-relaxed">
+                {{ site.data.copy.our_work_is_guided_by_four }}
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="border-l-4 border-nq-red pl-6">
+                    <h4 class="text-nq-red font-bold uppercase text-xs mb-2">
+                        {{ site.data.copy.focus_01 }}
+                    </h4>
+                    <h3 class="text-xl font-bold mb-3">{{ site.data.copy.bold_thinking }}</h3>
+                    <p class="text-gray-500 text-sm">
+                        {{ site.data.copy.challenge_conventional_approaches_and_explore_be }}
+                    </p>
+                </div>
+                <div class="border-l-4 border-nq-red pl-6">
+                    <h4 class="text-nq-red font-bold uppercase text-xs mb-2">
+                        {{ site.data.copy.focus_02 }}
+                    </h4>
+                    <h3 class="text-xl font-bold mb-3">{{ site.data.copy.engineering_excellence }}</h3>
+                    <p class="text-gray-500 text-sm">
+                        {{ site.data.copy.design_for_scalability_resilience_security_and }}
+                    </p>
+                </div>
+                <div class="border-l-4 border-nq-red pl-6">
+                    <h4 class="text-nq-red font-bold uppercase text-xs mb-2">
+                        {{ site.data.copy.focus_03 }}
+                    </h4>
+                    <h3 class="text-xl font-bold mb-3">{{ site.data.copy.business_impact }} </h3>
+                    <p class="text-gray-500 text-sm">
+                        {{ site.data.copy.align_technology_investments_with_growth_efficie }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section (Priority) -->
+    <section id="products" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div
+                    class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4"
+            >
+                <div>
+                    <h2 class="text-nq-red font-bold uppercase tracking-widest text-sm mb-4">
+                        {{ site.data.copy.what_we_do }}
+                    </h2>
+                    <h3 class="text-4xl font-extrabold">{{ site.data.copy.from_strategy_to_execution }}</h3>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <!-- StylePulse -->
+                <div class="card-shadow bg-white p-10 rounded-sm">
+                    <div class="mb-6 flex justify-between items-start">
+                        <h4 class="text-2xl font-bold">{{ site.data.copy.enterprise_architecture_advisory }}</h4>
+                        <span
+                                class="bg-gray-100 text-[10px] font-bold px-3 py-1 uppercase tracking-tighter"
+                        >{{ site.data.copy.architecture }}</span
+                        >
+                    </div>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        {{ site.data.copy.align_business_strategy_with_technology_executio }}
+                    </p>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.technology_strategy_transformation_roadmaps }}
+                        </li>
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.enterprise_modernisation_architecture_governance }}
+                        </li>
+                    </ul>
+                    <button
+                            onclick="showView('stylepulse')"
+                            class="text-nq-red font-bold text-xs uppercase border-b-2 border-nq-red pb-1"
+                    >
+                        {{ site.data.copy.explore }}
+                    </button>
+                </div>
+
+                <!-- IQPublish -->
+                <div class="card-shadow bg-white p-10 rounded-sm">
+                    <div class="mb-6 flex justify-between items-start">
+                        <h4 class="text-2xl font-bold">{{ site.data.copy.cloud_software_engineering }}</h4>
+                        <span
+                                class="bg-gray-100 text-[10px] font-bold px-3 py-1 uppercase tracking-tighter"
+                        >{{ site.data.copy.engineering }}</span
+                        >
+                    </div>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        {{ site.data.copy.build_robust_applications_apis_and_distributed }}
+                    </p>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.scalable_cloud_native_distributed_systems }}
+                        </li>
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.enterprise_integration_engineering_excellence }}
+                        </li>
+                    </ul>
+                    <button
+                            onclick="showView('iqpublish')"
+                            class="text-nq-red font-bold text-xs uppercase border-b-2 border-nq-red pb-1"
+                    >
+                        {{ site.data.copy.explore_2 }}
+                    </button>
+                </div>
+
+                <!-- IQPublish -->
+                <div class="card-shadow bg-white p-10 rounded-sm">
+                    <div class="mb-6 flex justify-between items-start">
+                        <h4 class="text-2xl font-bold">{{ site.data.copy.ai_data_intelligent_automation }}</h4>
+                        <span
+                                class="bg-gray-100 text-[10px] font-bold px-3 py-1 uppercase tracking-tighter"
+                        >{{ site.data.copy.ai_engineering }}</span
+                        >
+                    </div>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        {{ site.data.copy.connect_enterprise_data_ai_and_business }}
+                    </p>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.enterprise_data_intelligence_ai_driven_insights }}
+                        </li>
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.intelligent_automation_agentic_ai_orchestration }}
+                        </li>
+                    </ul>
+                    <button
+                            onclick="showView('iqpublish')"
+                            class="text-nq-red font-bold text-xs uppercase border-b-2 border-nq-red pb-1"
+                    >
+                        {{ site.data.copy.explore_3 }}
+                    </button>
+                </div>
+
+                <!-- IQPublish -->
+                <div class="card-shadow bg-white p-10 rounded-sm">
+                    <div class="mb-6 flex justify-between items-start">
+                        <h4 class="text-2xl font-bold">{{ site.data.copy.digital_experience_engineering }}</h4>
+                        <span
+                                class="bg-gray-100 text-[10px] font-bold px-3 py-1 uppercase tracking-tighter"
+                        >{{ site.data.copy.experience }}</span
+                        >
+                    </div>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        {{ site.data.copy.design_integrate_and_optimise_digital_experience }}
+                    </p>
+                    <ul class="space-y-3 mb-8 text-sm text-gray-500">
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.composable_digital_experience_platforms }}
+                        </li>
+                        <li class="flex items-center">
+                            <svg
+                                    class="w-4 h-4 mr-2 text-nq-red"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                            >
+                                <path
+                                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                />
+                            </svg>
+                            {{ site.data.copy.personalised_omnichannel_customer_engagement }}
+                        </li>
+                    </ul>
+                    <button
+                            onclick="showView('iqpublish')"
+                            class="text-nq-red font-bold text-xs uppercase border-b-2 border-nq-red pb-1"
+                    >
+                        {{ site.data.copy.explore_4 }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+<!--    <section id="services" class="py-24 bg-gray-50">-->
+<!--        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">-->
+<!--            <h2-->
+<!--                    class="text-nq-red font-bold uppercase tracking-widest text-sm mb-12"-->
+<!--            >-->
+<!--                Services & Consulting-->
+<!--            </h2>-->
+
+<!--            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">-->
+<!--                &lt;!&ndash; AEC Consulting &ndash;&gt;-->
+<!--                <div>-->
+<!--                    <h3 class="text-3xl font-extrabold mb-8">-->
+<!--                        Adobe Experience Cloud-->
+<!--                    </h3>-->
+<!--                    <div class="grid grid-cols-1 gap-6">-->
+<!--                        <div class="flex gap-4">-->
+<!--                            <div class="mt-1">-->
+<!--                                <div class="w-2 h-2 rounded-full bg-nq-red"></div>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <h5 class="font-bold mb-1">-->
+<!--                                    Composable Architecture Migration-->
+<!--                                </h5>-->
+<!--                                <p class="text-sm text-gray-500">-->
+<!--                                    Strategic transition into AEC or moving towards modular-->
+<!--                                    decoupled stacks.-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="flex gap-4">-->
+<!--                            <div class="mt-1">-->
+<!--                                <div class="w-2 h-2 rounded-full bg-nq-red"></div>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <h5 class="font-bold mb-1">Omni-channel Supply Chain</h5>-->
+<!--                                <p class="text-sm text-gray-500">-->
+<!--                                    End-to-end content flow optimization, workflows, and brand-->
+<!--                                    positioning.-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="flex gap-4">-->
+<!--                            <div class="mt-1">-->
+<!--                                <div class="w-2 h-2 rounded-full bg-nq-red"></div>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <h5 class="font-bold mb-1">Data 360 & Analytics</h5>-->
+<!--                                <p class="text-sm text-gray-500">-->
+<!--                                    Consolidating downstream systems for web/campaign-->
+<!--                                    performance measurement.-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="flex gap-4">-->
+<!--                            <div class="mt-1">-->
+<!--                                <div class="w-2 h-2 rounded-full bg-nq-red"></div>-->
+<!--                            </div>-->
+<!--                            <div>-->
+<!--                                <h5 class="font-bold mb-1">Resilient Enterprise Design</h5>-->
+<!--                                <p class="text-sm text-gray-500">-->
+<!--                                    Traceability, compliance, and AI-enabled experience-->
+<!--                                    optimization.-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--                &lt;!&ndash; Custom Java Dev &ndash;&gt;-->
+<!--                <div class="bg-white p-12 border-t-8 border-nq-red card-shadow">-->
+<!--                    <h3 class="text-3xl font-extrabold mb-6">-->
+<!--                        Custom Java Development-->
+<!--                    </h3>-->
+<!--                    <p class="text-gray-600 mb-8">-->
+<!--                        High-performance backend engineering for enterprise systems. We-->
+<!--                        build mission-critical applications that demand zero downtime-->
+<!--                        and massive throughput.-->
+<!--                    </p>-->
+<!--                    <div class="space-y-4">-->
+<!--                        <div class="p-4 bg-gray-50 rounded-sm">-->
+<!--                  <span-->
+<!--                          class="block font-bold text-xs uppercase text-gray-400 mb-1"-->
+<!--                  >Expertise</span-->
+<!--                  >-->
+<!--                            <span class="text-sm"-->
+<!--                            >Spring Boot, Microservices, Cloud Native Java</span-->
+<!--                            >-->
+<!--                        </div>-->
+<!--                        <div class="p-4 bg-gray-50 rounded-sm">-->
+<!--                  <span-->
+<!--                          class="block font-bold text-xs uppercase text-gray-400 mb-1"-->
+<!--                  >Focus</span-->
+<!--                  >-->
+<!--                            <span class="text-sm"-->
+<!--                            >Scalability, Distributed Computing, Legacy-->
+<!--                    Modernization</span-->
+<!--                            >-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
+
+    <section class="py-24 bg-nq-red text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-4xl font-extrabold mb-6 uppercase tracking-tight">
+                {{ site.data.copy.let_s_build_something_that_matters }}
+            </h2>
+            <p class="text-xl mb-10 opacity-90">
+                {{ site.data.copy.have_a_complex_technology_challenge_a }}
+            </p>
+            <button
+                    onclick="showView('contact')"
+                    class="bg-white text-nq-red px-10 py-4 font-bold uppercase text-sm rounded-sm hover:bg-gray-100 transition-all shadow-xl"
+            >
+                {{ site.data.copy.start_a_conversation }}
+            </button>
+        </div>
+    </section>
+</main>
