@@ -1,0 +1,46 @@
+{
+  "name": "NEWRONIQ",
+  "url": "https://www.newroniq.com/",
+  "email": "hello@newroniq.com",
+  "gtmId": "GTM-KXTJW9R8",
+  "navigation": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Services",
+      "href": "/#services"
+    }
+  ],
+  "contactLabel": "Contact",
+  "menuLabel": "Menu",
+  "skipLabel": "Skip to content",
+  "backToPapers": "All White Papers",
+  "form": {
+    "name": "Full Name",
+    "email": "Business Email",
+    "type": "Inquiry Type",
+    "message": "Message",
+    "submit": "Open email draft",
+    "notice": "We’ll prepare an email draft for you to review and send.",
+    "handoff": "Your inquiry has not been sent. Review and send it in your email app, or use the email address on this page."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The requested page could not be found.",
+    "homeLabel": "Back to Overview"
+  },
+  "footer": {
+    "aboutHeading": "About us",
+    "about": "NEWRONIQ helps organisations modernise their technology and improve how they serve customers. We bring together enterprise architecture, cloud software engineering, AI and automation, and digital experience design.",
+    "links": [
+      {
+        "label": "White Papers",
+        "href": "/whitepapers/"
+      }
+    ],
+    "copyright": "\u00a9 2026 NEWRONIQ LTD. All rights reserved."
+  },
+  "favicon": "/favicon.svg"
+}

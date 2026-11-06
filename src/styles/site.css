@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --nq-red: #a12027; /* Deep Red signature color */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.text-nq-red {
+  color: var(--nq-red);
+}
+
+.bg-nq-red {
+  background-color: var(--nq-red);
+}
+
+.border-nq-red {
+  border-color: var(--nq-red);
+}
+
+.contact-nav-link:hover,
+.contact-nav-link:focus-visible {
+  background-color: var(--nq-red);
+  color: white;
+}
+
+.nav-link {
+  position: relative;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: var(--nq-red);
+}
+
+.card-shadow {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+}
+
+.card-shadow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(161, 32, 39, 0.1);
+  border-color: var(--nq-red);
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+/* Accessibility and navigation corrections; existing utility layouts remain intact. */
+html {
+  scroll-behavior: smooth;
+}
+section[id] {
+  scroll-margin-top: 6rem;
+}
+a,
+button {
+  cursor: pointer;
+}
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #a12027;
+  outline-offset: 4px;
+}
+.text-gray-400 {
+  color: #6b7280;
+}
+.text-gray-500 {
+  color: #626976;
+}
+.skip-link {
+  position: fixed;
+  left: 1rem;
+  top: -5rem;
+  z-index: 100;
+  padding: 1rem;
+  background: white;
+  color: #a12027;
+}
+.skip-link:focus {
+  top: 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

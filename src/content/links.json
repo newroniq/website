@@ -1,0 +1,15 @@
+{
+  "stylepulse": {
+    "home": "/",
+    "contact": "/contact/"
+  },
+  "iqpublish": {
+    "home": "/",
+    "contact": "/contact/"
+  },
+  "home": {
+    "services": "/#services",
+    "whitepapers": "/whitepapers/",
+    "contact": "/contact/"
+  }
+}

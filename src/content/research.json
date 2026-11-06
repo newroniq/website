@@ -1,0 +1,82 @@
+{
+  "eyebrow": "Research & Insights",
+  "title": "White Paper Hub",
+  "readLabel": "Read Full Paper",
+  "papers": [
+    {
+      "id": "paper-aec",
+      "category": "Enterprise Architecture & Advisory",
+      "title": "Modernise the Enterprise One Business Journey at a Time",
+      "description": "Build a modernisation roadmap around customer journeys, clear ownership and measurable releases.",
+      "intro": "A customer changes their address in a portal, then receives a bill at the old one. The portal did its job. The billing system did its job. The business journey still failed. Enterprise architecture earns its keep by making gaps like this visible and giving teams a sequence for closing them.",
+      "sections": [
+        {
+          "heading": "Map the journey before mapping the systems",
+          "body": "Pick one journey where friction is already visible. Follow a request from the first customer action to the final confirmation, including manual handoffs, exception queues and systems of record. For an address change, identify who owns the address, which systems need a copy and how a failed update reaches the team that can fix it. Capture a baseline for completion time, manual rework and failed updates so the roadmap has a business measure."
+        },
+        {
+          "heading": "Put a boundary around the first release",
+          "body": "Keep the system of record in place while introducing a stable interface for the selected journey. Start with one channel and a small group of users. Agree how to reconcile old and new records, who owns discrepancies and how traffic moves back if the release fails. The first release should make the journey easier to operate and teach the team which dependencies matter before it commits to a wider migration."
+        },
+        {
+          "heading": "Make governance part of delivery",
+          "body": "Record each significant decision in a short note that names the owner, the trade-off and the conditions for revisiting it. Give delivery teams reusable patterns for access controls, audit trails and integration contracts. Review exceptions while changes are still cheap. At the end of each release, check whether service teams can diagnose and resolve problems with the evidence the new design provides."
+        },
+        {
+          "heading": "Fund the next step with evidence",
+          "body": "Tie each investment to a milestone and a decision. If failed updates fall but manual rework rises, investigate the handoff before expanding the rollout. If the change proves useful, reuse the interface and rollout pattern in the next channel. NEWRONIQ’s Enterprise Architecture & Advisory offering connects strategy, roadmaps and architecture governance to this sequence of delivery decisions."
+        }
+      ]
+    },
+    {
+      "id": "paper-java",
+      "category": "Cloud & Software Engineering",
+      "title": "Design Cloud Services for the Day a Dependency Fails",
+      "description": "A practical guide to protecting critical transactions and proving recovery before a production incident.",
+      "intro": "An order service sends a payment request and times out. The payment provider may have accepted the charge, even though the service never received the response. A blind retry can charge the customer again. That moment reveals more about resilience than a diagram of the happy path.",
+      "sections": [
+        {
+          "heading": "Define what the customer must be able to do",
+          "body": "Start with the business operation and its failure modes. For checkout, decide how long a customer can wait, what a pending payment looks like and which operations can safely continue if a dependency is slow. Set measurable targets for successful completion and response time. Give each downstream call a time budget within the overall request deadline, and reserve retries for failures where another attempt is safe and useful."
+        },
+        {
+          "heading": "Design for ambiguous outcomes",
+          "body": "Assign a stable identifier to each payment attempt and use the provider’s deduplication mechanism where available. If a timeout leaves the outcome unknown, persist the pending state and reconcile against the provider before issuing another charge. Apply the same reasoning to asynchronous events: a consumer may see an event twice, so it needs a way to recognise work it has already completed. Make pending and failed states visible to support teams."
+        },
+        {
+          "heading": "Contain the failure and practise recovery",
+          "body": "Separate capacity for critical and optional work. A slow recommendations service can fall back to a simpler experience while checkout continues. Test what happens when a downstream call slows, a message arrives twice or a deployment is interrupted. During a controlled rollout, watch completion rates and the age of pending work alongside infrastructure metrics. Give the on-call team an explicit threshold for pausing or rolling back."
+        },
+        {
+          "heading": "Choose boundaries the team can operate",
+          "body": "A modular application may be the right place to start when one team owns the workflow. Extract a service when independent scaling, deployment or ownership justifies the extra operational work. NEWRONIQ’s Cloud & Software Engineering offering brings these choices together across application design, cloud platforms and enterprise integrations."
+        }
+      ]
+    },
+    {
+      "id": "paper-retail",
+      "category": "Digital Experience & AI Agents",
+      "title": "Give AI Agents a Job They Can Safely Finish",
+      "description": "Connect AI agents to trusted content and business workflows while keeping people in control of consequential decisions.",
+      "intro": "A customer asks whether a delivery address can be changed. A generic answer sends them back through the help centre. An agent integrated with the customer experience can check the order status, retrieve the relevant policy and explain the next step. The quality of that interaction depends on the content, permissions and workflow behind it.",
+      "sections": [
+        {
+          "heading": "Start with one job and a trusted source",
+          "body": "Choose a frequent request with a clear completion point, such as checking whether a dispatch address can still be changed. Maintain the policy in the content platform with an owner, effective date and regional scope. Give the agent access to the current approved version and the minimum order details required for the decision. If the policy is missing or the order status is unclear, hand off to support with the context already gathered."
+        },
+        {
+          "heading": "Separate advice from action",
+          "body": "Let the agent explain eligibility using read-only access. Handle the address change through a separate tool that checks identity, authorisation and the latest order status. Show the customer the proposed update and ask for confirmation before submitting it. If the order has moved to dispatch in the meantime, the tool should reject the change and return a clear next step. Record the decision and action so a support colleague can reconstruct what happened."
+        },
+        {
+          "heading": "Evaluate the journey as a service",
+          "body": "Build a test set that includes routine requests, regional policy differences, stale content, unavailable systems and attempts to access another customer’s order. Measure whether answers follow approved policy, whether eligible requests reach completion and whether uncertain cases reach the right team. Check repeat contacts alongside completion rates. A customer who has to ask again may expose a gap that a successful tool call would miss."
+        },
+        {
+          "heading": "Integrate where customers already work",
+          "body": "Connect approved content from Adobe Experience Cloud or another content platform to the portal and support workflows already in use. Start with one channel, review the outcomes with content and operations teams, then expand where the same rules apply. NEWRONIQ combines Digital Experience Engineering with AI, Data & Intelligent Automation to connect content, customer context and controlled business actions."
+        }
+      ]
+    }
+  ]
+}
