@@ -2,6 +2,16 @@
 
 Verified locally on 3 November 2026 using macOS ARM64, Node 25.2.1, npm 11.6.2 and Playwright Chromium 156. CI targets Ubuntu with Node 24 LTS. The source repository's deployment settings and DNS have not been changed, and no remote deployment has been performed.
 
+## E2E visual-reference correction — 6 November 2026
+
+A fresh build reproduced 14 failures in the old original-versus-migrated visual comparisons; 49 tests passed, including all functional, route and accessibility checks. The committed contact, research and footer content had evolved beyond the archived original HTML. These failures identified stale visual expectations rather than functional errors.
+
+Visual regression tests now use eight committed static HTML references and their frozen stylesheet under `tests/fixtures/visual/`. They render references and the production application in the same browser at all three viewports. All 24 updated visual checks passed. The complete page is compared, including the contact form and footer; no notice is hidden and no form region is masked. Page dimensions must match exactly and fewer than 0.2% of pixels may change at a 0.2 color threshold. `npm run test:visual:update` is the explicit local-only update command; ordinary tests and CI cannot rewrite references.
+
+The results below are the historical migration verification from 3 November, including its original migration comparisons and Lighthouse measurements. They should not be interpreted as new audits of subsequent content changes.
+
+After the correction, the complete E2E suite passed **63/63** checks. Lint, formatting, strict type checking, all **8** unit/component tests and production static smoke checks also passed. The production build succeeded before these runs. GitHub-hosted execution has not been rerun from this workspace.
+
 ## Commands and outcomes
 
 | Command/check                                                                                              | Outcome                                                                                                                    |

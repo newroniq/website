@@ -101,7 +101,11 @@ npm run test:e2e
 
 Browser coverage includes all pages, real file routes and refreshes, mobile navigation, capability/research links, anchors, required fields, email handoff, console exceptions, missing assets, horizontal overflow, JavaScript-disabled content and axe WCAG A/AA checks at 1440, 768 and 390px widths.
 
-Visual tests compile the original source's Tailwind CSS and compare it with the production application in the same Chromium session. Every view/article is compared at all three widths. Original/migrated PNGs are written to `test-results/`; reports include diff images and pixel ratios. Remote fonts and analytics are blocked for deterministic comparisons, so these check geometry using the same system fallback font. They allow less than 2% changed pixels at a 0.2 color threshold for intentional contrast/menu changes. The contact form is masked and its added delivery notice is hidden only in the comparison; normal behavior/accessibility tests cover the actual form. These checks supplement human review and do not establish pixel-perfect fidelity with remote Inter on every OS.
+Visual tests compare every public page at all three widths against committed HTML and CSS references in `tests/fixtures/visual/`. Both versions render in the same Chromium session so platform font rendering is consistent. Tests cover the entire page, including the contact form and footer, with no masked regions. They require identical page dimensions and less than 0.2% changed pixels at a 0.2 color threshold. Remote fonts and analytics are blocked for deterministic system-font rendering.
+
+The original HTML in `docs/baseline/` is a historical migration reference. It is no longer the visual regression target because the committed site now has updated contact, research and footer content. To update the current-design references after an intentional change, run `npm run test:visual:update`, then run the browser tests and review the changed reference files and screenshots before committing them. This explicit command rebuilds the root-base site and freezes its rendered HTML and CSS; normal test runs never regenerate references, and updates are blocked in CI.
+
+Reference/actual PNGs are written to `test-results/`; reports include diff images and pixel ratios. Use `npm run test:e2e -- --reporter=html` and `npx playwright show-report` to review them. These checks supplement human review and do not establish pixel-perfect Inter rendering on every OS.
 
 ## GitHub Pages deployment
 
