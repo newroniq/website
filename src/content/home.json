@@ -1,0 +1,73 @@
+{
+  "focus": [
+    {
+      "label": "Focus 01",
+      "title": "Bold Thinking",
+      "description": "Challenge conventional approaches and explore better possibilities."
+    },
+    {
+      "label": "Focus 02",
+      "title": "Engineering Excellence",
+      "description": "Design for scalability, resilience, security and long-term maintainability."
+    },
+    {
+      "label": "Focus 03",
+      "title": "Business Impact",
+      "description": "Align technology investments with growth, efficiency and operational value."
+    }
+  ],
+  "capabilities": [
+    {
+      "title": "Enterprise Architecture & Advisory",
+      "category": "Architecture",
+      "description": "Align business strategy with technology execution. Design scalable architectures, modernise enterprise platforms and establish practical architecture governance.",
+      "benefits": [
+        "Technology Strategy & Transformation Roadmaps",
+        "Enterprise Modernisation & Architecture Governance"
+      ],
+      "action": {
+        "label": "Discuss This Service",
+        "href": "/contact/"
+      }
+    },
+    {
+      "title": "Cloud & Software Engineering",
+      "category": "Engineering",
+      "description": "Build robust applications, APIs and distributed systems using modern engineering practices, cloud-native technologies and enterprise integration patterns.",
+      "benefits": [
+        "Scalable Cloud-Native & Distributed Systems",
+        "Enterprise Integration & Engineering Excellence"
+      ],
+      "action": {
+        "label": "Discuss This Service",
+        "href": "/contact/"
+      }
+    },
+    {
+      "title": "AI, Data & Intelligent Automation",
+      "category": "AI Engineering",
+      "description": "Connect enterprise data, AI and business processes to improve decision-making, automate operations and unlock new opportunities.",
+      "benefits": [
+        "Enterprise Data Intelligence & AI-Driven Insights",
+        "Intelligent Automation & Agentic AI Orchestration"
+      ],
+      "action": {
+        "label": "Discuss This Service",
+        "href": "/contact/"
+      }
+    },
+    {
+      "title": "Digital Experience Engineering",
+      "category": "Experience",
+      "description": "Design, integrate and optimise digital experience ecosystems, including Adobe Experience Cloud, composable content platforms and customer engagement solutions.",
+      "benefits": [
+        "Composable Digital Experience Platforms",
+        "Personalised Omnichannel Customer Engagement"
+      ],
+      "action": {
+        "label": "Discuss This Service",
+        "href": "/contact/"
+      }
+    }
+  ]
+}

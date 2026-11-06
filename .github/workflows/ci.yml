@@ -1,0 +1,45 @@
+name: Validate
+on:
+  pull_request:
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run format:check
+      - run: npm run typecheck
+      - run: npm run validate:content
+      - run: npm test
+      - run: npm run build
+      - run: npm run test:smoke
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v7
+        if: always()
+        with:
+          name: browser-test-results
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
+      - name: Verify project Pages build
+        run: npm run build && npm run test:smoke
+        env:
+          SITE_BASE_PATH: /website/
+          SITE_URL: https://newroniq.github.io/website/
+      - name: Verify project Pages browser routes
+        run: npm run test:e2e -- project-path
+        env:
+          SITE_BASE_PATH: /website/
+          SITE_URL: https://newroniq.github.io/website/

@@ -1,0 +1,34 @@
+{
+  "home": {
+    "title": "NEWRONIQ | Outcome Driven Intelligence",
+    "description": "We help businesses turn ambitious ideas into secure, scalable solutions through enterprise architecture, software engineering, intelligent automation and digital product innovation."
+  },
+  "contact": {
+    "title": "Contact | NEWRONIQ",
+    "description": "Discuss your business goals, enterprise consulting, custom Java engineering or NEWRONIQ products."
+  },
+  "stylepulse": {
+    "title": "StylePulse™ | NEWRONIQ",
+    "description": "The Trend Insight Engine for the fashion industry. Explore predictive inventory, sentiment mapping and trend velocity."
+  },
+  "iqpublish": {
+    "title": "IQPublish | NEWRONIQ",
+    "description": "Explore structured enterprise publishing, content hierarchy management, automated distribution and traceability."
+  },
+  "whitepapers": {
+    "title": "White Paper Hub | NEWRONIQ",
+    "description": "Practical guidance on enterprise architecture, resilient cloud software, digital experiences and AI agents."
+  },
+  "paper_aec": {
+    "title": "Modernise the Enterprise One Business Journey at a Time | NEWRONIQ",
+    "description": "Build a modernisation roadmap around customer journeys, clear ownership and measurable releases."
+  },
+  "paper_java": {
+    "title": "Design Cloud Services for the Day a Dependency Fails | NEWRONIQ",
+    "description": "A practical guide to protecting critical transactions and proving recovery before a production incident."
+  },
+  "paper_retail": {
+    "title": "Give AI Agents a Job They Can Safely Finish | NEWRONIQ",
+    "description": "Connect AI agents to trusted content and business workflows while keeping people in control of consequential decisions."
+  }
+}
