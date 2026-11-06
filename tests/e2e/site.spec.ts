@@ -78,7 +78,9 @@ test('all navigation, anchors, capabilities and articles remain reachable', asyn
   await page.getByRole('link', { name: 'Explore Our Capabilities' }).click();
   await expect(page).toHaveURL(/#services$/);
   await page.getByRole('link', { name: 'White Papers', exact: true }).click();
-  await page.getByRole('link', { name: /Enterprise Architecture & Advisory/ }).click();
+  await page
+    .getByRole('link', { name: /Enterprise Architecture & Advisory/ })
+    .click();
   await expect(page.locator('h1')).toHaveText(
     'Modernise the Enterprise One Business Journey at a Time',
   );

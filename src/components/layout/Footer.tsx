@@ -9,7 +9,9 @@ export function Footer() {
             <span className="text-2xl font-black tracking-tighter text-nq-red">
               {site.name}
             </span>
-            <h2 className="mt-3 text-sm font-bold">{site.footer.aboutHeading}</h2>
+            <h2 className="mt-3 text-sm font-bold">
+              {site.footer.aboutHeading}
+            </h2>
             <p className="mt-2 text-sm leading-relaxed text-gray-600">
               {site.footer.about}
             </p>
