@@ -5,6 +5,7 @@ import { deploymentBase, normalizeBase } from '../src/lib/urls';
 const base = normalizeBase(deploymentBase);
 const root = resolve('dist');
 const types: Record<string, string> = {
+  '.woff2': 'font/woff2',
   '.svg': 'image/svg+xml',
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript',

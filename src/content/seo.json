@@ -1,23 +1,23 @@
 {
   "home": {
-    "title": "NEWRONIQ | Outcome Driven Intelligence",
-    "description": "We help businesses turn ambitious ideas into secure, scalable solutions through enterprise architecture, software engineering, intelligent automation and digital product innovation."
+    "title": "NEWRONIQ | Engineering technology for business value",
+    "description": "Enterprise technology consulting across architecture, cloud software, practical AI and digital experiences. Modernise platforms, improve efficiency and strengthen resilience."
   },
   "contact": {
-    "title": "Contact | NEWRONIQ",
-    "description": "Discuss your business goals, enterprise consulting, custom Java engineering or NEWRONIQ products."
+    "title": "Discuss your challenge | NEWRONIQ LTD",
+    "description": "Contact NEWRONIQ about enterprise technology consulting, engineering challenges or interest in StylePulse and IQPublish."
   },
   "stylepulse": {
-    "title": "StylePulse™ | NEWRONIQ",
-    "description": "The Trend Insight Engine for the fashion industry. Explore predictive inventory, sentiment mapping and trend velocity."
+    "title": "StylePulse | Fashion trend intelligence initiative | NEWRONIQ",
+    "description": "Explore the StylePulse product concept and express interest in fashion trend intelligence for planning and demand-related decisions."
   },
   "iqpublish": {
-    "title": "IQPublish | NEWRONIQ",
-    "description": "Explore structured enterprise publishing, content hierarchy management, automated distribution and traceability."
+    "title": "IQPublish | Enterprise content initiative | NEWRONIQ",
+    "description": "Explore the IQPublish product concept and share your requirements for simpler enterprise content operations and distribution."
   },
   "whitepapers": {
-    "title": "White Paper Hub | NEWRONIQ",
-    "description": "Practical guidance on enterprise architecture, resilient cloud software, digital experiences and AI agents."
+    "title": "Insights & Research | NEWRONIQ",
+    "description": "Practical perspectives on enterprise modernisation, reliable cloud services and controlled AI workflows. Explore architecture and engineering trade-offs."
   },
   "paper_aec": {
     "title": "Modernise the Enterprise One Business Journey at a Time | NEWRONIQ",
@@ -30,5 +30,9 @@
   "paper_retail": {
     "title": "Give AI Agents a Job They Can Safely Finish | NEWRONIQ",
     "description": "Connect AI agents to trusted content and business workflows while keeping people in control of consequential decisions."
+  },
+  "privacy": {
+    "title": "Privacy Policy | NEWRONIQ LTD",
+    "description": "How NEWRONIQ handles website visits, business enquiries and product-interest emails, including contact details and your data protection rights."
   }
 }

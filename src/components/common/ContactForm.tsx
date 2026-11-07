@@ -1,31 +1,64 @@
-import { useState, type FormEvent } from 'react';
-import { home } from '../../lib/content/home';
+import { useSyncExternalStore, useState, type FormEvent } from 'react';
 import { site } from '../../lib/content';
+import {
+  inquiries,
+  getInquiry,
+  type InquiryId,
+} from '../../lib/content/inquiries';
+import { createInquiryEmail } from '../../lib/contact';
+import { url } from '../../lib/urls';
+function subscribeToNavigation(callback: () => void) {
+  window.addEventListener('popstate', callback);
+  return () => window.removeEventListener('popstate', callback);
+}
 export function ContactForm() {
-  const [requested, setRequested] = useState(false);
+  const search = useSyncExternalStore(
+    subscribeToNavigation,
+    () => window.location.search,
+    () => '',
+  );
+  const [choice, setChoice] = useState<InquiryId | null>(null);
+  const selected =
+    choice ?? getInquiry(new URLSearchParams(search).get('inquiry')).id;
+  const [draft, setDraft] = useState('');
+  const inquiry = getInquiry(selected);
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const body = `${site.form.name}: ${String(data.get('name'))}\n${site.form.email}: ${String(data.get('email'))}\n\n${String(data.get('message'))}`;
-    window.location.href = `mailto:${site.email}?subject=${encodeURIComponent(String(data.get('type')))}&body=${encodeURIComponent(body)}`;
-    setRequested(true);
+    const mailto = createInquiryEmail({
+      id: selected,
+      name: String(data.get('name') ?? '').trim(),
+      email: String(data.get('email') ?? '').trim(),
+      organisation: String(data.get('organisation') ?? '').trim(),
+      message: String(data.get('message') ?? '').trim(),
+    });
+    setDraft(mailto);
+    window.location.href = mailto;
   }
-  const fieldClass =
-    'w-full p-3 border border-gray-200 rounded-sm focus:outline-none focus:border-nq-red transition-colors';
-  const labelClass = 'block text-[10px] font-bold uppercase text-gray-500 mb-1';
+  const fieldClass = 'form-field';
   return (
     <form
-      className="space-y-4"
+      className="space-y-5"
       action={`mailto:${site.email}`}
       method="post"
       encType="text/plain"
       onSubmit={submit}
+      onChange={() => setDraft('')}
     >
-      <p className="text-sm text-gray-600" id="form-notice">
+      <p className="text-sm text-gray-600 leading-relaxed" id="form-notice">
         {site.form.notice}
       </p>
+      {inquiry.kind === 'product' && (
+        <p
+          id="inquiry-context"
+          role="note"
+          className="border-l-4 border-nq-red bg-white p-4 text-sm leading-relaxed"
+        >
+          {site.form.productContext.replace('{product}', inquiry.productName!)}
+        </p>
+      )}
       <div>
-        <label className={labelClass} htmlFor="name">
+        <label className="form-label" htmlFor="name">
           {site.form.name}
         </label>
         <input
@@ -33,12 +66,14 @@ export function ContactForm() {
           id="name"
           name="name"
           autoComplete="name"
+          pattern={'.*\\S.*'}
+          title={site.form.nameHint}
           required
           maxLength={200}
         />
       </div>
       <div>
-        <label className={labelClass} htmlFor="email">
+        <label className="form-label" htmlFor="email">
           {site.form.email}
         </label>
         <input
@@ -52,17 +87,43 @@ export function ContactForm() {
         />
       </div>
       <div>
-        <label className={labelClass} htmlFor="type">
+        <label className="form-label" htmlFor="organisation">
+          {site.form.organisation}
+        </label>
+        <input
+          className={fieldClass}
+          id="organisation"
+          name="organisation"
+          autoComplete="organization"
+          maxLength={200}
+        />
+      </div>
+      <div>
+        <label className="form-label" htmlFor="type">
           {site.form.type}
         </label>
-        <select className={fieldClass} id="type" name="type">
-          {home.capabilities.map(({ title }) => (
-            <option key={title}>{title}</option>
+        <select
+          className={fieldClass}
+          id="type"
+          name="type"
+          value={selected}
+          onChange={(event) => {
+            setChoice(getInquiry(event.target.value).id);
+            setDraft('');
+          }}
+          aria-describedby={
+            inquiry.kind === 'product' ? 'inquiry-context' : undefined
+          }
+        >
+          {inquiries.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.label}
+            </option>
           ))}
         </select>
       </div>
       <div>
-        <label className={labelClass} htmlFor="message">
+        <label className="form-label" htmlFor="message">
           {site.form.message}
         </label>
         <textarea
@@ -70,20 +131,31 @@ export function ContactForm() {
           id="message"
           name="message"
           rows={4}
-          maxLength={5000}
+          maxLength={2000}
         />
       </div>
+      <p className="text-sm text-gray-600 leading-relaxed">
+        {site.form.sensitiveNotice}{' '}
+        <a className="text-link" href={url(site.form.privacyHref)}>
+          {site.form.privacyLabel}
+        </a>
+      </p>
       <button
         type="submit"
         aria-describedby="form-notice"
-        className="w-full bg-nq-red text-white py-4 font-bold uppercase text-xs tracking-widest hover:opacity-90 transition-all"
+        className="button-primary w-full"
       >
         {site.form.submit}
       </button>
-      {requested && (
-        <p role="status" className="text-sm text-gray-600">
-          {site.form.handoff}
-        </p>
+      {draft && (
+        <div className="space-y-3">
+          <p role="status" className="text-sm text-gray-600 leading-relaxed">
+            {site.form.handoff}
+          </p>
+          <a className="text-link" href={draft}>
+            {site.form.draftLink}
+          </a>
+        </div>
       )}
     </form>
   );

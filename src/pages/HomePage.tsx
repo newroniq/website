@@ -1,109 +1,171 @@
-import { links } from '../lib/content/links';
 import { home } from '../lib/content/home';
-import { FocusAreas, Capabilities } from '../components/sections/Capabilities';
-import { copy } from '../lib/content';
+import { site } from '../lib/content';
+import { products } from '../lib/content/products';
 import { url } from '../lib/urls';
+import { Capabilities } from '../components/sections/Capabilities';
+import { InsightCards } from '../components/sections/InsightCards';
+import { SectionHeading } from '../components/sections/SectionHeading';
 export function HomePage() {
   return (
-    <main id="main-content" className="">
-      <section className="pt-40 pb-24 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <main id="main-content">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-24 bg-gray-50 border-b border-gray-100">
+        <div className="section-shell">
           <div className="max-w-5xl">
-            <p className="text-sm md:text-base font-bold uppercase tracking-[0.22em] text-nq-red mb-4">
-              {copy.home.think_bold_build_reality}
-            </p>
-            <h1 className="text-5xl md:text-6xl font-extrabold leading-tight mb-6">
-              {copy.home.turning_complex_challenges_into}{' '}
-              <span className="text-nq-red">
-                {copy.home.powerful_technology}
-              </span>
+            <p className="eyebrow mb-5">{site.tagline}</p>
+            <h1 className="hero-title">
+              {home.hero.title}{' '}
+              <span className="text-nq-red">{home.hero.highlight}</span>
             </h1>
-            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-              {
-                copy.home
-                  .we_help_businesses_turn_ambitious_ideas_into_secure_scalable_solu
-              }
+            <p className="text-lg md:text-xl text-gray-600 mt-7 max-w-3xl leading-relaxed">
+              {home.hero.description}
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 mt-8">
               <a
-                href={url(links.home.contact)}
-                className="inline-block bg-nq-red text-white px-8 py-4 font-bold uppercase text-sm rounded-sm hover:opacity-90 transition-all"
+                className="button-primary"
+                href={url(home.hero.primaryAction.href)}
               >
-                {copy.home.discuss_your_challenge}
+                {home.hero.primaryAction.label}
               </a>
               <a
-                href={url(links.home.services)}
-                className="inline-block bg-white border border-gray-200 px-8 py-4 font-bold uppercase text-sm rounded-sm hover:border-nq-red transition-all"
+                className="button-secondary"
+                href={url(home.hero.secondaryAction.href)}
               >
-                {copy.home.explore_our_capabilities}
+                {home.hero.secondaryAction.label}
               </a>
             </div>
           </div>
         </div>
       </section>
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-            <div>
-              <p className="text-nq-red font-bold uppercase tracking-widest text-sm mb-4">
-                {copy.home.what_drives_us}
-              </p>
-              <h2 className="text-4xl font-extrabold">
-                {copy.home.innovation_with_purpose}
-                <br />
-                <span className="text-nq-red">
-                  {copy.home.engineering_with_precision}
-                </span>
-              </h2>
-            </div>
+      <section id="outcomes" className="section-space">
+        <div className="section-shell">
+          <SectionHeading {...home.outcomes} />
+          <div className="grid md:grid-cols-3 gap-8">
+            {home.outcomes.items.map((item) => (
+              <div key={item.title} className="border-l-4 border-nq-red pl-5">
+                <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                <ul className="space-y-3 text-gray-600 leading-relaxed">
+                  {item.points.map((point) => (
+                    <li key={point}>{point}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            {
-              copy.home
-                .we_believe_technology_should_create_measurable_business_value_not
-            }
-          </p>
-          <p className="text-xl text-gray-600 mb-10 leading-relaxed">
-            {copy.home.our_work_is_guided_by_these_principles}
-          </p>
-          <FocusAreas items={home.focus} />
         </div>
       </section>
       <section
         id="services"
-        className="scroll-mt-24 py-24 bg-white border-t border-gray-100"
+        className="section-space bg-gray-50 border-y border-gray-100"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
-            <div>
-              <p className="text-nq-red font-bold uppercase tracking-widest text-sm mb-4">
-                {copy.home.what_we_do}
-              </p>
-              <h2 className="text-4xl font-extrabold">
-                {copy.home.from_strategy_to_execution}
-              </h2>
-            </div>
-          </div>
+        <div className="section-shell">
+          <SectionHeading {...home.services} />
           <Capabilities items={home.capabilities} />
         </div>
       </section>
-      <section className="py-24 bg-nq-red text-white text-center">
-        <div className="max-w-4xl mx-auto px-4">
-          <h2 className="text-4xl font-extrabold mb-6 uppercase tracking-tight">
-            {copy.home.let_s_build_something_that_matters}
-          </h2>
-          <p className="text-xl mb-10 opacity-90">
-            {
-              copy.home
-                .have_a_complex_technology_challenge_a_product_idea_or_a_platform_
-            }
-          </p>
-          <a
-            href={url(links.home.contact)}
-            className="inline-block bg-white text-nq-red px-10 py-4 font-bold uppercase text-sm rounded-sm hover:bg-gray-100 transition-all shadow-xl"
-          >
-            {copy.home.start_a_conversation}
-          </a>
+      <section id="about" className="section-space">
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow={home.about.eyebrow}
+            title={home.about.title}
+          />
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20">
+            <div className="space-y-5 text-lg text-gray-600 leading-relaxed">
+              <p>{home.about.description}</p>
+              <p>{home.about.philosophy}</p>
+            </div>
+            <div className="space-y-7">
+              {home.about.principles.map((item) => (
+                <div key={item.title}>
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="approach"
+        className="section-space bg-gray-50 border-y border-gray-100"
+      >
+        <div className="section-shell">
+          <SectionHeading
+            eyebrow={home.approach.eyebrow}
+            title={home.approach.title}
+          />
+          <ol className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {home.approach.steps.map((step, index) => (
+              <li key={step.title} className="border-t-2 border-nq-red pt-5">
+                <span className="eyebrow text-xs" aria-hidden="true">
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <h3 className="text-xl font-bold mt-2 mb-3">{step.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{step.activity}</p>
+                <p className="mt-4 text-sm leading-relaxed">
+                  <strong>{home.approach.outputLabel}: </strong>
+                  {step.output}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+      <section id="insights" className="section-space">
+        <div className="section-shell">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-5">
+            <SectionHeading {...home.insights} />
+            <a
+              className="text-link lg:mt-10 shrink-0 mb-7"
+              href={url('/whitepapers/')}
+            >
+              {home.insights.allLabel}
+              <span aria-hidden="true"> →</span>
+            </a>
+          </div>
+          <InsightCards headingLevel={3} />
+        </div>
+      </section>
+      <section
+        id="products"
+        className="py-12 md:py-16 bg-gray-50 border-y border-gray-100"
+      >
+        <div className="section-shell">
+          <SectionHeading {...home.products} />
+          <div className="grid md:grid-cols-2 gap-6">
+            {products.products.map((product) => (
+              <article
+                key={product.id}
+                className="border-l-2 border-gray-300 pl-5"
+              >
+                <h3 className="text-xl font-bold mb-2">{product.name}</h3>
+                <p className="text-gray-600 leading-relaxed mb-3">
+                  {product.summary}
+                </p>
+                <a className="text-link" href={url(`/${product.id}/`)}>
+                  {home.products.actionLabel}: {product.name}
+                  <span aria-hidden="true"> →</span>
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section className="section-space bg-nq-red text-white">
+        <div className="section-shell">
+          <div className="max-w-3xl">
+            <h2 className="section-title">{home.finalAction.title}</h2>
+            <p className="mt-5 mb-8 text-lg leading-relaxed text-white">
+              {home.finalAction.description}
+            </p>
+            <a
+              className="button-light"
+              href={url(home.finalAction.action.href)}
+            >
+              {home.finalAction.action.label}
+            </a>
+          </div>
         </div>
       </section>
     </main>

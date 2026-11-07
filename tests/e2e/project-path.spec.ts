@@ -3,6 +3,7 @@ const base = process.env.SITE_BASE_PATH ?? '/';
 const paths = [
   '',
   'contact/',
+  'privacy/',
   'stylepulse/',
   'iqpublish/',
   'whitepapers/',
@@ -21,7 +22,9 @@ test('configured deployment base supports every route, refresh, local link and a
   const broken: string[] = [];
   page.on('response', (response) => {
     if (
-      new URL(response.url()).pathname.startsWith(base + 'assets/') &&
+      ['assets/', 'fonts/'].some((directory) =>
+        new URL(response.url()).pathname.startsWith(base + directory),
+      ) &&
       !response.ok()
     )
       broken.push(response.url());
@@ -39,6 +42,15 @@ test('configured deployment base supports every route, refresh, local link and a
       await page.locator('link[rel="canonical"]').getAttribute('href'),
     ).toBe((process.env.SITE_URL ?? 'https://www.newroniq.com/') + path);
   }
+  await page.goto(base + 'stylepulse/');
+  await page
+    .getByRole('link', { name: 'I’m Interested in StylePulse' })
+    .first()
+    .click();
+  await expect(page).toHaveURL(
+    new RegExp(base + 'contact/\\?inquiry=stylepulse$'),
+  );
+  await expect(page.getByRole('combobox')).toHaveValue('stylepulse');
   const sitemap = await request.get(base + 'sitemap.xml');
   expect(sitemap.ok()).toBe(true);
   expect(await sitemap.text()).toContain(

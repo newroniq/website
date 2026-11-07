@@ -1,0 +1,67 @@
+{
+  "title": "Privacy Policy",
+  "updatedLabel": "Last updated",
+  "updatedOn": "2026-11-06",
+  "intro": "This notice explains how NEWRONIQ LTD handles information connected with this website and business enquiries. Contact us about this notice or your personal information using the email below.",
+  "sections": [
+    {
+      "heading": "Who is responsible",
+      "paragraphs": [
+        "NEWRONIQ LTD is responsible for the personal information it receives through business enquiries. Company registration and registered office details are shown in the footer."
+      ]
+    },
+    {
+      "heading": "What happens when you use the form",
+      "paragraphs": [
+        "The form prepares an email draft in your chosen email application. It asks for your name, business email and enquiry type; organisation and message are optional. Nothing is submitted to a website form-processing service. Your enquiry reaches us only when you send the email.",
+        "Form entries are held in the current page while you use it. This application does not save them in browser storage, put personal details in page URLs or use them for analytics. Avoid including sensitive personal information, passwords or confidential client data."
+      ]
+    },
+    {
+      "heading": "Why we use enquiry information",
+      "paragraphs": [
+        "We use correspondence to understand your requirements, respond to questions and discuss possible services or product initiatives. An expression of product interest is not a purchase, registration for a live product or subscription to marketing emails.",
+        "The relevant lawful basis will depend on the enquiry: taking steps at your request before entering a contract, or our legitimate interests in responding to professional enquiries and managing business relationships. Information needed for legal obligations is handled for that purpose."
+      ]
+    },
+    {
+      "heading": "Hosting, email and other recipients",
+      "paragraphs": [
+        "GitHub Pages hosts this site. Hosting providers may process technical request information, including IP addresses and browser details, to deliver and protect the service. Sent enquiries are handled by your email provider and NEWRONIQ’s email provider.",
+        "Relevant information may also be shared with professional advisers or authorities where necessary for a business or legal matter. Contact us for details about the providers involved in your enquiry and any processing outside the UK. Any international transfer must meet applicable data protection requirements."
+      ],
+      "links": [
+        {
+          "label": "GitHub Privacy Statement",
+          "href": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+        }
+      ]
+    },
+    {
+      "heading": "Cookies, fonts and analytics",
+      "paragraphs": [
+        "This version of the website has no analytics or advertising tags enabled and the application does not set tracking cookies. The Inter font is served from this site. Google Tag Manager is not loaded.",
+        "If tracking is introduced, this notice and the relevant consent or objection controls must be reviewed before it is enabled. External websites linked from our insights have their own privacy practices."
+      ]
+    },
+    {
+      "heading": "How long information is needed",
+      "paragraphs": [
+        "Enquiry correspondence should be retained only while needed to respond, manage a potential or ongoing business relationship, or meet relevant legal and record-keeping obligations. The appropriate period depends on whether the enquiry progresses into an engagement and whether a legal requirement applies. Contact us to ask about the retention criteria for your correspondence."
+      ]
+    },
+    {
+      "heading": "Your choices and rights",
+      "paragraphs": [
+        "Depending on the circumstances, you may ask to access or correct your personal information, request erasure or restriction, object to processing, or request portability. Where processing relies on consent, you may withdraw it. Some rights are subject to legal exceptions.",
+        "Contact us first if you have a concern about your information. You can also complain to the Information Commissioner’s Office (ICO)."
+      ],
+      "links": [
+        {
+          "label": "Contact the ICO or make a complaint",
+          "href": "https://ico.org.uk/make-a-complaint/"
+        }
+      ]
+    }
+  ]
+}

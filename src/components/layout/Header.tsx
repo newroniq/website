@@ -1,35 +1,52 @@
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { site } from '../../lib/content';
 import { url } from '../../lib/urls';
 export function Header() {
   const [open, setOpen] = useState(false);
+  const toggle = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const close = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpen(false);
+        toggle.current?.focus();
+      }
+    };
+    document.addEventListener('keydown', close);
+    return () => document.removeEventListener('keydown', close);
+  }, [open]);
   return (
     <>
       <a className="skip-link" href="#main-content">
         {site.skipLabel}
       </a>
-      <header className="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
+      <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div className="section-shell">
+          <div className="flex justify-between h-20 items-center gap-3">
             <a
               href={url('/')}
-              className="text-2xl font-extrabold tracking-tighter text-nq-red"
+              className="text-xl sm:text-2xl font-extrabold tracking-tighter text-nq-red shrink-0"
             >
               {site.name}
             </a>
             <nav
               aria-label="Main"
-              className="hidden md:flex space-x-10 text-sm uppercase tracking-wider"
+              className="hidden md:flex gap-5 lg:gap-8 text-sm font-medium"
             >
               {site.navigation.map((link) => (
-                <a key={link.href} href={url(link.href)} className="nav-link">
+                <a
+                  key={link.href}
+                  href={url(link.href)}
+                  className="nav-link py-3"
+                >
                   {link.label}
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 sm:gap-3">
               <button
-                className="md:hidden text-sm font-bold"
+                ref={toggle}
+                className="md:hidden menu-toggle"
                 type="button"
                 aria-expanded={open}
                 aria-controls="mobile-navigation"
@@ -39,7 +56,7 @@ export function Header() {
               </button>
               <a
                 href={url('/contact/')}
-                className="border-2 border-nq-red text-nq-red px-6 py-2 rounded-sm text-xs font-bold uppercase contact-nav-link transition-colors"
+                className="button-secondary nav-contact"
               >
                 {site.contactLabel}
               </a>
