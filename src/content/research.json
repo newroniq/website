@@ -1,7 +1,7 @@
 {
-  "eyebrow": "Research & Insights",
-  "title": "White Paper Hub",
-  "readLabel": "Read Full Paper",
+  "eyebrow": "Insights & Research",
+  "title": "Insights for better technology decisions.",
+  "readLabel": "Read the insight",
   "papers": [
     {
       "id": "paper-aec",
@@ -16,7 +16,7 @@
         },
         {
           "heading": "Put a boundary around the first release",
-          "body": "Keep the system of record in place while introducing a stable interface for the selected journey. Start with one channel and a small group of users. Agree how to reconcile old and new records, who owns discrepancies and how traffic moves back if the release fails. The first release should make the journey easier to operate and teach the team which dependencies matter before it commits to a wider migration."
+          "body": "Keep the system of record in place while introducing a stable interface for the selected journey. Start with one channel and a small group of users. Agree how to reconcile old and new records, who owns discrepancies and how traffic moves back if the release fails. The first release should make the journey easier to operate and teach the team which dependencies matter before it commits to a wider migration. Running old and new paths together adds temporary integration and support cost. Budget for reconciliation and decommissioning, and compare that cost with the disruption risk of a full replacement."
         },
         {
           "heading": "Make governance part of delivery",
@@ -25,6 +25,12 @@
         {
           "heading": "Fund the next step with evidence",
           "body": "Tie each investment to a milestone and a decision. If failed updates fall but manual rework rises, investigate the handoff before expanding the rollout. If the change proves useful, reuse the interface and rollout pattern in the next channel. NEWRONIQ’s Enterprise Architecture & Advisory offering connects strategy, roadmaps and architecture governance to this sequence of delivery decisions."
+        }
+      ],
+      "references": [
+        {
+          "label": "Microsoft Learn — Strangler Fig pattern",
+          "href": "https://learn.microsoft.com/en-us/azure/architecture/patterns/strangler-fig"
         }
       ]
     },
@@ -37,7 +43,7 @@
       "sections": [
         {
           "heading": "Define what the customer must be able to do",
-          "body": "Start with the business operation and its failure modes. For checkout, decide how long a customer can wait, what a pending payment looks like and which operations can safely continue if a dependency is slow. Set measurable targets for successful completion and response time. Give each downstream call a time budget within the overall request deadline, and reserve retries for failures where another attempt is safe and useful."
+          "body": "Start with the business operation and its failure modes. For checkout, decide how long a customer can wait, what a pending payment looks like and which operations can safely continue if a dependency is slow. Set measurable targets for successful completion and response time. Give each downstream call a time budget within the overall request deadline, and reserve retries for failures where another attempt is safe and useful. Bound retry attempts and use backoff; repeated calls can amplify an overloaded dependency. Test the policy against the latency and error budget of the whole transaction."
         },
         {
           "heading": "Design for ambiguous outcomes",
@@ -50,6 +56,12 @@
         {
           "heading": "Choose boundaries the team can operate",
           "body": "A modular application may be the right place to start when one team owns the workflow. Extract a service when independent scaling, deployment or ownership justifies the extra operational work. NEWRONIQ’s Cloud & Software Engineering offering brings these choices together across application design, cloud platforms and enterprise integrations."
+        }
+      ],
+      "references": [
+        {
+          "label": "Microsoft Learn — Retry pattern",
+          "href": "https://learn.microsoft.com/en-us/azure/architecture/patterns/retry"
         }
       ]
     },
@@ -66,7 +78,7 @@
         },
         {
           "heading": "Separate advice from action",
-          "body": "Let the agent explain eligibility using read-only access. Handle the address change through a separate tool that checks identity, authorisation and the latest order status. Show the customer the proposed update and ask for confirmation before submitting it. If the order has moved to dispatch in the meantime, the tool should reject the change and return a clear next step. Record the decision and action so a support colleague can reconstruct what happened."
+          "body": "Let the agent explain eligibility using read-only access. Handle the address change through a separate tool that checks identity, authorisation and the latest order status. Show the customer the proposed update and ask for confirmation before submitting it. If the order has moved to dispatch in the meantime, the tool should reject the change and return a clear next step. Record the decision and action so a support colleague can reconstruct what happened. Treat retrieved content as untrusted input: instructions in a document must not change tool permissions or approval rules. Enforce those controls in the application, outside the model."
         },
         {
           "heading": "Evaluate the journey as a service",
@@ -76,7 +88,15 @@
           "heading": "Integrate where customers already work",
           "body": "Connect approved content from Adobe Experience Cloud or another content platform to the portal and support workflows already in use. Start with one channel, review the outcomes with content and operations teams, then expand where the same rules apply. NEWRONIQ combines Digital Experience Engineering with AI, Data & Intelligent Automation to connect content, customer context and controlled business actions."
         }
+      ],
+      "references": [
+        {
+          "label": "OWASP — Excessive Agency in LLM applications",
+          "href": "https://genai.owasp.org/llmrisk/llm062025-excessive-agency/"
+        }
       ]
     }
-  ]
+  ],
+  "referencesHeading": "Further reading",
+  "cta": "Discuss your project with NEWRONIQ"
 }

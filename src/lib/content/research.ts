@@ -1,11 +1,14 @@
 import { z } from 'zod';
 import data from '../../content/research.json';
+import { referenceSchema } from './schema';
 const text = z.string().trim().min(1);
 export const researchSchema = z
   .object({
     eyebrow: text,
     title: text,
     readLabel: text,
+    referencesHeading: text,
+    cta: text,
     papers: z
       .array(
         z.object({
@@ -14,6 +17,9 @@ export const researchSchema = z
           title: text,
           description: text,
           intro: text,
+          references: z.array(referenceSchema).min(1),
+          author: text.optional(),
+          publishedOn: z.iso.date().optional(),
           sections: z.array(z.object({ heading: text, body: text })).min(1),
         }),
       )

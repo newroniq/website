@@ -2,34 +2,56 @@ import { url } from '../../lib/urls';
 import { site } from '../../lib/content';
 export function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-100 py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center border-b border-gray-100 pb-12 mb-12">
-          <div className="max-w-xl text-center md:text-left">
-            <span className="text-2xl font-black tracking-tighter text-nq-red">
-              {site.name}
-            </span>
-            <h2 className="mt-3 text-sm font-bold">
-              {site.footer.aboutHeading}
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-gray-600">
+    <footer className="bg-white border-t border-gray-200 py-12 md:py-16">
+      <div className="section-shell">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 pb-10">
+          <div>
+            <p className="text-2xl font-extrabold tracking-tighter text-nq-red mb-4">
+              {site.legalName}
+            </p>
+            <h2 className="font-bold mb-3">{site.footer.aboutHeading}</h2>
+            <p className="text-sm text-gray-600 leading-relaxed">
               {site.footer.about}
             </p>
           </div>
-          <div className="flex space-x-8 text-xs font-bold uppercase tracking-widest text-gray-400">
-            {site.footer.links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href.startsWith('/') ? url(link.href) : link.href}
-                className="hover:text-nq-red transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          <nav aria-label="Footer">
+            <h2 className="font-bold mb-4">{site.footer.navigationLabel}</h2>
+            <ul className="grid grid-cols-2 gap-x-5 gap-y-3 text-sm">
+              {site.footer.links.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={url(link.href)}
+                    className="nav-link inline-block py-1"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <div>
+            <h2 className="font-bold mb-4">{site.footer.contactHeading}</h2>
+            <a className="text-link break-words" href={`mailto:${site.email}`}>
+              {site.email}
+            </a>
+            <p className="text-sm text-gray-600 leading-relaxed mt-5">
+              {site.tagline}
+            </p>
           </div>
         </div>
-        <div className="text-center md:text-left text-[10px] text-gray-400 uppercase tracking-widest">
-          {site.footer.copyright}
+        <div className="border-t border-gray-200 pt-7 text-sm text-gray-600 leading-relaxed space-y-2">
+          <p>
+            {site.legalName}. {site.company.registrationLabel}{' '}
+            {site.company.registeredIn}. {site.company.numberLabel}:{' '}
+            {site.company.number}.
+          </p>
+          <p>
+            {site.company.officeLabel}: {site.company.registeredOffice}.
+          </p>
+          <a className="text-link inline-block" href={site.company.registryUrl}>
+            {site.company.registryLabel}
+          </a>
+          <p className="pt-4">{site.footer.copyright}</p>
         </div>
       </div>
     </footer>

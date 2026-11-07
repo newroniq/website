@@ -1,0 +1,46 @@
+[
+  {
+    "id": "architecture",
+    "kind": "service",
+    "label": "Enterprise Architecture & Advisory",
+    "subject": "Consulting enquiry — Enterprise Architecture & Advisory"
+  },
+  {
+    "id": "engineering",
+    "kind": "service",
+    "label": "Cloud & Software Engineering",
+    "subject": "Consulting enquiry — Cloud & Software Engineering"
+  },
+  {
+    "id": "automation",
+    "kind": "service",
+    "label": "AI, Data & Intelligent Automation",
+    "subject": "Consulting enquiry — AI, Data & Intelligent Automation"
+  },
+  {
+    "id": "experience",
+    "kind": "service",
+    "label": "Digital Experience Engineering",
+    "subject": "Consulting enquiry — Digital Experience Engineering"
+  },
+  {
+    "id": "stylepulse",
+    "kind": "product",
+    "label": "StylePulse — Product Interest",
+    "subject": "Product Interest — StylePulse",
+    "productName": "StylePulse"
+  },
+  {
+    "id": "iqpublish",
+    "kind": "product",
+    "label": "IQPublish — Product Interest",
+    "subject": "Product Interest — IQPublish",
+    "productName": "IQPublish"
+  },
+  {
+    "id": "general",
+    "kind": "general",
+    "label": "General Inquiry",
+    "subject": "General Inquiry — NEWRONIQ"
+  }
+]

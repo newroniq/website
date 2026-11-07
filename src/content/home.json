@@ -1,73 +1,157 @@
 {
-  "focus": [
-    {
-      "label": "Focus 01",
-      "title": "Bold Thinking",
-      "description": "Challenge conventional approaches and explore better possibilities."
+  "hero": {
+    "title": "Engineering technology that delivers",
+    "highlight": "measurable business value.",
+    "description": "We help organisations modernise enterprise platforms, build reliable software and apply AI where it creates practical value — improving efficiency, strengthening resilience and enabling growth.",
+    "primaryAction": {
+      "label": "Discuss Your Challenge",
+      "href": "/contact/"
     },
-    {
-      "label": "Focus 02",
-      "title": "Engineering Excellence",
-      "description": "Design for scalability, resilience, security and long-term maintainability."
-    },
-    {
-      "label": "Focus 03",
-      "title": "Business Impact",
-      "description": "Align technology investments with growth, efficiency and operational value."
+    "secondaryAction": {
+      "label": "Explore Our Services",
+      "href": "/#services"
     }
-  ],
+  },
+  "outcomes": {
+    "eyebrow": "Business outcomes",
+    "title": "Technology decisions. Business priorities.",
+    "description": "Start with the outcome that matters to your organisation. Agree how to measure progress before committing to a solution.",
+    "items": [
+      {
+        "title": "Revenue Growth",
+        "points": [
+          "Enhance digital customer experiences and engagement.",
+          "Enable new business capabilities through modern technology."
+        ]
+      },
+      {
+        "title": "Cost Efficiency",
+        "points": [
+          "Modernise complex applications and integrations.",
+          "Reduce operational effort through intelligent automation."
+        ]
+      },
+      {
+        "title": "Risk & Resilience",
+        "points": [
+          "Improve security, reliability and operational control.",
+          "Establish sustainable architecture and engineering practices."
+        ]
+      }
+    ]
+  },
+  "services": {
+    "eyebrow": "Core services",
+    "title": "From a clear direction to working software.",
+    "description": "Focused advisory and engineering support for the decisions, platforms and systems your business depends on."
+  },
   "capabilities": [
     {
-      "title": "Enterprise Architecture & Advisory",
+      "inquiryId": "architecture",
       "category": "Architecture",
-      "description": "Align business strategy with technology execution. Design scalable architectures, modernise enterprise platforms and establish practical architecture governance.",
+      "description": "Align technology investment with business priorities through enterprise architecture, modernisation roadmaps and practical governance.",
       "benefits": [
-        "Technology Strategy & Transformation Roadmaps",
-        "Enterprise Modernisation & Architecture Governance"
+        "Technology strategy and transformation roadmaps.",
+        "Architecture governance and investment decisions."
       ],
-      "action": {
-        "label": "Discuss This Service",
-        "href": "/contact/"
-      }
+      "actionLabel": "Discuss your architecture priorities"
     },
     {
-      "title": "Cloud & Software Engineering",
+      "inquiryId": "engineering",
       "category": "Engineering",
-      "description": "Build robust applications, APIs and distributed systems using modern engineering practices, cloud-native technologies and enterprise integration patterns.",
+      "description": "Engineer reliable applications, APIs and distributed systems using cloud-native technologies and enterprise software practices.",
       "benefits": [
-        "Scalable Cloud-Native & Distributed Systems",
-        "Enterprise Integration & Engineering Excellence"
+        "Scalable applications and enterprise integration.",
+        "Application modernisation and engineering resilience."
       ],
-      "action": {
-        "label": "Discuss This Service",
-        "href": "/contact/"
-      }
+      "actionLabel": "Discuss your engineering challenge"
     },
     {
-      "title": "AI, Data & Intelligent Automation",
-      "category": "AI Engineering",
-      "description": "Connect enterprise data, AI and business processes to improve decision-making, automate operations and unlock new opportunities.",
+      "inquiryId": "automation",
+      "category": "AI & automation",
+      "description": "Connect business data, enterprise workflows and AI capabilities to improve operations and decision-making.",
       "benefits": [
-        "Enterprise Data Intelligence & AI-Driven Insights",
-        "Intelligent Automation & Agentic AI Orchestration"
+        "Enterprise data intelligence and AI-enabled insights.",
+        "Intelligent process automation and controlled agentic workflows."
       ],
-      "action": {
-        "label": "Discuss This Service",
-        "href": "/contact/"
-      }
+      "actionLabel": "Explore a practical AI use case"
     },
     {
-      "title": "Digital Experience Engineering",
-      "category": "Experience",
-      "description": "Design, integrate and optimise digital experience ecosystems, including Adobe Experience Cloud, composable content platforms and customer engagement solutions.",
+      "inquiryId": "experience",
+      "category": "Digital experience",
+      "description": "Design, integrate and optimise digital platforms supporting content, commerce and customer engagement.",
       "benefits": [
-        "Composable Digital Experience Platforms",
-        "Personalised Omnichannel Customer Engagement"
+        "Composable digital experience platforms.",
+        "Content operations and personalised customer engagement."
       ],
-      "action": {
-        "label": "Discuss This Service",
-        "href": "/contact/"
-      }
+      "actionLabel": "Discuss your digital platform"
     }
-  ]
+  ],
+  "about": {
+    "eyebrow": "Why NEWRONIQ",
+    "title": "Enterprise thinking. Practical engineering.",
+    "description": "NEWRONIQ is an engineering-led enterprise technology consultancy. Our philosophy is to question the problem, make the trade-offs clear and turn a sound direction into maintainable software.",
+    "philosophy": "We connect advisory work with delivery. We start with business priorities, make security and operational needs part of the design, and leave teams with decisions and systems they can understand and own.",
+    "principles": [
+      {
+        "title": "Architecture that reaches delivery",
+        "description": "Combine enterprise context with practical engineering decisions, from the roadmap to the release."
+      },
+      {
+        "title": "Production needs considered early",
+        "description": "Design for security, scale, reliability and support from the outset, with clear ownership and testable controls."
+      },
+      {
+        "title": "Business value beyond the launch",
+        "description": "Balance investment, operational cost and long-term maintainability. Agree what progress looks like and review the evidence."
+      }
+    ]
+  },
+  "approach": {
+    "eyebrow": "Our approach",
+    "title": "A practical path from challenge to progress.",
+    "steps": [
+      {
+        "title": "Discover",
+        "activity": "Understand the business goal, user needs, constraints and current systems.",
+        "output": "A shared problem statement and measures of success."
+      },
+      {
+        "title": "Architect",
+        "activity": "Explore options and agree the boundaries, trade-offs and delivery priorities.",
+        "output": "A practical design and a sequenced delivery plan."
+      },
+      {
+        "title": "Deliver",
+        "activity": "Build and integrate in manageable increments, with testing and operational readiness.",
+        "output": "Working software, release evidence and a clear handover."
+      },
+      {
+        "title": "Optimise",
+        "activity": "Review behaviour, cost and business outcomes with the people using the system.",
+        "output": "An evidence-led backlog for the next improvements."
+      }
+    ],
+    "outputLabel": "Output"
+  },
+  "insights": {
+    "eyebrow": "Insights & Research",
+    "title": "Practical thinking for enterprise decisions.",
+    "description": "Explore architectural choices, engineering trade-offs and responsible AI in the context of real business operations.",
+    "allLabel": "Browse all insights"
+  },
+  "products": {
+    "eyebrow": "Product initiatives",
+    "title": "Exploring ideas with potential customers.",
+    "description": "Alongside consulting, we’re exploring two product concepts. We welcome conversations with organisations whose needs can help shape them.",
+    "actionLabel": "Explore the concept"
+  },
+  "finalAction": {
+    "title": "Let’s solve your next technology challenge.",
+    "description": "Discuss a consulting engagement, platform modernisation, engineering challenge or AI initiative. Start with the problem you need to solve.",
+    "action": {
+      "label": "Start a Conversation",
+      "href": "/contact/"
+    }
+  }
 }

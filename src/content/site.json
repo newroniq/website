@@ -1,7 +1,7 @@
 {
   "name": "NEWRONIQ",
   "url": "https://www.newroniq.com/",
-  "email": "hello@newroniq.com",
+  "email": "info@newroniq.com",
   "gtmId": "GTM-KXTJW9R8",
   "navigation": [
     {
@@ -11,20 +11,35 @@
     {
       "label": "Services",
       "href": "/#services"
+    },
+    {
+      "label": "About",
+      "href": "/#about"
+    },
+    {
+      "label": "Insights",
+      "href": "/whitepapers/"
     }
   ],
   "contactLabel": "Contact",
   "menuLabel": "Menu",
   "skipLabel": "Skip to content",
-  "backToPapers": "All White Papers",
+  "backToPapers": "All Insights",
   "form": {
-    "name": "Full Name",
-    "email": "Business Email",
-    "type": "Inquiry Type",
-    "message": "Message",
-    "submit": "Open email draft",
-    "notice": "We’ll prepare an email draft for you to review and send.",
-    "handoff": "Your inquiry has not been sent. Review and send it in your email app, or use the email address on this page."
+    "name": "Name",
+    "email": "Business email",
+    "organisation": "Organisation (optional)",
+    "type": "What would you like to discuss?",
+    "message": "Short message (optional)",
+    "submit": "Prepare email draft",
+    "notice": "This opens a draft in your email app. Review it and press Send there to contact us. Nothing is submitted to this website.",
+    "handoff": "Your interest has not been registered or sent. Review and send the draft in your email app. If it did not open, use the prepared draft link or email us directly.",
+    "draftLink": "Open prepared email draft",
+    "productContext": "You’re expressing interest in {product}. Tell us what you need; sending the email starts the conversation.",
+    "privacyLabel": "How we use your information",
+    "privacyHref": "/privacy/",
+    "sensitiveNotice": "Please do not include credentials, confidential client data or sensitive personal information.",
+    "nameHint": "Enter your name, not only spaces."
   },
   "notFound": {
     "title": "Page not found",
@@ -32,15 +47,51 @@
     "homeLabel": "Back to Overview"
   },
   "footer": {
-    "aboutHeading": "About us",
-    "about": "NEWRONIQ helps organisations modernise their technology and improve how they serve customers. We bring together enterprise architecture, cloud software engineering, AI and automation, and digital experience design.",
+    "aboutHeading": "Engineering with purpose.",
+    "about": "Engineering-led consulting for enterprise platforms, reliable software and practical AI. Technology decisions grounded in business value and long-term maintainability.",
+    "navigationLabel": "Explore",
+    "contactHeading": "Start a conversation",
     "links": [
       {
-        "label": "White Papers",
+        "label": "Services",
+        "href": "/#services"
+      },
+      {
+        "label": "About NEWRONIQ",
+        "href": "/#about"
+      },
+      {
+        "label": "Insights",
         "href": "/whitepapers/"
+      },
+      {
+        "label": "StylePulse",
+        "href": "/stylepulse/"
+      },
+      {
+        "label": "IQPublish",
+        "href": "/iqpublish/"
+      },
+      {
+        "label": "Privacy Policy",
+        "href": "/privacy/"
       }
     ],
-    "copyright": "\u00a9 2026 NEWRONIQ LTD. All rights reserved."
+    "copyright": "© 2026 NEWRONIQ LTD. All rights reserved."
   },
-  "favicon": "/favicon.svg"
+  "favicon": "/favicon.svg",
+  "legalName": "NEWRONIQ LTD",
+  "tagline": "Think Bold. Build Reality.",
+  "analyticsEnabled": false,
+  "company": {
+    "number": "17181252",
+    "registeredIn": "England and Wales",
+    "registeredOffice": "11 Crusader Gardens, Croydon, England, CR0 5UJ",
+    "registryUrl": "https://find-and-update.company-information.service.gov.uk/company/17181252",
+    "verifiedOn": "2026-11-06",
+    "registrationLabel": "Registered in",
+    "numberLabel": "Company number",
+    "officeLabel": "Registered office",
+    "registryLabel": "Companies House record"
+  }
 }

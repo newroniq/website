@@ -8,13 +8,27 @@ for (const route of routes) {
   assert.match(html, /<link rel="canonical"/);
   assert.match(html, /<meta name="description"/);
   assert.ok(!html.includes('<!--app-->'));
+  assert.ok(
+    !html.includes('googletagmanager.com'),
+    'Unaudited tracking must remain disabled',
+  );
+  assert.ok(
+    !html.includes('fonts.googleapis.com'),
+    'Fonts must be self hosted',
+  );
+  assert.ok(
+    !/(?:hello|outcomes)@newroniq\.com/.test(html),
+    'Outdated public email',
+  );
   for (const [, asset] of html.matchAll(/(?:src|href)="([^"]+)"/g)) {
     if (asset.startsWith(deploymentBase + 'assets/'))
       await access('dist/' + asset.slice(deploymentBase.length));
   }
   for (const [, href] of html.matchAll(/href="([^"]+)"/g)) {
     if (!href.startsWith(deploymentBase) || href.startsWith('//')) continue;
-    const [path, anchor] = href.slice(deploymentBase.length).split('#');
+    const parsed = new URL(href, 'https://static.test');
+    const path = parsed.pathname.slice(deploymentBase.length);
+    const anchor = parsed.hash.slice(1);
     if (/\.[a-z0-9]+$/.test(path)) {
       await access('dist/' + path);
       continue;

@@ -25,7 +25,9 @@ const escape = (value: string) =>
         c
       ]!,
   );
-const analytics = `<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${site.gtmId}');</script><noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=${site.gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`;
+const analytics = site.analyticsEnabled
+  ? `<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${site.gtmId}');</script><noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=${site.gtmId}" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>`
+  : '';
 for (const route of [...routes, { path: '/404.html', key: 'notFound' }]) {
   const found =
     route.key === 'notFound' ? undefined : seo[route.key as keyof typeof seo];
@@ -37,7 +39,14 @@ for (const route of [...routes, { path: '/404.html', key: 'notFound' }]) {
   const jsonLD = JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: site.name,
+    name: site.legalName,
+    alternateName: site.name,
+    identifier: site.company.number,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: site.company.registeredOffice,
+    },
+    sameAs: [site.company.registryUrl],
     url: siteURL.href,
     email: site.email,
   }).replace(/</g, '\\u003c');

@@ -11,6 +11,8 @@ export default defineConfig({
     reducedMotion: 'reduce',
   },
   projects: [
+    { name: 'mobile-320', use: { viewport: { width: 320, height: 812 } } },
+    { name: 'mobile-375', use: { viewport: { width: 375, height: 812 } } },
     { name: 'desktop', use: { viewport: { width: 1440, height: 1000 } } },
     { name: 'tablet', use: { viewport: { width: 768, height: 1024 } } },
     { name: 'mobile', use: { viewport: { width: 390, height: 844 } } },

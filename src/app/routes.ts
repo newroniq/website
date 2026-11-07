@@ -1,3 +1,4 @@
+import { PrivacyPage } from '../pages/PrivacyPage';
 import { HomePage } from '../pages/HomePage';
 import { ContactPage } from '../pages/ContactPage';
 import { StylepulsePage } from '../pages/StylepulsePage';
@@ -8,6 +9,7 @@ import { PaperJavaPage } from '../pages/PaperJavaPage';
 import { PaperRetailPage } from '../pages/PaperRetailPage';
 export const routes = [
   { path: '/', key: 'home', Component: HomePage },
+  { path: '/privacy/', key: 'privacy', Component: PrivacyPage },
   { path: '/contact/', key: 'contact', Component: ContactPage },
   { path: '/stylepulse/', key: 'stylepulse', Component: StylepulsePage },
   { path: '/iqpublish/', key: 'iqpublish', Component: IqpublishPage },
