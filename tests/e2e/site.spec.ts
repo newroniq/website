@@ -198,3 +198,36 @@ test('unsupported routes return a real 404 and offer a recovery link', async ({
   await page.getByRole('link', { name: 'Back to Overview' }).click();
   await expect(page).toHaveURL('/');
 });
+
+test('brand wordmarks and favicon retain accessible identity and brand colours', async ({
+  page,
+  request,
+}) => {
+  await page.goto('/');
+  const wordmarks = page.getByRole('img', { name: 'NEWRONIQ', exact: true });
+  await expect(wordmarks).toHaveCount(2);
+  for (const wordmark of await wordmarks.all()) {
+    await expect(wordmark.locator('span').nth(0)).toHaveText('NEWRON');
+    await expect(wordmark.locator('span').nth(0)).toHaveCSS(
+      'color',
+      'rgb(0, 0, 0)',
+    );
+    await expect(wordmark.locator('span').nth(1)).toHaveText('IQ');
+    await expect(wordmark.locator('span').nth(1)).toHaveCSS(
+      'color',
+      'rgb(161, 32, 39)',
+    );
+  }
+  await expect(
+    page.locator('header').getByRole('link', { name: 'NEWRONIQ', exact: true }),
+  ).toHaveAttribute('href', '/');
+  const icons = page.locator('link[rel="icon"]');
+  await expect(icons).toHaveCount(1);
+  const icon = await request.get((await icons.getAttribute('href'))!);
+  expect(icon.ok()).toBe(true);
+  expect(icon.headers()['content-type']).toContain('image/svg+xml');
+  const svg = await icon.text();
+  expect(svg).toContain('#A12027');
+  expect(svg).toContain('fill="#fff"');
+  expect(svg).not.toContain('<text');
+});

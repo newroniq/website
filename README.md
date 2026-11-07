@@ -49,6 +49,8 @@ To add a structurally new section, define its content/schema and compose a small
 
 Insight authors and publication dates are optional. Add them only when verified; Git commit dates are not treated as publication dates. Supporting links should point to authoritative publishers. Existing `/whitepapers/` URLs remain supported while the presentation uses “Insights”.
 
+The shared wordmark uses `site.json`’s `wordmark` segments: NEWRON in black and IQ in deep red (`#A12027`). The browser favicon is an IQ monogram on white in `public/favicon.svg`; its lettering uses vector paths without a font dependency. Vite inserts the configured favicon in both development and production HTML with the deployment base path.
+
 ## Contact and product interest
 
 The official email is configured once as **info@newroniq.com**. Visible contact links, form recipient, footer, privacy contact and Organization structured data use that value.

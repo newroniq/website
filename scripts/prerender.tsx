@@ -4,7 +4,7 @@ import { App } from '../src/app/App';
 import { routes } from '../src/app/routes';
 import { site } from '../src/lib/content';
 import { seo } from '../src/lib/content/seo';
-import { url, deploymentBase, normalizeBase } from '../src/lib/urls';
+import { deploymentBase, normalizeBase } from '../src/lib/urls';
 const base = normalizeBase(deploymentBase);
 const siteURL = new URL(process.env.SITE_URL ?? site.url);
 if (
@@ -50,7 +50,7 @@ for (const route of [...routes, { path: '/404.html', key: 'notFound' }]) {
     url: siteURL.href,
     email: site.email,
   }).replace(/</g, '\\u003c');
-  const meta = `<link rel="icon" type="image/svg+xml" href="${escape(url(site.favicon))}" /><title>${escape(title)}</title><meta name="description" content="${escape(description)}" /><link rel="canonical" href="${escape(canonical)}" /><meta property="og:type" content="${'article' in route ? 'article' : 'website'}" /><meta property="og:site_name" content="${escape(site.name)}" /><meta property="og:title" content="${escape(title)}" /><meta property="og:description" content="${escape(description)}" /><meta property="og:url" content="${escape(canonical)}" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="${escape(title)}" /><meta name="twitter:description" content="${escape(description)}" />${found ? '' : '<meta name="robots" content="noindex" />'}<script type="application/ld+json">${jsonLD}</script>`;
+  const meta = `<title>${escape(title)}</title><meta name="description" content="${escape(description)}" /><link rel="canonical" href="${escape(canonical)}" /><meta property="og:type" content="${'article' in route ? 'article' : 'website'}" /><meta property="og:site_name" content="${escape(site.name)}" /><meta property="og:title" content="${escape(title)}" /><meta property="og:description" content="${escape(description)}" /><meta property="og:url" content="${escape(canonical)}" /><meta name="twitter:card" content="summary" /><meta name="twitter:title" content="${escape(title)}" /><meta name="twitter:description" content="${escape(description)}" />${found ? '' : '<meta name="robots" content="noindex" />'}<script type="application/ld+json">${jsonLD}</script>`;
   const destination =
     route.path === '/404.html'
       ? 'dist/404.html'

@@ -34,6 +34,11 @@ test('configured deployment base supports every route, refresh, local link and a
     expect(response?.status()).toBe(200);
     await page.reload();
     await expect(page.locator('h1')).toBeVisible();
+    await expect(page.locator('link[rel="icon"]')).toHaveAttribute(
+      'href',
+      base + 'favicon.svg',
+    );
+    expect((await request.get(base + 'favicon.svg')).ok()).toBe(true);
     const hrefs = await page
       .locator('a[href^="/"]')
       .evaluateAll((links) => links.map((link) => link.getAttribute('href')));
