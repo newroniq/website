@@ -1,3 +1,4 @@
+import { Wordmark } from '../common/Wordmark';
 import { url } from '../../lib/urls';
 import { site } from '../../lib/content';
 export function Footer() {
@@ -6,8 +7,8 @@ export function Footer() {
       <div className="section-shell">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 pb-10">
           <div>
-            <p className="text-2xl font-extrabold tracking-tighter text-nq-red mb-4">
-              {site.legalName}
+            <p className="text-2xl font-extrabold tracking-tighter mb-4">
+              <Wordmark />
             </p>
             <h2 className="font-bold mb-3">{site.footer.aboutHeading}</h2>
             <p className="text-sm text-gray-600 leading-relaxed">

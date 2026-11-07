@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { Wordmark } from '../common/Wordmark';
 import { site } from '../../lib/content';
 import { url } from '../../lib/urls';
 export function Header() {
@@ -25,9 +26,10 @@ export function Header() {
           <div className="flex justify-between h-20 items-center gap-3">
             <a
               href={url('/')}
-              className="text-xl sm:text-2xl font-extrabold tracking-tighter text-nq-red shrink-0"
+              aria-label={site.name}
+              className="text-xl sm:text-2xl font-extrabold tracking-tighter shrink-0"
             >
-              {site.name}
+              <Wordmark />
             </a>
             <nav
               aria-label="Main"

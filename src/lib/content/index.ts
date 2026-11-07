@@ -4,6 +4,7 @@ import siteData from '../../content/site.json';
 import { text, localHref, httpsHref, linkSchema } from './schema';
 export const siteSchema = z.object({
   name: text,
+  wordmark: z.object({ primary: text, accent: text }),
   legalName: text,
   tagline: text,
   url: httpsHref,
