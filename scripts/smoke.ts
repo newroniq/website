@@ -42,7 +42,7 @@ function validateStructuredData(html: string, route: (typeof routes)[number]) {
   if (route.path === '/services/')
     assert.equal(
       structured['@graph'].filter((item) => item['@type'] === 'Service').length,
-      4,
+      6,
     );
 }
 
@@ -68,7 +68,7 @@ function validatePage({ route, html }: (typeof pages)[number]) {
     assert.ok(heading, 'Homepage heading is missing');
     assert.equal(
       textContent(heading),
-      'From AI Ambition to Enterprise Reality.',
+      'Enterprise AI Strategy &amp; Architecture',
     );
   }
   assert.equal(

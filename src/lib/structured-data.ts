@@ -15,7 +15,7 @@ function organizationData(siteURL: URL, organizationId: string): GraphNode {
     alternateName: site.name,
     identifier: site.company.number,
     description:
-      'UK-based independent Enterprise AI Strategy, Architecture & Cloud Advisory consultancy.',
+      'UK-based technology consultancy focused on enterprise AI strategy and architecture.',
     address: {
       '@type': 'PostalAddress',
       streetAddress: site.company.registeredOffice,

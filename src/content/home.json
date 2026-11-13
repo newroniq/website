@@ -1,73 +1,46 @@
 {
   "hero": {
-    "eyebrow": "Enterprise AI Strategy, Architecture & Cloud Advisory",
-    "title": "From AI Ambition to",
-    "highlight": "Enterprise Reality.",
-    "description": "We help organisations identify high-value AI opportunities, design secure and scalable architectures, and develop practical roadmaps for successful enterprise AI adoption.",
+    "eyebrow": "Think Bold. Build Reality.",
+    "title": "Enterprise AI",
+    "highlight": "Strategy & Architecture",
+    "description": "We help organisations assess AI opportunities, design secure cloud architectures and develop practical roadmaps for implementation.",
     "primaryAction": "Discuss Your AI Initiative",
     "secondaryAction": {
-      "label": "Explore Our Advisory Services",
+      "label": "Explore Our Services",
       "href": "/services/"
     }
   },
-  "challenge": {
-    "eyebrow": "The enterprise AI challenge",
-    "title": "AI Adoption Requires More Than a Successful Prototype.",
-    "description": "A useful experiment is a starting point. Enterprise adoption needs clear investment decisions, secure foundations and an operating model.",
-    "items": [
+  "services": {
+    "eyebrow": "OUR EXPERTISE",
+    "title": "How We Help"
+  },
+  "approach": {
+    "eyebrow": "OUR APPROACH",
+    "title": "From Assessment to Action",
+    "steps": [
       {
-        "title": "Investment priorities",
-        "description": "Choose opportunities with a clear business case and measurable expected value."
+        "title": "Assess",
+        "description": "Understand business objectives, existing systems and AI readiness."
       },
       {
-        "title": "Connected enterprise systems",
-        "description": "Address fragmented data and applications before scaling an isolated solution."
+        "title": "Architect",
+        "description": "Evaluate solution options, security controls and integration requirements."
       },
       {
-        "title": "Security and governance",
-        "description": "Establish access controls, data protection and clear decision responsibilities."
-      },
-      {
-        "title": "Production readiness",
-        "description": "Plan integration, reliability and ownership beyond a successful demonstration."
-      },
-      {
-        "title": "Costs and outcomes",
-        "description": "Understand operating costs and agree how business progress will be measured."
+        "title": "Roadmap",
+        "description": "Define priorities, dependencies, investment considerations and practical next steps."
       }
-    ]
-  },
-  "strengths": {
-    "eyebrow": "Why NEWRONIQ?",
-    "title": "Enterprise Architecture Meets Cloud Security.",
-    "description": "Independent technical judgement informed by enterprise architecture, software engineering, cloud infrastructure and security. We make trade-offs explicit and connect recommendations to the people who will operate the solution."
-  },
-  "audience": {
-    "title": "Who We Help",
-    "description": "Organisations making consequential AI decisions within an existing technology landscape.",
-    "items": [
-      "Evaluating enterprise AI investments.",
-      "Working with existing cloud and enterprise systems.",
-      "Integrating AI with business applications.",
-      "Establishing secure, scalable AI architecture.",
-      "Moving AI prototypes towards production.",
-      "Seeking an independent AI transformation roadmap."
-    ]
-  },
-  "insights": {
-    "eyebrow": "Insights & Research",
-    "title": "Practical thinking for enterprise decisions.",
-    "description": "Architecture analysis, controlled AI workflows and distributed systems reliability — with concrete scenarios and technical trade-offs.",
-    "allLabel": "Browse all insights"
+    ],
+    "outcome": "The outcome: clearer decisions and a practical plan for AI adoption."
   },
   "products": {
-    "eyebrow": "Product initiatives",
-    "title": "Ideas shaped by practical business needs.",
-    "description": "Alongside advisory work, we are developing DOptimiser and exploring IQPublish and StylePulse with potential customers."
+    "eyebrow": "PRODUCT INITIATIVES",
+    "title": "What We're Exploring",
+    "description": "Alongside our advisory work, we're developing and exploring software products in document intelligence, content operations and retail analytics."
   },
   "finalAction": {
-    "title": "Planning an Enterprise AI Initiative?",
-    "description": "Whether you're evaluating AI opportunities, reviewing an existing prototype or planning enterprise-scale adoption, let's discuss the architecture decisions that matter.",
-    "action": "Start an AI Advisory Conversation"
+    "title": "Have an AI Initiative in Mind?",
+    "description": "Let's discuss your objectives, challenges and the architecture decisions ahead.",
+    "action": "Start a Conversation"
   }
 }

@@ -1,10 +1,10 @@
 {
   "home": {
-    "title": "Enterprise AI Consulting UK | NEWRONIQ",
-    "description": "Enterprise AI strategy, architecture and cloud advisory. Make informed AI investment decisions with secure architecture and practical transformation roadmaps."
+    "title": "Enterprise AI Strategy & Architecture | NEWRONIQ",
+    "description": "NEWRONIQ provides enterprise AI strategy, architecture and cloud advisory services, covering AI readiness, integration, security and implementation roadmaps."
   },
   "contact": {
-    "title": "AI Advisory Consultation | Contact NEWRONIQ",
+    "title": "Contact NEWRONIQ | Discuss Your AI Initiative",
     "description": "Discuss AI strategy, enterprise architecture, cloud readiness or an AI transformation roadmap. Contact NEWRONIQ or register interest in our product initiatives."
   },
   "stylepulse": {
@@ -36,11 +36,11 @@
     "description": "How NEWRONIQ handles business enquiries through Tally and optional consented PostHog analytics, including your choices and data protection rights."
   },
   "services": {
-    "title": "Enterprise AI Strategy & Architecture Advisory | NEWRONIQ",
-    "description": "Explore AI opportunity assessment, enterprise AI architecture, cloud security readiness and transformation roadmaps, including our AI Transformation Blueprint."
+    "title": "Enterprise AI Advisory Services | NEWRONIQ",
+    "description": "Explore NEWRONIQ's AI advisory services, including AI strategy, enterprise architecture, security, intelligent automation and AWS/Azure readiness."
   },
   "products": {
-    "title": "Product Initiatives | DOptimiser, IQPublish & StylePulse | NEWRONIQ",
+    "title": "Product Initiatives | NEWRONIQ",
     "description": "Explore NEWRONIQ product initiatives in AI document intelligence, enterprise content operations and retail trend intelligence. Share interest and discuss requirements."
   },
   "doptimiser": {
@@ -48,7 +48,7 @@
     "description": "DOptimiser is in development: planned AI-assisted file understanding, classification, semantic discovery and recommendations. Register interest or discuss a pilot."
   },
   "about": {
-    "title": "About NEWRONIQ | Independent Enterprise AI Advisory",
+    "title": "About NEWRONIQ | AI & Cloud Architecture Advisory",
     "description": "NEWRONIQ LTD is a UK-based independent enterprise AI and cloud architecture advisory company, combining architecture, engineering and cloud-security expertise."
   },
   "academy": {

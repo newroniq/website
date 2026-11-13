@@ -1,6 +1,6 @@
 # NEWRONIQ website
 
-NEWRONIQ LTD is an independent UK-based **Enterprise AI Strategy, Architecture & Cloud Advisory** consultancy. This website presents four advisory engagements and the Enterprise AI Transformation Blueprint. DOptimiser, IQPublish, StylePulse and Academy remain secondary offerings.
+NEWRONIQ LTD is an independent UK-based **Enterprise AI Strategy & Architecture Advisory** consultancy. This website presents six services and the Enterprise AI Transformation Blueprint. DOptimiser, IQPublish, StylePulse and Academy remain secondary offerings.
 
 The existing React, strict TypeScript, Vite, Tailwind and Zod stack is retained. Marketing pages are prerendered to static HTML and hydrated for interactive controls. Deploy **only `dist/`** to GitHub Pages. No backend, framework migration or SPA rewrite is needed.
 
@@ -8,9 +8,8 @@ The existing React, strict TypeScript, Vite, Tailwind and Zod stack is retained.
 
 - Wordmark: **NEWRONIQ**, with NEWRON in black and IQ in red.
 - Company tagline: **Think Bold. Build Reality.**, rendered from `site.tagline` beneath the footer wordmark.
-- Specialisation: **Enterprise AI Strategy, Architecture & Cloud Advisory**.
-- Homepage marketing headline: **From AI Ambition to Enterprise Reality.** This is separate from the company tagline.
-- **Making Enterprise AI Work in the Real World.** is supporting consultancy copy.
+- Specialisation: **Enterprise AI Strategy & Architecture Advisory**.
+- Homepage marketing headline: **Enterprise AI Strategy & Architecture** This is separate from the company tagline.
 
 ## Development
 
@@ -28,7 +27,7 @@ For exact static routing and 404 behavior, run `node --import tsx scripts/serve-
 ## Content and structure
 
 - `src/content/` contains business copy and metadata; `src/lib/content/` validates it with Zod. Invalid content fails the build.
-- `advisory.json` owns the four advisory services, shared Blueprint, expertise and advisory questions. `home.json` owns homepage sections.
+- `advisory.json` owns the six services and Transformation Blueprint. `home.json` owns homepage sections.
 - `products.json` owns three initiatives with individual status and planned capability descriptions. `research.json` retains the three published articles; authors and dates remain optional and must be genuine.
 - `site.json` owns the wordmark, navigation, verified company details and public email. `pages.json` owns contact, about and Academy copy; `privacy.json` owns the privacy notice.
 - `src/app/routes.ts` defines public routes. Existing `/whitepapers/` and article URLs remain; new routes are `/services/`, `/products/`, `/doptimiser/`, `/about/` and `/academy/`.
@@ -38,12 +37,12 @@ For exact static routing and 404 behavior, run `node --import tsx scripts/serve-
 Copy `.env.example` to `.env.local` for optional integrations. These are **public browser build settings**, not secret credentials:
 
 ```dotenv
-VITE_PUBLIC_TALLY_FORM_ID=
+VITE_PUBLIC_TALLY_FORM_ID=xVMoPv
 VITE_PUBLIC_POSTHOG_KEY=
 VITE_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
 ```
 
-The application stays usable without these settings: the Contact page offers the public email and analytics remains inactive. A configured Tally form works independently of analytics consent. A build must be repeated after changing public variables. Vite and the prerender script both load the same public configuration.
+Production builds use the public Tally ID in `.env.production`; deployment variables can override it. An explicit empty ID disables the embed for offline checks. Without provider settings, the Contact page offers the public email and analytics remains inactive. A configured Tally form works independently of analytics consent. A build must be repeated after changing public variables. Vite and the prerender script both load the same public configuration.
 
 See [integration setup](docs/INTEGRATIONS.md) for the exact form, notifications, consent behavior and PostHog dashboard instructions. See [transformation verification](docs/TRANSFORMATION.md) for actual checks and outstanding manual work.
 
@@ -55,7 +54,7 @@ npm run format:check
 npm run typecheck
 npm run validate:content
 npm test
-npm run build
+VITE_PUBLIC_TALLY_FORM_ID= npm run build
 npm run test:smoke
 PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright npx playwright install chromium
 PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright npm run test:e2e
@@ -94,3 +93,7 @@ npm run build
 ```
 
 The last command restores custom-domain output. The build prefixes links/assets and generates matching canonicals/sitemap URLs; project builds omit CNAME. `SITE_BASE_PATH` must start and end with `/` and match the HTTPS `SITE_URL` pathname.
+
+The homepage has five sections: Hero, Services, Approach, Products and Contact. Legacy `roadmap` enquiry links and the Services fragment resolve to AI Strategy & Roadmap. PostHog retains its existing `$pageview` event; no duplicate `pageview` event is sent.
+
+Implementation & Value Realisation is an optional follow-on service. Its Services anchor is `/services/#implementation`; the existing Tally category and analytics identifier remain `implementation`.

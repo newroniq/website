@@ -12,7 +12,9 @@ export const serviceIdSchema = z.enum([
   'strategy',
   'architecture',
   'security',
-  'roadmap',
+  'agents',
+  'cloud',
+  'implementation',
 ]);
 export const productIdSchema = z.enum([
   'doptimiser',
@@ -21,7 +23,6 @@ export const productIdSchema = z.enum([
 ]);
 export const inquiryIdSchema = z.enum([
   ...serviceIdSchema.options,
-  'implementation',
   ...productIdSchema.options,
   'general',
 ]);

@@ -2,22 +2,27 @@
   {
     "id": "strategy",
     "kind": "service",
-    "label": "AI Strategy & Opportunity Assessment"
+    "label": "AI Strategy & Roadmap"
   },
   {
     "id": "architecture",
     "kind": "service",
-    "label": "Enterprise AI Architecture Advisory"
+    "label": "AI Architecture & Integration"
   },
   {
     "id": "security",
     "kind": "service",
-    "label": "AI Security & Cloud Readiness"
+    "label": "AI Security & Governance"
   },
   {
-    "id": "roadmap",
+    "id": "agents",
     "kind": "service",
-    "label": "AI Transformation Roadmap"
+    "label": "AI Agents & Intelligent Automation"
+  },
+  {
+    "id": "cloud",
+    "kind": "service",
+    "label": "AI Cloud Readiness & Scalability"
   },
   {
     "id": "implementation",

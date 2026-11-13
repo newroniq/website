@@ -81,14 +81,14 @@ test('navigation, service context, insights and keyboard menu work', async ({
     name: mobile ? 'Mobile' : 'Main',
     exact: true,
   });
-  await nav.getByRole('link', { name: 'AI Advisory' }).click();
+  await nav.getByRole('link', { name: 'Services' }).click();
   await expect(page).toHaveURL(/\/services\/$/);
-  await page
-    .locator('#architecture')
-    .getByRole('link', { name: 'Request an AI Advisory Consultation' })
-    .click();
+  await expect(page.locator('#architecture')).toContainText(
+    'AI Architecture & Integration',
+  );
+  await page.goto('/contact/?inquiry=architecture');
   await expect(page.getByRole('note')).toContainText(
-    'Enterprise AI Architecture Advisory',
+    'AI Architecture & Integration',
   );
   await page.goto('/');
   await page
@@ -97,9 +97,10 @@ test('navigation, service context, insights and keyboard menu work', async ({
   await expect(page).toHaveURL(/\/services\/$/);
   await page.goto('/');
   await page
-    .locator('#insights')
-    .getByRole('link', { name: /Read the insight: Modernise/ })
+    .locator('footer')
+    .getByRole('link', { name: 'Insights', exact: true })
     .click();
+  await page.getByRole('link', { name: /Read the insight: Modernise/ }).click();
   await expect(page.locator('h1')).toHaveText(
     'Modernise the Enterprise One Business Journey at a Time',
   );
@@ -108,8 +109,8 @@ test('navigation, service context, insights and keyboard menu work', async ({
 });
 for (const [id, name, status] of [
   ['doptimiser', 'DOptimiser', 'In Development'],
-  ['stylepulse', 'StylePulse', 'Concept / Customer Discovery'],
-  ['iqpublish', 'IQPublish', 'Concept / Customer Discovery'],
+  ['stylepulse', 'StylePulse', 'Concept'],
+  ['iqpublish', 'IQPublish', 'Concept'],
 ])
   test(`identifiable product interest: ${name}`, async ({ page }) => {
     await page.goto(`/${id}/`);
@@ -267,7 +268,7 @@ test('brand wordmarks and favicon retain accessible identity and brand colours',
       .locator('xpath=parent::p/following-sibling::*[1]'),
   ).toHaveText('Think Bold. Build Reality.');
   await expect(page.locator('h1')).toHaveText(
-    'From AI Ambition to Enterprise Reality.',
+    'Enterprise AI Strategy & Architecture',
   );
   await expect(footer).not.toContainText(
     'From AI Ambition to Enterprise Reality.',
@@ -281,4 +282,92 @@ test('brand wordmarks and favicon retain accessible identity and brand colours',
   expect(svg).toContain('#A12027');
   expect(svg).toContain('fill="#fff"');
   expect(svg).not.toContain('<text');
+});
+
+test('hero and six service cards remain aligned across responsive breakpoints', async ({
+  page,
+}) => {
+  for (const width of [320, 375, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto('/');
+    const cards = page.locator('#services article');
+    await expect(cards).toHaveCount(6);
+    await expect(page.locator('h1')).toHaveText(
+      'Enterprise AI Strategy & Architecture',
+    );
+    await expect(page.locator('.homepage-hero-description')).toHaveText(
+      'We help organisations assess AI opportunities, design secure cloud architectures and develop practical roadmaps for implementation.',
+    );
+    const columns = width >= 1024 ? 3 : width >= 768 ? 2 : 1;
+    const boxes = await cards.evaluateAll((elements) =>
+      elements.map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          x: rect.x,
+          y: rect.y,
+          height: rect.height,
+          headingY: element.querySelector('h3')!.getBoundingClientRect().top,
+          descriptionY: element
+            .querySelector('.service-card-description')!
+            .getBoundingClientRect().top,
+          capabilitiesY: element.querySelector('ul')!.getBoundingClientRect()
+            .top,
+          bullets: element.querySelectorAll('li').length,
+        };
+      }),
+    );
+    expect(new Set(boxes.map((box) => box.x)).size).toBe(columns);
+    expect(new Set(boxes.map((box) => box.y)).size).toBe(6 / columns);
+    for (const top of new Set(boxes.map((box) => box.y))) {
+      const row = boxes.filter((box) => box.y === top);
+      expect(
+        Math.max(...row.map((box) => box.height)) -
+          Math.min(...row.map((box) => box.height)),
+      ).toBeLessThan(2);
+      for (const key of ['headingY', 'descriptionY', 'capabilitiesY'] as const)
+        expect(
+          Math.max(...row.map((box) => box[key])) -
+            Math.min(...row.map((box) => box[key])),
+        ).toBeLessThan(2);
+    }
+    expect(boxes.every((box) => box.bullets === 3)).toBe(true);
+    const hero = await page
+      .locator('.homepage-hero-content')
+      .evaluate((element) => {
+        const bounds = [
+          '.eyebrow',
+          'h1',
+          '.homepage-hero-description',
+          '.homepage-hero-actions',
+        ].map((selector) =>
+          element.querySelector(selector)!.getBoundingClientRect(),
+        );
+        return {
+          lefts: bounds.map((rect) => rect.left),
+          ordered: bounds.every(
+            (rect, index) => !index || rect.top > bounds[index - 1].bottom,
+          ),
+        };
+      });
+    expect(new Set(hero.lefts).size).toBe(1);
+    expect(hero.ordered).toBe(true);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+  }
+  await page
+    .getByRole('link', {
+      name: 'AI Implementation & Value Realisation',
+      exact: true,
+    })
+    .click();
+  await expect(page).toHaveURL(/\/services\/#implementation$/);
+  await expect(page.locator('#implementation')).toContainText(
+    'optional follow-on',
+  );
+  await expect(page.locator('#implementation')).toContainText(
+    'validation against defined success criteria',
+  );
 });

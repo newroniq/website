@@ -11,24 +11,18 @@ export const advisorySchema = z.object({
         id: serviceIdSchema,
         title: text,
         description: text,
-        problem: text,
-        audience: text,
-        approach: text,
-        outputs: z.array(text).min(1),
+        cardDescription: text,
+        capabilities: z.array(text).length(3),
+        whatWeDo: text,
+        whatYouReceive: text,
       }),
     )
-    .length(4)
+    .length(6)
     .refine(
-      (items) => new Set(items.map((item) => item.id)).size === 4,
+      (items) => new Set(items.map((item) => item.id)).size === 6,
       'Provide every service exactly once',
     ),
-  blueprint: statement.extend({
-    steps: z.array(statement).length(5),
-    deliverables: z.array(text).min(1),
-  }),
-  expertise: z.array(statement).min(1),
-  engagement: text,
-  faq: z.array(z.object({ question: text, answer: text })).min(1),
+  blueprint: statement.extend({ deliverables: z.array(text).length(5) }),
 });
 export const advisory = advisorySchema.parse(data);
 export type AdvisoryService = (typeof advisory.services)[number];

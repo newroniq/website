@@ -31,11 +31,11 @@ describe('content and inquiry contracts', () => {
         .success,
     ).toBe(false);
   });
-  it('requires the advisory services, nine inquiry choices and three distinct products', () => {
+  it('requires the advisory services, ten inquiry choices and three distinct products', () => {
     expect(
       homeSchema.safeParse({
         ...home,
-        challenge: { ...home.challenge, items: [] },
+        approach: { ...home.approach, steps: [] },
       }).success,
     ).toBe(false);
     expect(
@@ -50,7 +50,17 @@ describe('content and inquiry contracts', () => {
         services: advisory.services.map(() => advisory.services[0]),
       }).success,
     ).toBe(false);
-    expect(inquiries).toHaveLength(9);
+    expect(
+      advisorySchema.safeParse({
+        ...advisory,
+        services: advisory.services.map((service, index) =>
+          index
+            ? service
+            : { ...service, capabilities: service.capabilities.slice(1) },
+        ),
+      }).success,
+    ).toBe(false);
+    expect(inquiries).toHaveLength(10);
     expect(inquiriesSchema.safeParse(inquiries.slice(0, 4)).success).toBe(
       false,
     );
@@ -64,8 +74,9 @@ describe('content and inquiry contracts', () => {
       }).success,
     ).toBe(false);
     expect(getInquiry('untrusted')).toEqual(getInquiry('general'));
+    expect(getInquiry('roadmap').id).toBe('strategy');
     expect(getInquiry('engineering').id).toBe('implementation');
-    expect(getInquiry('automation').id).toBe('strategy');
+    expect(getInquiry('automation').id).toBe('agents');
     expect(getInquiry('__proto__').id).toBe('general');
   });
   it('passes only the allowlisted interest category to Tally', () => {
@@ -123,7 +134,7 @@ describe('content and inquiry contracts', () => {
     )['@graph'];
     expect(
       serviceGraph.filter((item) => item['@type'] === 'Service'),
-    ).toHaveLength(4);
+    ).toHaveLength(6);
     expect(JSON.stringify(serviceGraph)).toContain(
       'https://example.com/website/services/#strategy',
     );

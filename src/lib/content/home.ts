@@ -11,10 +11,13 @@ export const homeSchema = z.object({
     primaryAction: text,
     secondaryAction: linkSchema,
   }),
-  challenge: heading.extend({ eyebrow: text, items: z.array(heading).min(1) }),
-  strengths: heading.extend({ eyebrow: text }),
-  audience: heading.extend({ items: z.array(text).min(1) }),
-  insights: heading.extend({ eyebrow: text, allLabel: text }),
+  services: z.object({ eyebrow: text, title: text }),
+  approach: z.object({
+    eyebrow: text,
+    title: text,
+    steps: z.array(heading).length(3),
+    outcome: text,
+  }),
   products: heading.extend({ eyebrow: text }),
   finalAction: heading.extend({ action: text }),
 });

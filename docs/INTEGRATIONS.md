@@ -2,7 +2,7 @@
 
 ## Tally: authoritative enquiry record
 
-No real form ID has been supplied. The website never invents one. Without configuration it shows the public email alternative, not an imitation submission form.
+The configured public form is https://tally.so/r/xVMoPv (`xVMoPv`), set in `.env.production`. Verify the existing form against the settings below; its account configuration and submission receipt have not been verified.
 
 1. Create a free Tally account for the intended notification recipient, ideally `info@newroniq.com`, or use the authorised existing account. Create a consultation form titled **Let's Discuss Your AI Initiative** with the supporting copy **Tell us a little about your organisation and the challenge you're exploring.**
 2. Add these fields in order:
@@ -16,10 +16,11 @@ No real form ID has been supplied. The website never invents one. Without config
    | Brief description of the challenge | Long text  | No       |
 
 3. Use these exact dropdown options:
-   - AI Strategy & Opportunity Assessment
-   - Enterprise AI Architecture Advisory
-   - AI Security & Cloud Readiness
-   - AI Transformation Roadmap
+   - AI Strategy & Roadmap
+   - AI Architecture & Integration
+   - AI Security & Governance
+   - AI Agents & Intelligent Automation
+   - AI Cloud Readiness & Scalability
    - Enterprise AI Implementation Support
    - DOptimiser
    - IQPublish
@@ -43,7 +44,7 @@ References: [standard embeds](https://developers.tally.so/widgets/embeds), [even
 
 ## PostHog Cloud EU
 
-Create or select a PostHog **EU** project. Add its **public project key** (`phc_…`) and `https://eu.i.posthog.com` to the public build settings. Never use a personal/secret API key. Configure project-level IP discard and review event retention, account access and subprocessors. Do not enable replay, autocapture, surveys, or automatic identification in project settings. Use free usage allowances and review account limits; the website requires no paid feature.
+Use the existing PostHog **EU** project (ID `346547`). Its public browser token is not stored locally; retain the deployment variable. Add its **public project key** (`phc_…`) and `https://eu.i.posthog.com` to the public build settings. Never use a personal/secret API key. Configure project-level IP discard and review event retention, account access and subprocessors. Do not enable replay, autocapture, surveys, or automatic identification in project settings. Use free usage allowances and review account limits; the website requires no paid feature.
 
 The official `posthog-js` SDK is loaded dynamically after consent, only in a configured production build. No SDK initialisation or events occur before consent or after rejection. Development, test mode and builds without a key remain inactive. The application does not use cookieless tracking on rejection.
 
@@ -67,7 +68,7 @@ Create a dashboard named **NEWRONIQ website enquiries** in the configured EU pro
 
 1. Top landing pages: use `$pageview`, unique visitors, grouped by `page_path`, with an initial-page/session-entry filter if available in the project; otherwise label it **Visited pages**, not landing pages.
 2. Consultation CTA clicks: trend `cta_clicked`, grouped by `cta_id` and `cta_location`.
-3. Advisory interest: `cta_clicked` filtered to `strategy`, `architecture`, `security`, `roadmap` or `implementation`, grouped by `service`.
+3. Advisory interest: `cta_clicked` filtered to `strategy`, `architecture`, `security`, `agents`, `cloud` or `implementation`, grouped by `service`.
 4. Product interest: `product_interest_clicked`, grouped by `product`.
 5. Observed submissions: `lead_form_submitted`, grouped by `interest_context` with its entry-context meaning clearly labelled.
 6. Funnel: `cta_clicked` → `contact_started` → `lead_form_submitted`, across pages within the project's chosen conversion window. Exclude exploration-only CTAs from the enquiry funnel and check direct-entry submissions separately.
@@ -84,7 +85,7 @@ Review the configured form's real browser network/storage behaviour. Tally's gen
 
 ## Repeatable isolated browser integration checks
 
-The normal browser suite runs without provider settings. CI also runs the isolated fixture checks before building the project-path variant. For a separate controlled integration check, use the following **fake** identifiers only for the test build:
+The normal browser suite runs against an offline build: `VITE_PUBLIC_TALLY_FORM_ID= npm run build`. CI also runs the isolated fixture checks before building the project-path variant. For a separate controlled integration check, use the following **fake** identifiers only for the test build:
 
 ```sh
 VITE_PUBLIC_TALLY_FORM_ID=newroniqTestForm VITE_PUBLIC_POSTHOG_KEY=phc_test_public npm run build
@@ -92,4 +93,4 @@ TEST_INTEGRATIONS=1 PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright npm run test:e
 npm run build
 ```
 
-The last command restores the normal unconfigured build. Never deploy the fake integration build. The test intercepts every HTTPS request, serves a synthetic Tally event fixture and captures the real SDK's outgoing requests locally, including its EU project configuration request. It simulates a normal browser only within that intercepted fixture so the production SDK's bot filter remains enabled. These checks prove sender validation, consent independence, sanitised outgoing payloads, duplicate prevention, withdrawal and CTA navigation behavior. They do not prove live Tally persistence, field setup, notifications or real PostHog dashboard receipt.
+The last command restores the normal production build. Never deploy the fake integration build. The test intercepts every HTTPS request, serves a synthetic Tally event fixture and captures the real SDK's outgoing requests locally, including its EU project configuration request. It simulates a normal browser only within that intercepted fixture so the production SDK's bot filter remains enabled. These checks prove sender validation, consent independence, sanitised outgoing payloads, duplicate prevention, withdrawal and CTA navigation behavior. They do not prove live Tally persistence, field setup, notifications or real PostHog dashboard receipt.

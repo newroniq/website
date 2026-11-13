@@ -32,7 +32,8 @@ export type InquiryId = z.infer<typeof inquiryIdSchema>;
 export function getInquiry(id: unknown) {
   const aliases: Record<string, InquiryId> = {
     engineering: 'implementation',
-    automation: 'strategy',
+    automation: 'agents',
+    roadmap: 'strategy',
     experience: 'architecture',
   };
   const resolved =

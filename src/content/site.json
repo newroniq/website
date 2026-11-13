@@ -12,7 +12,7 @@
       "href": "/"
     },
     {
-      "label": "AI Advisory",
+      "label": "Services",
       "href": "/services/"
     },
     {
@@ -46,13 +46,13 @@
     "homeLabel": "Back to Overview"
   },
   "footer": {
-    "aboutHeading": "Making Enterprise AI Work in the Real World.",
-    "about": "Independent Enterprise AI Strategy, Architecture & Cloud Advisory. UK-based NEWRONIQ helps organisations make informed investment decisions and establish secure, scalable foundations for AI adoption.",
+    "aboutHeading": "Enterprise AI Strategy & Architecture Advisory",
+    "about": "UK-based technology consultancy focused on enterprise AI strategy and architecture.",
     "navigationLabel": "Explore",
     "contactHeading": "Start a conversation",
     "links": [
       {
-        "label": "AI Advisory",
+        "label": "Services",
         "href": "/services/"
       },
       {

@@ -1,144 +1,95 @@
 {
-  "title": "Enterprise AI Strategy, Architecture & Advisory",
-  "description": "Helping technology leaders make informed AI investment decisions and establish secure, scalable foundations for enterprise AI adoption.",
+  "title": "Enterprise AI Advisory Services",
+  "description": "We provide focused advice on AI strategy, architecture, security and cloud readiness. Our work helps organisations evaluate options and plan implementation with greater clarity.",
   "services": [
     {
       "id": "strategy",
-      "title": "AI Strategy & Opportunity Assessment",
-      "description": "Identify the right AI opportunities and evaluate their commercial and technical feasibility before committing investment.",
-      "problem": "AI proposals compete for investment without a shared view of value, readiness or risk.",
-      "audience": "Business and technology leaders deciding where AI can create worthwhile value.",
-      "approach": "Assess candidate use cases against business priorities, data availability, operational constraints and the cost of change. Compare AI with simpler alternatives.",
-      "outputs": [
+      "title": "AI Strategy & Roadmap",
+      "cardDescription": "Identify where AI creates value and plan its adoption.",
+      "capabilities": [
         "Use-case assessment",
-        "Business-value evaluation",
-        "Feasibility and readiness analysis",
-        "Prioritised recommendations"
-      ]
+        "Feasibility & value analysis",
+        "AI adoption roadmap"
+      ],
+      "description": "Determine where AI is useful and what it will take to introduce it.",
+      "whatWeDo": "Assess business opportunities, technical feasibility, existing capabilities and investment priorities.",
+      "whatYouReceive": "A prioritised set of AI opportunities, recommendations and an implementation roadmap."
     },
     {
       "id": "architecture",
-      "title": "Enterprise AI Architecture Advisory",
-      "description": "Design secure, scalable architectures that integrate AI into existing enterprise technology environments.",
-      "problem": "An isolated prototype rarely accounts for enterprise data boundaries, integration dependencies or production ownership.",
-      "audience": "Architecture and engineering leaders integrating AI with existing applications and cloud platforms.",
-      "approach": "Review the current landscape, compare target architecture options and record the decisions and trade-offs. Make identity, data flows, failure modes and ownership explicit.",
-      "outputs": [
-        "Current-state assessment",
-        "Target architecture options",
-        "Enterprise data and integration strategy",
-        "Architecture decisions and trade-offs",
-        "AWS/Azure solution recommendations"
-      ]
+      "title": "AI Architecture & Integration",
+      "cardDescription": "Design AI solutions that work with existing enterprise systems.",
+      "capabilities": [
+        "Solution architecture",
+        "Data & API integration",
+        "Technology evaluation"
+      ],
+      "description": "Plan how AI will work within your existing technology environment.",
+      "whatWeDo": "Evaluate application architecture, data access, integration patterns and solution options.",
+      "whatYouReceive": "Architecture recommendations, key design decisions and integration guidance."
     },
     {
       "id": "security",
-      "title": "AI Security & Cloud Readiness",
-      "description": "Assess infrastructure, security and governance requirements for enterprise AI workloads.",
-      "problem": "Unclear access controls, data handling and operational responsibilities can make an AI initiative unsafe to scale.",
-      "audience": "Technology and security teams assessing whether their cloud foundations are ready for AI.",
-      "approach": "Review workload boundaries, identity, data protection, network access and operational controls. Prioritise risks and identify evidence needed before production.",
-      "outputs": [
-        "Cloud readiness assessment",
-        "Identity and access architecture",
-        "Data protection considerations",
-        "Security and operational risk assessment",
-        "Governance recommendations"
-      ]
+      "title": "AI Security & Governance",
+      "cardDescription": "Assess risks and define appropriate security controls.",
+      "capabilities": [
+        "AI risk assessment",
+        "Identity & data protection",
+        "Governance framework"
+      ],
+      "description": "Understand and address the risks of enterprise AI adoption.",
+      "whatWeDo": "Review identity, data protection, access controls, cloud security and governance requirements.",
+      "whatYouReceive": "A security and governance assessment with prioritised recommendations."
     },
     {
-      "id": "roadmap",
-      "title": "AI Transformation Roadmap",
-      "description": "Build an actionable plan for moving AI initiatives from business opportunities to production capabilities.",
-      "problem": "Disconnected experiments make it difficult to sequence investment, manage dependencies and measure progress.",
-      "audience": "Leaders who need an independent, business-aligned plan for enterprise AI adoption.",
-      "approach": "Sequence initiatives around value, readiness and dependencies. Define decision gates, accountable owners and evidence for further investment.",
-      "outputs": [
-        "Prioritised initiatives",
-        "Phased roadmap",
-        "Dependencies and assumptions",
-        "Indicative investment and cost considerations",
-        "Architecture governance and success measures"
-      ]
+      "id": "agents",
+      "title": "AI Agents & Intelligent Automation",
+      "cardDescription": "Evaluate opportunities to automate business workflows.",
+      "capabilities": [
+        "Workflow assessment",
+        "Agent architecture",
+        "Human oversight & controls"
+      ],
+      "description": "Assess where AI agents and automation can support business workflows.",
+      "whatWeDo": "Evaluate candidate processes, integration needs, human oversight and operational risks.",
+      "whatYouReceive": "Use-case recommendations, solution options and a practical validation approach."
+    },
+    {
+      "id": "cloud",
+      "title": "AI Cloud Readiness & Scalability",
+      "cardDescription": "Prepare AWS and Azure environments for AI workloads.",
+      "capabilities": [
+        "Cloud readiness assessment",
+        "Scalability & reliability",
+        "Cost & performance review"
+      ],
+      "description": "Prepare your cloud architecture for AI workloads.",
+      "whatWeDo": "Assess AWS or Azure infrastructure, scalability, reliability, monitoring and cost considerations.",
+      "whatYouReceive": "A cloud readiness review and recommended architecture improvements."
+    },
+    {
+      "id": "implementation",
+      "title": "AI Implementation & Value Realisation",
+      "cardDescription": "Turn agreed AI opportunities into working solutions, with clear success measures and operational readiness.",
+      "capabilities": [
+        "AI solution implementation",
+        "Cloud integration & deployment",
+        "Outcome validation & handover"
+      ],
+      "description": "This service is an optional follow-on to our advisory engagements, supporting clients who need help implementing the recommendations.",
+      "whatWeDo": "Implement agreed AI solutions, integrate them with enterprise systems and prepare them for operation.",
+      "whatYouReceive": "An implemented solution within the agreed scope, deployment documentation and validation against defined success criteria."
     }
   ],
   "blueprint": {
     "title": "Enterprise AI Transformation Blueprint",
-    "description": "A structured advisory engagement helping organisations move from fragmented AI initiatives to informed technology decisions, secure architecture and practical implementation roadmaps.",
-    "steps": [
-      {
-        "title": "Discover",
-        "description": "Understand business priorities, stakeholders, constraints and the decisions that need to be made."
-      },
-      {
-        "title": "Assess",
-        "description": "Evaluate AI opportunities, enterprise readiness, risks and investment assumptions."
-      },
-      {
-        "title": "Architect",
-        "description": "Compare secure target designs, integration patterns and cloud options."
-      },
-      {
-        "title": "Roadmap",
-        "description": "Sequence initiatives, dependencies, ownership and measures of progress."
-      },
-      {
-        "title": "Advise",
-        "description": "Review recommendations with leaders and support architecture governance as decisions move into delivery."
-      }
-    ],
+    "description": "A focused assessment combining AI opportunity evaluation, architecture, security and a phased implementation roadmap.",
     "deliverables": [
-      "AI opportunity assessment",
-      "Prioritised investment recommendations",
-      "Target enterprise AI architecture",
-      "Security and governance considerations",
-      "Phased transformation roadmap",
-      "Executive recommendations"
+      "Prioritised AI opportunities.",
+      "Architecture recommendations.",
+      "Security and cloud readiness findings.",
+      "Implementation roadmap.",
+      "Key decisions and next steps."
     ]
-  },
-  "expertise": [
-    {
-      "title": "Enterprise architecture and integration",
-      "description": "Connect AI capabilities to enterprise APIs, data ownership and business workflows. Define clear boundaries across distributed systems."
-    },
-    {
-      "title": "AWS and Azure architecture",
-      "description": "Evaluate Amazon Bedrock and Microsoft Foundry in the context of existing cloud investments, identity, data access and operating costs."
-    },
-    {
-      "title": "Secure AI applications",
-      "description": "Assess RAG and AI agents against permission boundaries, retrieval quality, tool controls and human approval needs."
-    },
-    {
-      "title": "Production reliability",
-      "description": "Design cloud infrastructure security, observability, recovery and operational ownership into the architecture. Balance resilience and scalability with cost."
-    }
-  ],
-  "engagement": "We start with a conversation about the business challenge and decisions you need to make. We agree the scope, stakeholders, inputs and useful deliverables together. Recommendations remain independent of platform vendors. Implementation and architecture governance can follow where appropriate; they are not a prerequisite for advisory work.",
-  "faq": [
-    {
-      "question": "How do we assess whether our organisation is ready for enterprise AI?",
-      "answer": "Start with the business decision or workflow, then assess data quality and access, integration dependencies, cloud controls, skills and accountable ownership. Readiness is specific to a use case: identify gaps and evidence needed before expanding investment."
-    },
-    {
-      "question": "How do we decide which AI use cases justify investment?",
-      "answer": "Compare expected business value with delivery cost, ongoing inference and support costs, adoption effort and risk. Establish a baseline and measurable success criteria. Prioritise opportunities where the evidence supports AI over simpler alternatives."
-    },
-    {
-      "question": "How do we design secure and scalable AI architecture?",
-      "answer": "Define trust boundaries and enforce least-privilege access in the application and tools. Design data flows, retrieval, approval steps, capacity limits, monitoring and recovery together. Test misuse and dependency failures before increasing exposure."
-    },
-    {
-      "question": "Should we use AWS or Azure for enterprise AI?",
-      "answer": "Evaluate the existing enterprise cloud estate, identity and data platforms, workload needs, model options, regional availability and operating costs. Amazon Bedrock and Microsoft Foundry are options to assess against those constraints; neither is the right default for every organisation."
-    },
-    {
-      "question": "What is required to move an AI prototype into production?",
-      "answer": "Beyond model quality, establish evaluation criteria, secure integration, data governance, deployment controls, observability, capacity and cost limits, recovery procedures and a support owner. Expand through controlled releases with explicit acceptance criteria."
-    },
-    {
-      "question": "What should an enterprise AI transformation roadmap include?",
-      "answer": "Include prioritised use cases, architecture decisions, readiness gaps, dependencies, accountable owners, phased investment assumptions and success measures. Define review gates so later commitments depend on evidence from earlier work."
-    }
-  ]
+  }
 }

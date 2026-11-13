@@ -24,21 +24,24 @@ describe('content-driven application', () => {
       }),
     ).toHaveLength(1);
     expect(
-      within(footer).getByText('Making Enterprise AI Work in the Real World.', {
-        exact: true,
-      }),
+      within(footer).getByText(
+        'Enterprise AI Strategy & Architecture Advisory',
+        {
+          exact: true,
+        },
+      ),
     ).toBeVisible();
     expect(
       within(footer).queryByText('From AI Ambition to Enterprise Reality.'),
     ).not.toBeInTheDocument();
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      /^From AI Ambition to Enterprise Reality\.$/,
+      /^Enterprise AI Strategy & Architecture$/,
     );
   });
   it('connects each service to its detail and consultation context', () => {
     render(<Capabilities />);
     const cards = screen.getAllByRole('article');
-    expect(cards).toHaveLength(4);
+    expect(cards).toHaveLength(6);
     cards.forEach((card, index) => {
       const service = advisory.services[index];
       expect(within(card).getByRole('heading')).toHaveTextContent(
@@ -47,12 +50,17 @@ describe('content-driven application', () => {
       expect(
         within(card).getByRole('link', { name: service.title }),
       ).toHaveAttribute('href', `/services/#${service.id}`);
-      expect(
-        within(card).getByRole('link', {
-          name: 'Discuss this advisory service',
-        }),
-      ).toHaveAttribute('href', `/contact/?inquiry=${service.id}`);
+      expect(within(card).getAllByRole('listitem')).toHaveLength(3);
+      expect(within(card).getByText(service.cardDescription)).toBeVisible();
     });
+  });
+  it('limits the homepage to five primary sections', () => {
+    const { container } = render(<App path="/" />);
+    expect(container.querySelectorAll('main > section')).toHaveLength(5);
+    expect(screen.getByRole('heading', { name: 'How We Help' })).toBeVisible();
+    expect(
+      screen.getByRole('heading', { name: 'From Assessment to Action' }),
+    ).toBeVisible();
   });
   it.each([
     [undefined, undefined, ''],
@@ -80,7 +88,7 @@ describe('content-driven application', () => {
     expect(
       within(screen.getByRole('navigation', { name: 'Mobile' })).getByRole(
         'link',
-        { name: 'AI Advisory' },
+        { name: 'Services' },
       ),
     ).toHaveAttribute('href', '/services/');
     await user.keyboard('{Escape}');

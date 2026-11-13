@@ -9,7 +9,7 @@
     {
       "id": "doptimiser",
       "name": "DOptimiser",
-      "summary": "AI File & Document Intelligence",
+      "summary": "AI-assisted document understanding and organisation.",
       "status": "In Development",
       "statusDescription": "Planned capabilities are under development. Availability, suitability and pilot scope will depend on development progress and agreed requirements.",
       "description": "An initiative developing AI-assisted file understanding, content-aware classification, semantic discovery and intelligent recommendations.",
@@ -36,7 +36,7 @@
     {
       "id": "iqpublish",
       "name": "IQPublish",
-      "summary": "A simpler approach to enterprise content operations and distribution.",
+      "summary": "Structured content management and publishing workflows.",
       "description": "An initiative exploring how organisations could structure, manage and distribute content with clearer ownership and fewer manual handoffs.",
       "problem": "Content often moves through disconnected tools and repeated approval steps. Teams need a clearer view of ownership, versions and destinations.",
       "directions": [
@@ -56,13 +56,13 @@
       "interestTitle": "Interested in IQPublish?",
       "interestDescription": "Looking to simplify enterprise content operations and distribution? Tell us about your requirements.",
       "interestAction": "Register Interest",
-      "status": "Concept / Customer Discovery",
+      "status": "Concept",
       "statusDescription": "We are exploring customer needs. Features and availability are not confirmed; this is not a generally available product."
     },
     {
       "id": "stylepulse",
       "name": "StylePulse",
-      "summary": "Fashion trend intelligence to support better-informed demand decisions.",
+      "summary": "Trend intelligence to support retail decision-making.",
       "description": "An initiative exploring how fashion brands and retailers could bring emerging trend signals into planning and merchandising conversations.",
       "problem": "Trend signals are scattered across channels, while merchandising teams need context they can assess alongside sales, inventory and market knowledge.",
       "directions": [
@@ -82,7 +82,7 @@
       "interestTitle": "Interested in StylePulse?",
       "interestDescription": "Exploring better ways to identify emerging fashion trends? Share your interest and let’s discuss your requirements.",
       "interestAction": "Register Interest",
-      "status": "Concept / Customer Discovery",
+      "status": "Concept",
       "statusDescription": "We are exploring customer needs. Features and availability are not confirmed; this is not a generally available product."
     }
   ]

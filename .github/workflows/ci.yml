@@ -6,6 +6,8 @@ permissions:
   contents: read
 jobs:
   validate:
+    env:
+      VITE_PUBLIC_TALLY_FORM_ID: ''
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

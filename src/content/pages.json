@@ -6,17 +6,21 @@
     "form_heading": "Consultation enquiry"
   },
   "about": {
-    "heading": "Independent advice. Practical architecture.",
-    "intro": "NEWRONIQ is an independent enterprise AI and cloud architecture advisory company helping organisations make informed technology decisions and establish secure, scalable foundations for AI adoption.",
-    "approach": [
-      "Understand the business challenge.",
-      "Evaluate opportunities objectively.",
-      "Assess the existing technology landscape.",
-      "Develop secure architecture options.",
-      "Define practical transformation roadmaps.",
-      "Support implementation where appropriate."
+    "heading": "About",
+    "intro": "NEWRONIQ is a UK-based technology consultancy focused on enterprise AI strategy and architecture.",
+    "expertiseIntro": "Our expertise spans enterprise architecture, distributed systems, cloud infrastructure, software engineering and security.",
+    "description": "We work with organisations to assess technology opportunities, evaluate architectural choices and develop practical plans for implementation.",
+    "principles": [
+      "Business first.",
+      "Architecture with purpose.",
+      "Practical recommendations."
     ],
-    "expertise": "Our approach combines enterprise architecture, software engineering, distributed systems, cloud infrastructure and security. We focus on clear decisions, useful deliverables and recommendations that teams can operate and own."
+    "approach": [
+      "Understand the problem before recommending technology.",
+      "Evaluate options based on security, scalability, cost and maintainability.",
+      "Provide clear decisions, trade-offs and next steps."
+    ],
+    "expertise": "Enterprise Architecture · AI Solution Design · Cloud and Security"
   },
   "academy": {
     "heading": "NEWRONIQ Academy",
