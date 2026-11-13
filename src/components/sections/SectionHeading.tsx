@@ -1,7 +1,7 @@
 interface SectionHeadingProps {
-  eyebrow: string;
-  title: string;
-  description?: string;
+  readonly eyebrow?: string;
+  readonly title: string;
+  readonly description?: string;
 }
 export function SectionHeading({
   eyebrow,
@@ -10,7 +10,7 @@ export function SectionHeading({
 }: SectionHeadingProps) {
   return (
     <div className="max-w-3xl mb-10 md:mb-12">
-      <p className="eyebrow mb-3">{eyebrow}</p>
+      {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
       <h2 className="section-title">{title}</h2>
       {description && (
         <p className="mt-5 text-lg text-gray-600 leading-relaxed">

@@ -1,9 +1,8 @@
-import { research } from '../../lib/content/research';
+import { ResearchMetadata } from '../common/ResearchMetadata';
+import { research, type PaperId } from '../../lib/content/research';
 import { url } from '../../lib/urls';
 
-type PaperId = (typeof research.papers)[number]['id'];
-
-export function ResearchArticle({ id }: { id: PaperId }) {
+export function ResearchArticle({ id }: Readonly<{ id: PaperId }>) {
   const paper = research.papers.find((entry) => entry.id === id);
   if (!paper) throw new Error(`Missing research paper: ${id}`);
 
@@ -18,15 +17,11 @@ export function ResearchArticle({ id }: { id: PaperId }) {
       <p className="text-xl text-gray-600 leading-relaxed mb-8">
         {paper.description}
       </p>
-      {(paper.author || paper.publishedOn) && (
-        <p className="text-sm text-gray-500 mb-6">
-          {paper.author}
-          {paper.author && paper.publishedOn ? ' · ' : ''}
-          {paper.publishedOn && (
-            <time dateTime={paper.publishedOn}>{paper.publishedOn}</time>
-          )}
-        </p>
-      )}
+      <ResearchMetadata
+        author={paper.author}
+        publishedOn={paper.publishedOn}
+        className="text-sm text-gray-500 mb-6"
+      />
       <p className="leading-relaxed text-gray-600">{paper.intro}</p>
       {paper.sections.map(({ heading, body }) => (
         <section key={heading} className="mt-9">
@@ -48,6 +43,8 @@ export function ResearchArticle({ id }: { id: PaperId }) {
       </section>
       <a
         href={url('/contact/')}
+        data-cta-id="article-consultation"
+        data-cta-location="article"
         className="inline-block mt-10 text-nq-red font-bold underline"
       >
         {research.cta}

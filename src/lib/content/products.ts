@@ -4,8 +4,6 @@ import { text, productIdSchema } from './schema';
 export const productsSchema = z
   .object({
     eyebrow: text,
-    status: text,
-    statusDescription: text,
     backLabel: text,
     problemLabel: text,
     directionLabel: text,
@@ -16,6 +14,9 @@ export const productsSchema = z
         z.object({
           id: productIdSchema,
           name: text,
+          status: text,
+          statusDescription: text,
+          secondaryAction: text.optional(),
           summary: text,
           description: text,
           problem: text,
@@ -27,7 +28,7 @@ export const productsSchema = z
           interestAction: text,
         }),
       )
-      .length(2),
+      .length(3),
   })
   .refine(
     (value) =>

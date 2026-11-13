@@ -1,3 +1,5 @@
+> Historical report for the previous website. For current integration setup and verification, see [INTEGRATIONS.md](INTEGRATIONS.md) and [TRANSFORMATION.md](TRANSFORMATION.md).
+
 # Commercial readiness and verification
 
 Reviewed locally on 6 November 2026. This report covers the consultancy-focused refinement, rather than the original HTML migration. Changes remain in the workspace; nothing has been pushed, merged or deployed.

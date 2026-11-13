@@ -1,7 +1,7 @@
 {
   "title": "Privacy Policy",
   "updatedLabel": "Last updated",
-  "updatedOn": "2026-11-06",
+  "updatedOn": "2026-11-12",
   "intro": "This notice explains how NEWRONIQ LTD handles information connected with this website and business enquiries. Contact us about this notice or your personal information using the email below.",
   "sections": [
     {
@@ -13,8 +13,8 @@
     {
       "heading": "What happens when you use the form",
       "paragraphs": [
-        "The form prepares an email draft in your chosen email application. It asks for your name, business email and enquiry type; organisation and message are optional. Nothing is submitted to a website form-processing service. Your enquiry reaches us only when you send the email.",
-        "Form entries are held in the current page while you use it. This application does not save them in browser storage, put personal details in page URLs or use them for analytics. Avoid including sensitive personal information, passwords or confidential client data."
+        "When configured, the embedded Tally enquiry form collects your full name, business email and area of interest. Organisation and a description of the challenge are optional. Submitting the form sends this information to Tally for NEWRONIQ to review and respond. Tally is the authoritative record of form enquiries. If the form is unavailable, you can contact us by email.",
+        "The website does not store enquiry answers in its own browser storage or send them to analytics. Only predefined enquiry categories are passed in links. Avoid confidential or sensitive information. Tally may process technical information needed to operate and protect its form."
       ]
     },
     {
@@ -27,27 +27,35 @@
     {
       "heading": "Hosting, email and other recipients",
       "paragraphs": [
-        "GitHub Pages hosts this site. Hosting providers may process technical request information, including IP addresses and browser details, to deliver and protect the service. Sent enquiries are handled by your email provider and NEWRONIQ’s email provider.",
-        "Relevant information may also be shared with professional advisers or authorities where necessary for a business or legal matter. Contact us for details about the providers involved in your enquiry and any processing outside the UK. Any international transfer must meet applicable data protection requirements."
+        "GitHub Pages hosts this site and may process technical request information to deliver and protect it. Tally processes submitted enquiries on our behalf and states that form data is stored in Europe. Email alternatives and submission notifications are processed by the relevant email providers.",
+        "If optional analytics is configured and you accept, PostHog Cloud EU receives limited interaction events. Providers and their subprocessors may have processing or support arrangements outside the UK. Contact us for information about the arrangements relevant to your enquiry. Relevant information may also be shared with professional advisers or authorities where necessary."
       ],
       "links": [
         {
           "label": "GitHub Privacy Statement",
           "href": "https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement"
+        },
+        {
+          "label": "Tally privacy and data processing",
+          "href": "https://tally.so/help/privacy-policy"
+        },
+        {
+          "label": "PostHog privacy",
+          "href": "https://posthog.com/privacy"
         }
       ]
     },
     {
       "heading": "Cookies, fonts and analytics",
       "paragraphs": [
-        "This version of the website has no analytics or advertising tags enabled and the application does not set tracking cookies. The Inter font is served from this site. Google Tag Manager is not loaded.",
-        "If tracking is introduced, this notice and the relevant consent or objection controls must be reviewed before it is enabled. External websites linked from our insights have their own privacy practices."
+        "We ask before enabling optional PostHog analytics. Accepting allows pageviews, advisory CTA clicks, product-interest clicks and confirmed form submission events. We do not send enquiry answers, names, emails or organisations to PostHog, enable session recording or create identified person profiles. Anonymous browser identifiers and technical event information may still constitute personal data.",
+        "Rejecting analytics prevents optional PostHog tracking and does not prevent using Tally. Change or withdraw your choice using Analytics Preferences in the footer. We store your preference locally; consented analytics may use browser storage to measure visits. The form is a separate enquiry service, not dependent on analytics consent. No advertising tags or Google Tag Manager are loaded. Fonts are self-hosted."
       ]
     },
     {
       "heading": "How long information is needed",
       "paragraphs": [
-        "Enquiry correspondence should be retained only while needed to respond, manage a potential or ongoing business relationship, or meet relevant legal and record-keeping obligations. The appropriate period depends on whether the enquiry progresses into an engagement and whether a legal requirement applies. Contact us to ask about the retention criteria for your correspondence."
+        "Enquiries and related correspondence should be kept only while needed to respond, manage a potential or ongoing business relationship, or meet relevant legal obligations. Retention and deletion criteria depend on the enquiry and whether it progresses into an engagement. Contact us to ask about your records or request deletion; we have not published a fixed retention period. Analytics retention is governed by the configured PostHog project settings."
       ]
     },
     {

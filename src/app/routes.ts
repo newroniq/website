@@ -1,3 +1,8 @@
+import { AdvisoryPage } from '../pages/AdvisoryPage';
+import { ProductsPage } from '../pages/ProductsPage';
+import { DoptimiserPage } from '../pages/DoptimiserPage';
+import { AboutPage } from '../pages/AboutPage';
+import { AcademyPage } from '../pages/AcademyPage';
 import { PrivacyPage } from '../pages/PrivacyPage';
 import { HomePage } from '../pages/HomePage';
 import { ContactPage } from '../pages/ContactPage';
@@ -9,6 +14,11 @@ import { PaperJavaPage } from '../pages/PaperJavaPage';
 import { PaperRetailPage } from '../pages/PaperRetailPage';
 export const routes = [
   { path: '/', key: 'home', Component: HomePage },
+  { path: '/services/', key: 'services', Component: AdvisoryPage },
+  { path: '/products/', key: 'products', Component: ProductsPage },
+  { path: '/doptimiser/', key: 'doptimiser', Component: DoptimiserPage },
+  { path: '/about/', key: 'about', Component: AboutPage },
+  { path: '/academy/', key: 'academy', Component: AcademyPage },
   { path: '/privacy/', key: 'privacy', Component: PrivacyPage },
   { path: '/contact/', key: 'contact', Component: ContactPage },
   { path: '/stylepulse/', key: 'stylepulse', Component: StylepulsePage },

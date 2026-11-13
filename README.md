@@ -1,81 +1,51 @@
 # NEWRONIQ website
 
-NEWRONIQ LTD’s engineering-led consultancy website: enterprise architecture, cloud software, practical AI and digital experience engineering. Consulting is the primary offering; StylePulse and IQPublish are secondary product initiatives seeking expressions of interest.
+NEWRONIQ LTD is an independent UK-based **Enterprise AI Strategy, Architecture & Cloud Advisory** consultancy. This website presents four advisory engagements and the Enterprise AI Transformation Blueprint. DOptimiser, IQPublish, StylePulse and Academy remain secondary offerings.
 
-The application uses React, strict TypeScript and Vite. Every public page is pre-rendered as a static HTML document and hydrated for navigation and form behaviour. Deploy only `dist/` to GitHub Pages. No application server, API, database or SPA rewrite is required.
+The existing React, strict TypeScript, Vite, Tailwind and Zod stack is retained. Marketing pages are prerendered to static HTML and hydrated for interactive controls. Deploy **only `dist/`** to GitHub Pages. No backend, framework migration or SPA rewrite is needed.
 
-## Local development
+## Brand hierarchy
 
-Use Node **24 LTS** and npm. Dependencies are locked in `package-lock.json`.
+- Wordmark: **NEWRONIQ**, with NEWRON in black and IQ in red.
+- Company tagline: **Think Bold. Build Reality.**, rendered from `site.tagline` beneath the footer wordmark.
+- Specialisation: **Enterprise AI Strategy, Architecture & Cloud Advisory**.
+- Homepage marketing headline: **From AI Ambition to Enterprise Reality.** This is separate from the company tagline.
+- **Making Enterprise AI Work in the Real World.** is supporting consultancy copy.
+
+## Development
+
+Use Node 24 LTS and the committed npm lockfile.
 
 ```sh
 npm ci
 npm run dev
-```
-
-For the production build:
-
-```sh
 npm run build
 npm run preview
 ```
 
-Vite preview may use an HTML fallback. For exact static routing and 404 behaviour, run `node --import tsx scripts/serve-static.ts` after building, then visit `http://127.0.0.1:4173/`.
+For exact static routing and 404 behavior, run `node --import tsx scripts/serve-static.ts` after building and visit `http://127.0.0.1:4173/`.
 
-## Architecture and content
+## Content and structure
 
-- `src/app/` defines the shared shell and explicit public routes. Native links preserve history, direct access and refresh on static hosting.
-- `src/components/` contains the shared header/footer, contact form, service grid, insight cards, product template and section headings.
-- `src/pages/` composes page layouts. Existing product and article routes are retained; `/privacy/` is also pre-rendered.
-- `src/content/` owns business copy and metadata. `src/lib/content/` parses it with Zod; invalid content fails the build.
-- `src/lib/contact.ts` creates contextual contact URLs and encoded email drafts from a validated inquiry registry.
-- `src/styles/` retains the deep-red/neutral palette and locally compiled Tailwind utilities with shared typography, buttons, cards and form styles. Inter is self-hosted under `public/fonts/`, including its OFL licence.
-- `scripts/` validates content, pre-renders documents, checks static links/assets and serves the production files for browser tests.
+- `src/content/` contains business copy and metadata; `src/lib/content/` validates it with Zod. Invalid content fails the build.
+- `advisory.json` owns the four advisory services, shared Blueprint, expertise and advisory questions. `home.json` owns homepage sections.
+- `products.json` owns three initiatives with individual status and planned capability descriptions. `research.json` retains the three published articles; authors and dates remain optional and must be genuine.
+- `site.json` owns the wordmark, navigation, verified company details and public email. `pages.json` owns contact, about and Academy copy; `privacy.json` owns the privacy notice.
+- `src/app/routes.ts` defines public routes. Existing `/whitepapers/` and article URLs remain; new routes are `/services/`, `/products/`, `/doptimiser/`, `/about/` and `/academy/`.
+- `src/lib/analytics.ts` is the single analytics gateway. `src/lib/tally.ts` handles form links and message validation. Components never send form answers to analytics.
+- `scripts/prerender.tsx` generates route-specific HTML, metadata, canonical URLs, JSON-LD, robots, sitemap and the static 404. Fonts remain self-hosted under `public/fonts/` with their licence.
 
-| Content file     | Edit here                                                                                                               |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `site.json`      | Brand, official email, navigation/footer, verified company disclosures, form labels and tracking settings               |
-| `home.json`      | Hero, outcomes, services, About/Why NEWRONIQ, engagement approach, insights introduction, product summary and final CTA |
-| `inquiries.json` | Seven inquiry choices, stable IDs, categories, product names and email subjects                                         |
-| `products.json`  | Product concepts, intended value, current status and interest CTAs                                                      |
-| `research.json`  | Insight cards, complete article introductions/sections, source references and optional verified attribution             |
-| `privacy.json`   | Privacy notice and its review date; confirm actual business practices before publication                                |
-| `pages.json`     | Contact page copy                                                                                                       |
-| `seo.json`       | Unique titles/descriptions, reused for Open Graph and Twitter metadata                                                  |
+Copy `.env.example` to `.env.local` for optional integrations. These are **public browser build settings**, not secret credentials:
 
-Paths in this table are relative to `src/content/`. Edit JSON, then run content validation and a production build. Do not put HTML into content strings: React renders them as text. Editorial ordering follows array order. Service titles come from the inquiry registry, so card headings and contact choices stay aligned.
-
-To add a structurally new section, define its content/schema and compose a small semantic component using existing styles. To add a page, register its trailing-slash route and metadata/schema, add appropriate navigation and browser coverage. The static renderer and sitemap discover registered routes automatically. New inquiry types must have a unique validated ID and explicit subject; update the ID schema when deliberately expanding the registry.
-
-Insight authors and publication dates are optional. Add them only when verified; Git commit dates are not treated as publication dates. Supporting links should point to authoritative publishers. Existing `/whitepapers/` URLs remain supported while the presentation uses “Insights”.
-
-The shared wordmark uses `site.json`’s `wordmark` segments: NEWRON in black and IQ in deep red (`#A12027`). The browser favicon is an IQ monogram on white in `public/favicon.svg`; its lettering uses vector paths without a font dependency. Vite inserts the configured favicon in both development and production HTML with the deployment base path.
-
-## Contact and product interest
-
-The official email is configured once as **info@newroniq.com**. Visible contact links, form recipient, footer, privacy contact and Organization structured data use that value.
-
-There is **no approved direct-submission endpoint**. The form prepares a local email draft; the visitor must review and send it in their email application. The interface never claims submission or registration on a server. Name and business email are required; organisation and message are optional. Form entries are not placed in page URLs or saved to browser storage.
-
-Examples:
-
-```text
-/contact/?inquiry=stylepulse
-/contact/?inquiry=iqpublish
-/contact/?inquiry=architecture
+```dotenv
+VITE_PUBLIC_TALLY_FORM_ID=
+VITE_PUBLIC_POSTHOG_KEY=
+VITE_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
 ```
 
-Only registered inquiry IDs are accepted; unknown values safely select General Inquiry. Product selections show specific context, survive refresh via the URL, and produce subjects such as `Product Interest — StylePulse`. Query parameters contain the inquiry category only, not personal information. Without JavaScript, visitors can choose the inquiry manually or use the visible email address and native mailto fallback.
+The application stays usable without these settings: the Contact page offers the public email and analytics remains inactive. A configured Tally form works independently of analytics consent. A build must be repeated after changing public variables. Vite and the prerender script both load the same public configuration.
 
-Email-client configuration, supported draft length and actual delivery are outside the website’s control. Test the `info@newroniq.com` mailbox and a real mail-client handoff before publication. A reliable approved submission integration remains an optional future dependency; do not add credentials, paid providers or false success states.
-
-## Privacy and company disclosures
-
-The footer uses NEWRONIQ LTD’s public [Companies House record](https://find-and-update.company-information.service.gov.uk/company/17181252): company number **17181252**, registered in England and Wales, registered office **11 Crusader Gardens, Croydon, England, CR0 5UJ**. Recheck the register if the company changes its details. Confirm whether a VAT disclosure or any other business-specific disclosure applies; none has been invented.
-
-GTM’s identifier is retained, but **analytics is disabled** and no GTM script or noscript iframe is emitted. Validation prevents enabling it accidentally. There is no consent banner because the application currently loads no analytics/advertising tags or tracking storage. Before introducing tracking, review the container, purposes, recipients and applicable consent/objection requirements; implement the appropriate controls and update the notice before changing this guard.
-
-The privacy notice describes the implemented website behaviour. The owner must still confirm the email provider, enquiry retention policy/criteria, recipients, international-transfer arrangements and applicable lawful bases. The notice is not a legal-compliance certification. See [commercial readiness and verification](docs/COMMERCIAL-READINESS.md) for source checks and remaining owner decisions.
+See [integration setup](docs/INTEGRATIONS.md) for the exact form, notifications, consent behavior and PostHog dashboard instructions. See [transformation verification](docs/TRANSFORMATION.md) for actual checks and outstanding manual work.
 
 ## Quality checks
 
@@ -87,59 +57,40 @@ npm run validate:content
 npm test
 npm run build
 npm run test:smoke
-npx playwright install chromium
-npm run test:e2e
+PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright npx playwright install chromium
+PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright npm run test:e2e
 ```
 
-`npm run format` applies Prettier. To keep Chromium in the repository cache, prefix both install and test commands with `PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright`. On Linux, use `npx playwright install --with-deps chromium` if system browser dependencies are missing.
+Browser tests use the unconfigured production build and no real analytics or submission endpoints. SDK calls and configured Tally success messages are mocked in focused unit tests. They do not prove receipt in a live account. The provider integration suite intentionally skips ordinary builds: it requires fake form/project settings and intercepted HTTPS requests. CI runs that suite separately; see the isolated browser checks in `docs/INTEGRATIONS.md`.
 
-Browser checks cover 320, 375, 390, 768 and 1440px widths: every public page, real static refresh/404 behaviour, assets/fonts, no unexpected external requests or console errors, keyboard navigation, product/service inquiry context, encoded draft contents, privacy/disclosures, JavaScript-disabled primary content and axe WCAG A/AA rules. Automated checks supplement human accessibility and mail-client review.
-
-### Visual references
-
-Committed HTML/CSS references in `tests/fixtures/visual/` are independent of normal builds and tests. Both the reference and current page render in the same browser using self-hosted Inter. Checks require identical page dimensions and less than 0.2% changed pixels at a 0.2 colour threshold. There are no masked form or footer regions.
-
-After an intentional design/content change, first review screenshots of the actual pages at the supported widths. Then run:
+Playwright covers 320, 375, 390, 768 and 1440px widths, static refresh and 404 behavior, keyboard navigation, WCAG A/AA axe checks, product context, privacy preferences, assets and console errors. Review screenshots before updating committed visual references:
 
 ```sh
 npm run test:visual:update
 npm run test:e2e
 ```
 
-Review the changed reference files and screenshots before committing them. Reference updates are blocked in CI. `test-results/` contains reference/actual PNGs; `npm run test:e2e -- --reporter=html` followed by `npx playwright show-report` exposes image diffs. Historical pre-migration HTML is archived under `docs/baseline/` and is not the current visual target.
+Reference updates are prohibited in CI. Keep existing comparison tolerances; never adjust them to hide an unintended regression. Historical migration documents under `docs/` describe prior versions.
 
 ## GitHub Pages deployment
 
-Deployment configuration and the custom domain remain unchanged. Nothing in this refinement pushes, merges or deploys automatically from the local workspace.
+No changes are published automatically by local commands. Review changes and finish live integration checks before merging.
 
-1. Review changes and complete the owner checks above.
-2. In **Settings → Pages → Build and deployment**, select **GitHub Actions**, retaining **www.newroniq.com** as the custom domain and the existing DNS.
-3. With owner approval, merge the reviewed changes into **master**. The deployment workflow runs the reusable validation workflow, then rebuilds the same commit and deploys `dist/` using the official Pages artifact/deployment actions.
-4. Confirm the `validate` and `deploy` jobs succeed, then check the live homepage, privacy page and both product-interest journeys. Enable **Enforce HTTPS** when GitHub makes it available.
+1. In the GitHub repository, set **Pages → Build and deployment → GitHub Actions**. Retain the existing `www.newroniq.com` domain and DNS.
+2. Add the three public settings as repository Actions **variables**, matching `.env.example`. The deploy build reads them; validation builds intentionally omit live integration settings.
+3. Review the change, run the quality checks and configure the live Tally/PostHog projects. With owner approval, merge to `master`.
+4. The existing workflow validates the commit, builds `dist/` and deploys through official GitHub Pages artifact actions. It also supports manual dispatch on `master`.
+5. Verify HTTPS, navigation, metadata, real Tally receipt and notification email, consent rejection, accepted events and analytics withdrawal on the published site.
 
-Publishing the repository root serves the uncompiled Vite source shell and can produce a blank page. Do not switch to branch-root publishing or commit `dist/`. CNAME and site URL configuration do not replace the production build. PRs validate but do not deploy; manual deployment is gated to master. No personal access token is needed.
+Root `CNAME` and `public/CNAME` retain the custom domain. `_config.yml` is historical and bypassed by the Actions build. Do not publish the uncompiled repository root or commit `dist/`.
 
-### Base paths and domains
-
-The default build targets `https://www.newroniq.com/`. Root `CNAME` and `public/CNAME` match; `_config.yml` remains historical and is bypassed by the Actions deployment.
-
-For project Pages validation:
+Project Pages compatibility:
 
 ```sh
 SITE_BASE_PATH=/website/ SITE_URL=https://newroniq.github.io/website/ npm run build
 SITE_BASE_PATH=/website/ npm run test:smoke
 SITE_BASE_PATH=/website/ SITE_URL=https://newroniq.github.io/website/ npm run test:e2e -- project-path
+npm run build
 ```
 
-The build prefixes assets, fonts, links and product-interest URLs; writes matching canonical/sitemap URLs; and omits CNAME for the project build. `SITE_BASE_PATH` must start/end with `/`, and the HTTPS `SITE_URL` pathname must match it exactly. Afterwards run `npm run build` to restore the custom-domain output. No environment variables are required for normal deployment, so no `.env.example` is needed.
-
-## Troubleshooting
-
-- Blank live page or `/src/main.tsx` in delivered HTML: Pages is serving source rather than `dist/`; check the publishing source and deployment job.
-- Missing assets/deep links: publish the entire production directory with the correct base. Use the strict static server to check real HTTP 404s.
-- Content errors: fix the reported JSON path/schema instead of bypassing validation. Copy changes ordinarily need no component edit.
-- Visual failures: inspect screenshots and geometry before accepting a new reference. Do not increase tolerances to conceal a regression.
-- Draft does not open: configure an email application or use the visible address in webmail. The site cannot verify that an email was sent.
-- Privacy or disclosure changes: update the central company/contact configuration and notice, then review actual business practices before publishing.
-
-The original [migration inventory](docs/MIGRATION.md) and [historical verification](docs/VERIFICATION.md) are retained for context. The [commercial readiness report](docs/COMMERCIAL-READINESS.md) describes this refinement and its actual checks.
+The last command restores custom-domain output. The build prefixes links/assets and generates matching canonicals/sitemap URLs; project builds omit CNAME. `SITE_BASE_PATH` must start and end with `/` and match the HTTPS `SITE_URL` pathname.

@@ -1,3 +1,6 @@
+import { advisory, advisorySchema } from '../lib/content/advisory';
+import { tallyUrl } from '../lib/tally';
+import { structuredData } from '../lib/structured-data';
 import { describe, it, expect } from 'vitest';
 import { site, siteSchema } from '../lib/content';
 import { home, homeSchema } from '../lib/content/home';
@@ -9,10 +12,10 @@ import {
 } from '../lib/content/inquiries';
 import { products, productsSchema } from '../lib/content/products';
 import { research, researchSchema } from '../lib/content/research';
-import { createInquiryEmail, contactHref } from '../lib/contact';
+import { contactHref } from '../lib/contact';
 import { normalizeBase, url } from '../lib/urls';
 describe('content and inquiry contracts', () => {
-  it('rejects invalid copy, unsafe links and enabling unaudited tracking', () => {
+  it('rejects invalid copy and unsafe links', () => {
     expect(siteSchema.safeParse({ ...site, email: 'invalid' }).success).toBe(
       false,
     );
@@ -24,29 +27,30 @@ describe('content and inquiry contracts', () => {
       }).success,
     ).toBe(false);
     expect(
-      siteSchema.safeParse({ ...site, analyticsEnabled: true }).success,
-    ).toBe(false);
-    expect(
       seoSchema.safeParse({ ...seo, privacy: { title: '', description: 'x' } })
         .success,
     ).toBe(false);
   });
-  it('validates services, all seven inquiry choices and distinct product concepts', () => {
-    expect(homeSchema.safeParse({ ...home, capabilities: [] }).success).toBe(
-      false,
-    );
+  it('requires the advisory services, nine inquiry choices and three distinct products', () => {
     expect(
       homeSchema.safeParse({
         ...home,
-        outcomes: { ...home.outcomes, items: [{ title: 'Incomplete' }] },
+        challenge: { ...home.challenge, items: [] },
       }).success,
     ).toBe(false);
-    expect(home.capabilities.map((item) => item.inquiryId)).toEqual([
-      'architecture',
-      'engineering',
-      'automation',
-      'experience',
-    ]);
+    expect(
+      advisorySchema.safeParse({
+        ...advisory,
+        services: advisory.services.slice(1),
+      }).success,
+    ).toBe(false);
+    expect(
+      advisorySchema.safeParse({
+        ...advisory,
+        services: advisory.services.map(() => advisory.services[0]),
+      }).success,
+    ).toBe(false);
+    expect(inquiries).toHaveLength(9);
     expect(inquiriesSchema.safeParse(inquiries.slice(0, 4)).success).toBe(
       false,
     );
@@ -56,32 +60,98 @@ describe('content and inquiry contracts', () => {
     expect(
       productsSchema.safeParse({
         ...products,
-        products: [products.products[0], products.products[0]],
+        products: products.products.map(() => products.products[0]),
       }).success,
     ).toBe(false);
     expect(getInquiry('untrusted')).toEqual(getInquiry('general'));
+    expect(getInquiry('engineering').id).toBe('implementation');
+    expect(getInquiry('automation').id).toBe('strategy');
+    expect(getInquiry('__proto__').id).toBe('general');
   });
-  it('encodes a truthful product-interest draft with optional organisation and no URL injection', () => {
-    const draft = createInquiryEmail({
-      id: 'stylepulse',
-      name: 'A & B',
-      email: 'person@example.com',
-      organisation: 'Example Ltd',
-      message: 'Can we discuss a pilot? & next steps',
-    });
-    expect(draft).not.toContain('+');
-    expect(draft).toContain('%0D%0A');
-    const parsed = new URL(draft);
-    expect(parsed.pathname).toBe('info@newroniq.com');
-    expect(parsed.searchParams.get('subject')).toBe(
-      'Product Interest — StylePulse',
-    );
-    expect(parsed.searchParams.get('body')).toContain('A & B');
-    expect(parsed.searchParams.get('body')).toContain('Example Ltd');
-    expect(parsed.searchParams.get('body')).toContain(
-      'Can we discuss a pilot? & next steps',
-    );
+  it('passes only the allowlisted interest category to Tally', () => {
     expect(contactHref('iqpublish')).toBe('/contact/?inquiry=iqpublish');
+    const form = new URL(
+      tallyUrl('testForm', '<script>invalid</script>', true),
+    );
+    expect(form.origin).toBe('https://tally.so');
+    expect(form.searchParams.get('interest_context')).toBe('general');
+    expect([...form.searchParams.keys()]).toEqual([
+      'interest_context',
+      'interest_label',
+      'alignLeft',
+      'hideTitle',
+      'transparentBackground',
+    ]);
+  });
+  it('requires every existing article exactly once', () => {
+    expect(
+      researchSchema.safeParse({
+        ...research,
+        papers: research.papers.slice(1),
+      }).success,
+    ).toBe(false);
+    expect(
+      researchSchema.safeParse({
+        ...research,
+        papers: research.papers.map(() => research.papers[0]),
+      }).success,
+    ).toBe(false);
+    expect(
+      researchSchema.safeParse({
+        ...research,
+        papers: [
+          { ...research.papers[0], id: 'unknown' },
+          ...research.papers.slice(1),
+        ],
+      }).success,
+    ).toBe(false);
+  });
+  it('builds structured data from visible facts without invented publication metadata', () => {
+    const graph = structuredData(
+      '/whitepapers/paper-aec/',
+      new URL(site.url),
+      'Architecture',
+    )['@graph'];
+    const article = graph.find((item) => item['@type'] === 'Article');
+    expect(article?.headline).toBe(research.papers[0].title);
+    expect(article).not.toHaveProperty('datePublished');
+    expect(article).not.toHaveProperty('author');
+    const serviceGraph = structuredData(
+      '/services/',
+      new URL('https://example.com/website/'),
+      'Services',
+    )['@graph'];
+    expect(
+      serviceGraph.filter((item) => item['@type'] === 'Service'),
+    ).toHaveLength(4);
+    expect(JSON.stringify(serviceGraph)).toContain(
+      'https://example.com/website/services/#strategy',
+    );
+  });
+  it('builds accurate breadcrumbs for articles, products and ordinary pages', () => {
+    const base = new URL('https://example.com/website/');
+    const breadcrumbNames = (path: string, title: string) => {
+      const node = structuredData(path, base, title)['@graph'].find(
+        (item) => item['@type'] === 'BreadcrumbList',
+      );
+      return (
+        node?.itemListElement as { name: string; item: string }[] | undefined
+      )?.map((item) => item.name);
+    };
+    expect(breadcrumbNames('/doptimiser/', 'DOptimiser | NEWRONIQ')).toEqual([
+      'Home',
+      'Products',
+      'DOptimiser',
+    ]);
+    expect(
+      breadcrumbNames('/whitepapers/paper-aec/', 'Article | NEWRONIQ'),
+    ).toEqual(['Home', 'Insights', research.papers[0].title]);
+    expect(breadcrumbNames('/contact/', 'Contact | NEWRONIQ')).toEqual([
+      'Home',
+      'Contact',
+    ]);
+    expect(breadcrumbNames('/', 'Home')).toBeUndefined();
+    expect(breadcrumbNames('/404.html', 'Missing')).toBeUndefined();
   });
   it('supports optional editorial attribution without inventing it', () => {
     expect(

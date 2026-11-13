@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const paths = [
   '/',
+  '/services/',
+  '/products/',
+  '/doptimiser/',
+  '/about/',
+  '/academy/',
   '/stylepulse/',
   '/iqpublish/',
   '/contact/',
@@ -63,7 +68,7 @@ test('navigation, service context, insights and keyboard menu work', async ({
   page,
 }) => {
   await page.goto('/');
-  const mobile = (page.viewportSize()?.width ?? 1440) < 768;
+  const mobile = (page.viewportSize()?.width ?? 1440) < 1024;
   if (mobile) {
     const menu = page.getByRole('button', { name: 'Menu' });
     await menu.click();
@@ -76,15 +81,21 @@ test('navigation, service context, insights and keyboard menu work', async ({
     name: mobile ? 'Mobile' : 'Main',
     exact: true,
   });
-  await nav.getByRole('link', { name: 'Services' }).click();
-  await expect(page).toHaveURL(/#services$/);
+  await nav.getByRole('link', { name: 'AI Advisory' }).click();
+  await expect(page).toHaveURL(/\/services\/$/);
   await page
-    .getByRole('link', { name: 'Discuss your architecture priorities' })
+    .locator('#architecture')
+    .getByRole('link', { name: 'Request an AI Advisory Consultation' })
     .click();
-  await expect(page.getByRole('combobox')).toHaveValue('architecture');
+  await expect(page.getByRole('note')).toContainText(
+    'Enterprise AI Architecture Advisory',
+  );
   await page.goto('/');
-  await page.getByRole('link', { name: 'Explore Our Services' }).click();
-  await expect(page).toHaveURL(/#services$/);
+  await page
+    .getByRole('link', { name: 'Explore Our Advisory Services' })
+    .click();
+  await expect(page).toHaveURL(/\/services\/$/);
+  await page.goto('/');
   await page
     .locator('#insights')
     .getByRole('link', { name: /Read the insight: Modernise/ })
@@ -95,69 +106,92 @@ test('navigation, service context, insights and keyboard menu work', async ({
   await page.getByRole('link', { name: /All Insights/ }).click();
   await expect(page).toHaveURL(/\/whitepapers\/$/);
 });
-for (const [id, name] of [
-  ['stylepulse', 'StylePulse'],
-  ['iqpublish', 'IQPublish'],
+for (const [id, name, status] of [
+  ['doptimiser', 'DOptimiser', 'In Development'],
+  ['stylepulse', 'StylePulse', 'Concept / Customer Discovery'],
+  ['iqpublish', 'IQPublish', 'Concept / Customer Discovery'],
 ])
   test(`identifiable product interest: ${name}`, async ({ page }) => {
     await page.goto(`/${id}/`);
     await expect(
-      page.getByRole('heading', { name: 'Exploring customer needs' }),
+      page.getByRole('heading', { name: status, exact: true }),
     ).toBeVisible();
     await page
-      .getByRole('link', { name: `I’m Interested in ${name}` })
+      .getByRole('link', { name: 'Register Interest', exact: true })
       .first()
       .click();
     await expect(page).toHaveURL(new RegExp(`/contact/\\?inquiry=${id}$`));
-    await expect(page.getByRole('combobox')).toHaveValue(id);
-    await expect(page.getByRole('note')).toContainText(`interest in ${name}`);
+    await expect(page.getByRole('note')).toContainText(name);
     await page.reload();
-    await expect(page.getByRole('combobox')).toHaveValue(id);
-    await page.getByRole('button', { name: 'Prepare email draft' }).click();
-    expect(
-      await page
-        .locator('form')
-        .evaluate((form: HTMLFormElement) => form.checkValidity()),
-    ).toBe(false);
-    await page.getByLabel('Name', { exact: true }).fill('Test Person');
-    await page
-      .getByLabel('Business email', { exact: true })
-      .fill('test@example.com');
-    await page
-      .getByLabel('Organisation (optional)', { exact: true })
-      .fill('Example & Co');
-    await page
-      .getByLabel('Short message (optional)', { exact: true })
-      .fill('A practical pilot? & next steps');
-    await page.getByRole('button', { name: 'Prepare email draft' }).click();
-    await expect(page.getByRole('status')).toContainText(
-      'not been registered or sent',
-    );
-    const draft = new URL(
-      (await page
-        .getByRole('link', { name: 'Open prepared email draft' })
-        .getAttribute('href'))!,
-    );
-    expect(draft.pathname).toBe('info@newroniq.com');
-    expect(draft.searchParams.get('subject')).toBe(
-      `Product Interest — ${name}`,
-    );
-    expect(draft.searchParams.get('body')).toContain('Example & Co');
-    expect(draft.searchParams.get('body')).toContain(
-      'A practical pilot? & next steps',
-    );
-    expect(
-      await page.evaluate(() => localStorage.length + sessionStorage.length),
-    ).toBe(0);
-    expect(page.url()).not.toContain('test@example.com');
+    await expect(page.getByRole('note')).toContainText(name);
+    await expect(
+      page.getByText('Our enquiry form is not available here yet.', {
+        exact: false,
+      }),
+    ).toBeVisible();
+    await expect(page.getByRole('status')).toBeEmpty();
+    await expect(
+      page.getByRole('button', { name: 'Prepare email draft' }),
+    ).toHaveCount(0);
   });
-test('unknown inquiry input falls back safely and all seven choices remain available', async ({
+test('unknown inquiry input falls back safely', async ({ page }) => {
+  await page.goto('/contact/?inquiry=%3Cscript%3Ealert(1)');
+  await expect(page.getByRole('note')).toHaveCount(0);
+  await expect(page.locator('h1')).toHaveText(
+    "Let's Discuss Your AI Initiative",
+  );
+});
+test('analytics preferences remain accessible and rejection sends no external requests', async ({
   page,
 }) => {
-  await page.goto('/contact/?inquiry=%3Cscript%3Ealert(1)');
-  await expect(page.getByRole('combobox')).toHaveValue('general');
-  await expect(page.getByRole('option')).toHaveCount(7);
-  await expect(page.getByRole('note')).toHaveCount(0);
+  const external: string[] = [];
+  page.on('request', (request) => {
+    if (!request.url().startsWith('http://127.0.0.1:4173/'))
+      external.push(request.url());
+  });
+  await page.goto('/');
+  await page
+    .getByRole('button', { name: 'Analytics Preferences', exact: true })
+    .click();
+  await expect(
+    page.getByRole('heading', { name: 'Optional analytics' }),
+  ).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Reject analytics', exact: true })
+    .click();
+  expect(
+    await page.evaluate(() => localStorage.getItem('newroniq.analytics.v1')),
+  ).toBe('rejected');
+  await page.reload();
+  await page
+    .getByRole('button', { name: 'Analytics Preferences', exact: true })
+    .click();
+  await expect(page.getByText('Current preference: rejected.')).toBeVisible();
+  expect(external).toEqual([]);
+});
+test('preferences retain keyboard dismissal and reduced motion needs no overrides', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const trigger = page.getByRole('button', {
+    name: 'Analytics Preferences',
+    exact: true,
+  });
+  await trigger.click();
+  await expect(
+    page.getByRole('region', { name: 'Optional analytics' }),
+  ).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(
+    page.getByRole('region', { name: 'Optional analytics' }),
+  ).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+  const action = page.locator('.button-primary').first();
+  await expect(action).toHaveCSS('transition-duration', '0s');
+  await expect(page.locator('html')).toHaveCSS('scroll-behavior', 'auto');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await expect(action).toHaveCSS('transition-duration', '0.2s, 0.2s');
+  await expect(page.locator('html')).toHaveCSS('scroll-behavior', 'smooth');
 });
 test('privacy and verified disclosures are accessible', async ({ page }) => {
   await page.goto('/');
@@ -204,7 +238,9 @@ test('brand wordmarks and favicon retain accessible identity and brand colours',
   request,
 }) => {
   await page.goto('/');
-  const wordmarks = page.getByRole('img', { name: 'NEWRONIQ', exact: true });
+  const wordmarks = page
+    .locator('header, footer')
+    .getByText('NEWRONIQ', { exact: true });
   await expect(wordmarks).toHaveCount(2);
   for (const wordmark of await wordmarks.all()) {
     await expect(wordmark.locator('span').nth(0)).toHaveText('NEWRON');
@@ -221,6 +257,21 @@ test('brand wordmarks and favicon retain accessible identity and brand colours',
   await expect(
     page.locator('header').getByRole('link', { name: 'NEWRONIQ', exact: true }),
   ).toHaveAttribute('href', '/');
+  const footer = page.getByRole('contentinfo');
+  await expect(
+    footer.getByText('Think Bold. Build Reality.', { exact: true }),
+  ).toHaveCount(1);
+  await expect(
+    footer
+      .getByText('NEWRONIQ', { exact: true })
+      .locator('xpath=parent::p/following-sibling::*[1]'),
+  ).toHaveText('Think Bold. Build Reality.');
+  await expect(page.locator('h1')).toHaveText(
+    'From AI Ambition to Enterprise Reality.',
+  );
+  await expect(footer).not.toContainText(
+    'From AI Ambition to Enterprise Reality.',
+  );
   const icons = page.locator('link[rel="icon"]');
   await expect(icons).toHaveCount(1);
   const icon = await request.get((await icons.getAttribute('href'))!);

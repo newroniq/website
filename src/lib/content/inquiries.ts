@@ -7,7 +7,6 @@ export const inquiriesSchema = z
       id: inquiryIdSchema,
       kind: z.enum(['service', 'product', 'general']),
       label: text,
-      subject: text,
       productName: text.optional(),
     }),
   )
@@ -31,8 +30,15 @@ export const inquiriesSchema = z
 export const inquiries = inquiriesSchema.parse(data);
 export type InquiryId = z.infer<typeof inquiryIdSchema>;
 export function getInquiry(id: unknown) {
+  const aliases: Record<string, InquiryId> = {
+    engineering: 'implementation',
+    automation: 'strategy',
+    experience: 'architecture',
+  };
+  const resolved =
+    typeof id === 'string' && Object.hasOwn(aliases, id) ? aliases[id] : id;
   return (
-    inquiries.find((item) => item.id === id) ??
+    inquiries.find((item) => item.id === resolved) ??
     inquiries.find((item) => item.id === 'general')!
   );
 }

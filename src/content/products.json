@@ -1,7 +1,5 @@
 {
   "eyebrow": "Product initiative",
-  "status": "Exploring customer needs",
-  "statusDescription": "We’re discussing requirements with potential customers. Features, availability and suitability will depend on what we learn; a generally available platform is not being offered.",
   "backLabel": "All product initiatives",
   "problemLabel": "The business problem",
   "directionLabel": "What we’re exploring",
@@ -9,28 +7,31 @@
   "boundaryDescription": "Your requirements will help us prioritise the problems to address and decide how to take the initiative forward. We welcome a conversation about your needs before proposing any next steps.",
   "products": [
     {
-      "id": "stylepulse",
-      "name": "StylePulse",
-      "summary": "Fashion trend intelligence to support better-informed demand decisions.",
-      "description": "An initiative exploring how fashion brands and retailers could bring emerging trend signals into planning and merchandising conversations.",
-      "problem": "Trend signals are scattered across channels, while merchandising teams need context they can assess alongside sales, inventory and market knowledge.",
+      "id": "doptimiser",
+      "name": "DOptimiser",
+      "summary": "AI File & Document Intelligence",
+      "status": "In Development",
+      "statusDescription": "Planned capabilities are under development. Availability, suitability and pilot scope will depend on development progress and agreed requirements.",
+      "description": "An initiative developing AI-assisted file understanding, content-aware classification, semantic discovery and intelligent recommendations.",
+      "problem": "Disorganised enterprise file repositories make content difficult to discover. Inconsistent document classification and manual file analysis add effort and obscure useful information.",
       "directions": [
         {
-          "title": "Bring signals together",
-          "description": "Explore ways to organise relevant trend sources and make their provenance clear."
+          "title": "Content-aware classification",
+          "description": "Planned: use file content to suggest meaningful categories for human review."
         },
         {
-          "title": "Add business context",
-          "description": "Consider how emerging themes relate to a retailer’s categories, markets and planning decisions."
+          "title": "Semantic discovery",
+          "description": "Planned: help people discover relevant files by meaning and context, with appropriate access boundaries."
         },
         {
-          "title": "Support human judgement",
-          "description": "Help teams compare signals and discuss uncertainty rather than treat a prediction as a guarantee."
+          "title": "Intelligent recommendations",
+          "description": "Planned: suggest ways to organise and understand files while leaving consequential decisions with users."
         }
       ],
-      "interestTitle": "Interested in StylePulse?",
-      "interestDescription": "Exploring better ways to identify emerging fashion trends? Share your interest and let’s discuss your requirements.",
-      "interestAction": "I’m Interested in StylePulse"
+      "interestTitle": "Interested in DOptimiser?",
+      "interestDescription": "Tell us about your file and document challenges, or discuss the requirements for a potential pilot.",
+      "interestAction": "Register Interest",
+      "secondaryAction": "Discuss a Pilot"
     },
     {
       "id": "iqpublish",
@@ -54,7 +55,35 @@
       ],
       "interestTitle": "Interested in IQPublish?",
       "interestDescription": "Looking to simplify enterprise content operations and distribution? Tell us about your requirements.",
-      "interestAction": "I’m Interested in IQPublish"
+      "interestAction": "Register Interest",
+      "status": "Concept / Customer Discovery",
+      "statusDescription": "We are exploring customer needs. Features and availability are not confirmed; this is not a generally available product."
+    },
+    {
+      "id": "stylepulse",
+      "name": "StylePulse",
+      "summary": "Fashion trend intelligence to support better-informed demand decisions.",
+      "description": "An initiative exploring how fashion brands and retailers could bring emerging trend signals into planning and merchandising conversations.",
+      "problem": "Trend signals are scattered across channels, while merchandising teams need context they can assess alongside sales, inventory and market knowledge.",
+      "directions": [
+        {
+          "title": "Bring signals together",
+          "description": "Explore ways to organise relevant trend sources and make their provenance clear."
+        },
+        {
+          "title": "Add business context",
+          "description": "Consider how emerging themes relate to a retailer’s categories, markets and planning decisions."
+        },
+        {
+          "title": "Support human judgement",
+          "description": "Help teams compare signals and discuss uncertainty rather than treat a prediction as a guarantee."
+        }
+      ],
+      "interestTitle": "Interested in StylePulse?",
+      "interestDescription": "Exploring better ways to identify emerging fashion trends? Share your interest and let’s discuss your requirements.",
+      "interestAction": "Register Interest",
+      "status": "Concept / Customer Discovery",
+      "statusDescription": "We are exploring customer needs. Features and availability are not confirmed; this is not a generally available product."
     }
   ]
 }

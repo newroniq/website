@@ -5,7 +5,7 @@ export function ContactPage() {
   return (
     <main id="main-content">
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16">
           <div>
             <h1 className="hero-title mb-6">{copy.contact.heading}</h1>
             <p className="text-lg leading-relaxed text-gray-600 mb-8">

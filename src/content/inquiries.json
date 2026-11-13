@@ -1,46 +1,50 @@
 [
   {
+    "id": "strategy",
+    "kind": "service",
+    "label": "AI Strategy & Opportunity Assessment"
+  },
+  {
     "id": "architecture",
     "kind": "service",
-    "label": "Enterprise Architecture & Advisory",
-    "subject": "Consulting enquiry — Enterprise Architecture & Advisory"
+    "label": "Enterprise AI Architecture Advisory"
   },
   {
-    "id": "engineering",
+    "id": "security",
     "kind": "service",
-    "label": "Cloud & Software Engineering",
-    "subject": "Consulting enquiry — Cloud & Software Engineering"
+    "label": "AI Security & Cloud Readiness"
   },
   {
-    "id": "automation",
+    "id": "roadmap",
     "kind": "service",
-    "label": "AI, Data & Intelligent Automation",
-    "subject": "Consulting enquiry — AI, Data & Intelligent Automation"
+    "label": "AI Transformation Roadmap"
   },
   {
-    "id": "experience",
+    "id": "implementation",
     "kind": "service",
-    "label": "Digital Experience Engineering",
-    "subject": "Consulting enquiry — Digital Experience Engineering"
+    "label": "Enterprise AI Implementation Support"
   },
   {
-    "id": "stylepulse",
+    "id": "doptimiser",
     "kind": "product",
-    "label": "StylePulse — Product Interest",
-    "subject": "Product Interest — StylePulse",
-    "productName": "StylePulse"
+    "label": "DOptimiser",
+    "productName": "DOptimiser"
   },
   {
     "id": "iqpublish",
     "kind": "product",
-    "label": "IQPublish — Product Interest",
-    "subject": "Product Interest — IQPublish",
+    "label": "IQPublish",
     "productName": "IQPublish"
+  },
+  {
+    "id": "stylepulse",
+    "kind": "product",
+    "label": "StylePulse",
+    "productName": "StylePulse"
   },
   {
     "id": "general",
     "kind": "general",
-    "label": "General Inquiry",
-    "subject": "General Inquiry — NEWRONIQ"
+    "label": "General Enquiry"
   }
 ]
