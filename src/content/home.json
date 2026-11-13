@@ -1,157 +1,46 @@
 {
   "hero": {
-    "title": "Engineering technology that delivers",
-    "highlight": "measurable business value.",
-    "description": "We help organisations modernise enterprise platforms, build reliable software and apply AI where it creates practical value — improving efficiency, strengthening resilience and enabling growth.",
-    "primaryAction": {
-      "label": "Discuss Your Challenge",
-      "href": "/contact/"
-    },
+    "eyebrow": "Think Bold. Build Reality.",
+    "title": "Enterprise AI",
+    "highlight": "Strategy & Architecture",
+    "description": "We help organisations assess AI opportunities, design secure cloud architectures and develop practical roadmaps for implementation.",
+    "primaryAction": "Discuss Your AI Initiative",
     "secondaryAction": {
       "label": "Explore Our Services",
-      "href": "/#services"
+      "href": "/services/"
     }
-  },
-  "outcomes": {
-    "eyebrow": "Business outcomes",
-    "title": "Technology decisions. Business priorities.",
-    "description": "Start with the outcome that matters to your organisation. Agree how to measure progress before committing to a solution.",
-    "items": [
-      {
-        "title": "Revenue Growth",
-        "points": [
-          "Enhance digital customer experiences and engagement.",
-          "Enable new business capabilities through modern technology."
-        ]
-      },
-      {
-        "title": "Cost Efficiency",
-        "points": [
-          "Modernise complex applications and integrations.",
-          "Reduce operational effort through intelligent automation."
-        ]
-      },
-      {
-        "title": "Risk & Resilience",
-        "points": [
-          "Improve security, reliability and operational control.",
-          "Establish sustainable architecture and engineering practices."
-        ]
-      }
-    ]
   },
   "services": {
-    "eyebrow": "Core services",
-    "title": "From a clear direction to working software.",
-    "description": "Focused advisory and engineering support for the decisions, platforms and systems your business depends on."
-  },
-  "capabilities": [
-    {
-      "inquiryId": "architecture",
-      "category": "Architecture",
-      "description": "Align technology investment with business priorities through enterprise architecture, modernisation roadmaps and practical governance.",
-      "benefits": [
-        "Technology strategy and transformation roadmaps.",
-        "Architecture governance and investment decisions."
-      ],
-      "actionLabel": "Discuss your architecture priorities"
-    },
-    {
-      "inquiryId": "engineering",
-      "category": "Engineering",
-      "description": "Engineer reliable applications, APIs and distributed systems using cloud-native technologies and enterprise software practices.",
-      "benefits": [
-        "Scalable applications and enterprise integration.",
-        "Application modernisation and engineering resilience."
-      ],
-      "actionLabel": "Discuss your engineering challenge"
-    },
-    {
-      "inquiryId": "automation",
-      "category": "AI & automation",
-      "description": "Connect business data, enterprise workflows and AI capabilities to improve operations and decision-making.",
-      "benefits": [
-        "Enterprise data intelligence and AI-enabled insights.",
-        "Intelligent process automation and controlled agentic workflows."
-      ],
-      "actionLabel": "Explore a practical AI use case"
-    },
-    {
-      "inquiryId": "experience",
-      "category": "Digital experience",
-      "description": "Design, integrate and optimise digital platforms supporting content, commerce and customer engagement.",
-      "benefits": [
-        "Composable digital experience platforms.",
-        "Content operations and personalised customer engagement."
-      ],
-      "actionLabel": "Discuss your digital platform"
-    }
-  ],
-  "about": {
-    "eyebrow": "Why NEWRONIQ",
-    "title": "Enterprise thinking. Practical engineering.",
-    "description": "NEWRONIQ is an engineering-led enterprise technology consultancy. Our philosophy is to question the problem, make the trade-offs clear and turn a sound direction into maintainable software.",
-    "philosophy": "We connect advisory work with delivery. We start with business priorities, make security and operational needs part of the design, and leave teams with decisions and systems they can understand and own.",
-    "principles": [
-      {
-        "title": "Architecture that reaches delivery",
-        "description": "Combine enterprise context with practical engineering decisions, from the roadmap to the release."
-      },
-      {
-        "title": "Production needs considered early",
-        "description": "Design for security, scale, reliability and support from the outset, with clear ownership and testable controls."
-      },
-      {
-        "title": "Business value beyond the launch",
-        "description": "Balance investment, operational cost and long-term maintainability. Agree what progress looks like and review the evidence."
-      }
-    ]
+    "eyebrow": "OUR EXPERTISE",
+    "title": "How We Help"
   },
   "approach": {
-    "eyebrow": "Our approach",
-    "title": "A practical path from challenge to progress.",
+    "eyebrow": "OUR APPROACH",
+    "title": "From Assessment to Action",
     "steps": [
       {
-        "title": "Discover",
-        "activity": "Understand the business goal, user needs, constraints and current systems.",
-        "output": "A shared problem statement and measures of success."
+        "title": "Assess",
+        "description": "Understand business objectives, existing systems and AI readiness."
       },
       {
         "title": "Architect",
-        "activity": "Explore options and agree the boundaries, trade-offs and delivery priorities.",
-        "output": "A practical design and a sequenced delivery plan."
+        "description": "Evaluate solution options, security controls and integration requirements."
       },
       {
-        "title": "Deliver",
-        "activity": "Build and integrate in manageable increments, with testing and operational readiness.",
-        "output": "Working software, release evidence and a clear handover."
-      },
-      {
-        "title": "Optimise",
-        "activity": "Review behaviour, cost and business outcomes with the people using the system.",
-        "output": "An evidence-led backlog for the next improvements."
+        "title": "Roadmap",
+        "description": "Define priorities, dependencies, investment considerations and practical next steps."
       }
     ],
-    "outputLabel": "Output"
-  },
-  "insights": {
-    "eyebrow": "Insights & Research",
-    "title": "Practical thinking for enterprise decisions.",
-    "description": "Explore architectural choices, engineering trade-offs and responsible AI in the context of real business operations.",
-    "allLabel": "Browse all insights"
+    "outcome": "The outcome: clearer decisions and a practical plan for AI adoption."
   },
   "products": {
-    "eyebrow": "Product initiatives",
-    "title": "Exploring ideas with potential customers.",
-    "description": "Alongside consulting, we’re exploring two product concepts. We welcome conversations with organisations whose needs can help shape them.",
-    "actionLabel": "Explore the concept"
+    "eyebrow": "PRODUCT INITIATIVES",
+    "title": "What We're Exploring",
+    "description": "Alongside our advisory work, we're developing and exploring software products in document intelligence, content operations and retail analytics."
   },
   "finalAction": {
-    "title": "Let’s solve your next technology challenge.",
-    "description": "Discuss a consulting engagement, platform modernisation, engineering challenge or AI initiative. Start with the problem you need to solve.",
-    "action": {
-      "label": "Start a Conversation",
-      "href": "/contact/"
-    }
+    "title": "Have an AI Initiative in Mind?",
+    "description": "Let's discuss your objectives, challenges and the architecture decisions ahead.",
+    "action": "Start a Conversation"
   }
 }

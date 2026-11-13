@@ -1,13 +1,13 @@
 import { products, type ProductId } from '../../lib/content/products';
-import { contactHref } from '../../lib/contact';
+import { ConsultationLink } from '../common/ConsultationLink';
 import { url } from '../../lib/urls';
-export function ProductPage({ id }: { id: ProductId }) {
+export function ProductPage({ id }: Readonly<{ id: ProductId }>) {
   const product = products.products.find((item) => item.id === id)!;
   return (
     <main id="main-content">
       <section className="pt-32 pb-16 md:pt-40 md:pb-24">
         <div className="section-shell">
-          <a href={url('/#products')} className="text-link inline-block mb-10">
+          <a href={url('/products/')} className="text-link inline-block mb-10">
             ← {products.backLabel}
           </a>
           <div className="grid lg:grid-cols-3 gap-10 lg:gap-16">
@@ -20,14 +20,30 @@ export function ProductPage({ id }: { id: ProductId }) {
               <p className="text-lg text-gray-600 leading-relaxed">
                 {product.description}
               </p>
-              <a className="button-primary mt-7" href={contactHref(product.id)}>
-                {product.interestAction}
-              </a>
+              <div className="flex flex-wrap gap-4 mt-7">
+                <ConsultationLink
+                  interest={product.id}
+                  location="product-hero"
+                  id="product-register"
+                >
+                  {product.interestAction}
+                </ConsultationLink>
+                {product.secondaryAction && (
+                  <ConsultationLink
+                    interest={product.id}
+                    location="product-hero"
+                    id="product-pilot"
+                    className="button-secondary"
+                  >
+                    {product.secondaryAction}
+                  </ConsultationLink>
+                )}
+              </div>
             </div>
             <aside className="bg-gray-50 p-6 border-t-4 border-nq-red self-start">
-              <h2 className="text-xl font-bold mb-4">{products.status}</h2>
+              <h2 className="text-xl font-bold mb-4">{product.status}</h2>
               <p className="text-gray-600 leading-relaxed text-sm">
-                {products.statusDescription}
+                {product.statusDescription}
               </p>
             </aside>
           </div>
@@ -62,9 +78,13 @@ export function ProductPage({ id }: { id: ProductId }) {
               <p className="text-lg text-gray-600 leading-relaxed mt-5 mb-7">
                 {product.interestDescription}
               </p>
-              <a className="button-primary" href={contactHref(product.id)}>
+              <ConsultationLink
+                interest={product.id}
+                location="product-final"
+                id="product-register"
+              >
                 {product.interestAction}
-              </a>
+              </ConsultationLink>
             </div>
             <div className="border-l-2 border-gray-200 pl-6">
               <h2 className="text-xl font-bold mb-3">

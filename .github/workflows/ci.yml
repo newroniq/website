@@ -6,6 +6,8 @@ permissions:
   contents: read
 jobs:
   validate:
+    env:
+      VITE_PUBLIC_TALLY_FORM_ID: ''
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -25,6 +27,15 @@ jobs:
       - run: npm run test:smoke
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
+      - name: Build isolated integration fixture
+        run: npm run build
+        env:
+          VITE_PUBLIC_TALLY_FORM_ID: newroniqTestForm
+          VITE_PUBLIC_POSTHOG_KEY: phc_test_public
+      - name: Verify consent and provider boundaries without live traffic
+        run: npm run test:e2e -- integrations.spec.ts --project=desktop --workers=1
+        env:
+          TEST_INTEGRATIONS: '1'
       - uses: actions/upload-artifact@v7
         if: always()
         with:

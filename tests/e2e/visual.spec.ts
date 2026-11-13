@@ -6,6 +6,11 @@ import pixelmatch from 'pixelmatch';
 const baselineCSS = readFileSync('tests/fixtures/visual/styles.css', 'utf8');
 const views = [
   ['home', '/'],
+  ['services', '/services/'],
+  ['products', '/products/'],
+  ['doptimiser', '/doptimiser/'],
+  ['about', '/about/'],
+  ['academy', '/academy/'],
   ['privacy', '/privacy/'],
   ['stylepulse', '/stylepulse/'],
   ['iqpublish', '/iqpublish/'],

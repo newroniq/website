@@ -1,11 +1,11 @@
 {
   "home": {
-    "title": "NEWRONIQ | Engineering technology for business value",
-    "description": "Enterprise technology consulting across architecture, cloud software, practical AI and digital experiences. Modernise platforms, improve efficiency and strengthen resilience."
+    "title": "Enterprise AI Strategy & Architecture | NEWRONIQ",
+    "description": "NEWRONIQ provides enterprise AI strategy, architecture and cloud advisory services, covering AI readiness, integration, security and implementation roadmaps."
   },
   "contact": {
-    "title": "Discuss your challenge | NEWRONIQ LTD",
-    "description": "Contact NEWRONIQ about enterprise technology consulting, engineering challenges or interest in StylePulse and IQPublish."
+    "title": "Contact NEWRONIQ | Discuss Your AI Initiative",
+    "description": "Discuss AI strategy, enterprise architecture, cloud readiness or an AI transformation roadmap. Contact NEWRONIQ or register interest in our product initiatives."
   },
   "stylepulse": {
     "title": "StylePulse | Fashion trend intelligence initiative | NEWRONIQ",
@@ -33,6 +33,26 @@
   },
   "privacy": {
     "title": "Privacy Policy | NEWRONIQ LTD",
-    "description": "How NEWRONIQ handles website visits, business enquiries and product-interest emails, including contact details and your data protection rights."
+    "description": "How NEWRONIQ handles business enquiries through Tally and optional consented PostHog analytics, including your choices and data protection rights."
+  },
+  "services": {
+    "title": "Enterprise AI Advisory Services | NEWRONIQ",
+    "description": "Explore NEWRONIQ's AI advisory services, including AI strategy, enterprise architecture, security, intelligent automation and AWS/Azure readiness."
+  },
+  "products": {
+    "title": "Product Initiatives | NEWRONIQ",
+    "description": "Explore NEWRONIQ product initiatives in AI document intelligence, enterprise content operations and retail trend intelligence. Share interest and discuss requirements."
+  },
+  "doptimiser": {
+    "title": "DOptimiser | AI File & Document Intelligence | NEWRONIQ",
+    "description": "DOptimiser is in development: planned AI-assisted file understanding, classification, semantic discovery and recommendations. Register interest or discuss a pilot."
+  },
+  "about": {
+    "title": "About NEWRONIQ | AI & Cloud Architecture Advisory",
+    "description": "NEWRONIQ LTD is a UK-based independent enterprise AI and cloud architecture advisory company, combining architecture, engineering and cloud-security expertise."
+  },
+  "academy": {
+    "title": "Corporate Software Engineering Training | NEWRONIQ Academy",
+    "description": "Practical software engineering training covering Java, Spring Boot, testing, cloud deployment and AI-assisted development."
   }
 }

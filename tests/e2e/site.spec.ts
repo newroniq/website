@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 const paths = [
   '/',
+  '/services/',
+  '/products/',
+  '/doptimiser/',
+  '/about/',
+  '/academy/',
   '/stylepulse/',
   '/iqpublish/',
   '/contact/',
@@ -63,7 +68,7 @@ test('navigation, service context, insights and keyboard menu work', async ({
   page,
 }) => {
   await page.goto('/');
-  const mobile = (page.viewportSize()?.width ?? 1440) < 768;
+  const mobile = (page.viewportSize()?.width ?? 1440) < 1024;
   if (mobile) {
     const menu = page.getByRole('button', { name: 'Menu' });
     await menu.click();
@@ -77,87 +82,117 @@ test('navigation, service context, insights and keyboard menu work', async ({
     exact: true,
   });
   await nav.getByRole('link', { name: 'Services' }).click();
-  await expect(page).toHaveURL(/#services$/);
-  await page
-    .getByRole('link', { name: 'Discuss your architecture priorities' })
-    .click();
-  await expect(page.getByRole('combobox')).toHaveValue('architecture');
+  await expect(page).toHaveURL(/\/services\/$/);
+  await expect(page.locator('#architecture')).toContainText(
+    'AI Architecture & Integration',
+  );
+  await page.goto('/contact/?inquiry=architecture');
+  await expect(page.getByRole('note')).toContainText(
+    'AI Architecture & Integration',
+  );
   await page.goto('/');
-  await page.getByRole('link', { name: 'Explore Our Services' }).click();
-  await expect(page).toHaveURL(/#services$/);
   await page
-    .locator('#insights')
-    .getByRole('link', { name: /Read the insight: Modernise/ })
+    .getByRole('link', { name: 'Explore Our Advisory Services' })
     .click();
+  await expect(page).toHaveURL(/\/services\/$/);
+  await page.goto('/');
+  await page
+    .locator('footer')
+    .getByRole('link', { name: 'Insights', exact: true })
+    .click();
+  await page.getByRole('link', { name: /Read the insight: Modernise/ }).click();
   await expect(page.locator('h1')).toHaveText(
     'Modernise the Enterprise One Business Journey at a Time',
   );
   await page.getByRole('link', { name: /All Insights/ }).click();
   await expect(page).toHaveURL(/\/whitepapers\/$/);
 });
-for (const [id, name] of [
-  ['stylepulse', 'StylePulse'],
-  ['iqpublish', 'IQPublish'],
+for (const [id, name, status] of [
+  ['doptimiser', 'DOptimiser', 'In Development'],
+  ['stylepulse', 'StylePulse', 'Concept'],
+  ['iqpublish', 'IQPublish', 'Concept'],
 ])
   test(`identifiable product interest: ${name}`, async ({ page }) => {
     await page.goto(`/${id}/`);
     await expect(
-      page.getByRole('heading', { name: 'Exploring customer needs' }),
+      page.getByRole('heading', { name: status, exact: true }),
     ).toBeVisible();
     await page
-      .getByRole('link', { name: `I’m Interested in ${name}` })
+      .getByRole('link', { name: 'Register Interest', exact: true })
       .first()
       .click();
     await expect(page).toHaveURL(new RegExp(`/contact/\\?inquiry=${id}$`));
-    await expect(page.getByRole('combobox')).toHaveValue(id);
-    await expect(page.getByRole('note')).toContainText(`interest in ${name}`);
+    await expect(page.getByRole('note')).toContainText(name);
     await page.reload();
-    await expect(page.getByRole('combobox')).toHaveValue(id);
-    await page.getByRole('button', { name: 'Prepare email draft' }).click();
-    expect(
-      await page
-        .locator('form')
-        .evaluate((form: HTMLFormElement) => form.checkValidity()),
-    ).toBe(false);
-    await page.getByLabel('Name', { exact: true }).fill('Test Person');
-    await page
-      .getByLabel('Business email', { exact: true })
-      .fill('test@example.com');
-    await page
-      .getByLabel('Organisation (optional)', { exact: true })
-      .fill('Example & Co');
-    await page
-      .getByLabel('Short message (optional)', { exact: true })
-      .fill('A practical pilot? & next steps');
-    await page.getByRole('button', { name: 'Prepare email draft' }).click();
-    await expect(page.getByRole('status')).toContainText(
-      'not been registered or sent',
-    );
-    const draft = new URL(
-      (await page
-        .getByRole('link', { name: 'Open prepared email draft' })
-        .getAttribute('href'))!,
-    );
-    expect(draft.pathname).toBe('info@newroniq.com');
-    expect(draft.searchParams.get('subject')).toBe(
-      `Product Interest — ${name}`,
-    );
-    expect(draft.searchParams.get('body')).toContain('Example & Co');
-    expect(draft.searchParams.get('body')).toContain(
-      'A practical pilot? & next steps',
-    );
-    expect(
-      await page.evaluate(() => localStorage.length + sessionStorage.length),
-    ).toBe(0);
-    expect(page.url()).not.toContain('test@example.com');
+    await expect(page.getByRole('note')).toContainText(name);
+    await expect(
+      page.getByText('Our enquiry form is not available here yet.', {
+        exact: false,
+      }),
+    ).toBeVisible();
+    await expect(page.getByRole('status')).toBeEmpty();
+    await expect(
+      page.getByRole('button', { name: 'Prepare email draft' }),
+    ).toHaveCount(0);
   });
-test('unknown inquiry input falls back safely and all seven choices remain available', async ({
+test('unknown inquiry input falls back safely', async ({ page }) => {
+  await page.goto('/contact/?inquiry=%3Cscript%3Ealert(1)');
+  await expect(page.getByRole('note')).toHaveCount(0);
+  await expect(page.locator('h1')).toHaveText(
+    "Let's Discuss Your AI Initiative",
+  );
+});
+test('analytics preferences remain accessible and rejection sends no external requests', async ({
   page,
 }) => {
-  await page.goto('/contact/?inquiry=%3Cscript%3Ealert(1)');
-  await expect(page.getByRole('combobox')).toHaveValue('general');
-  await expect(page.getByRole('option')).toHaveCount(7);
-  await expect(page.getByRole('note')).toHaveCount(0);
+  const external: string[] = [];
+  page.on('request', (request) => {
+    if (!request.url().startsWith('http://127.0.0.1:4173/'))
+      external.push(request.url());
+  });
+  await page.goto('/');
+  await page
+    .getByRole('button', { name: 'Analytics Preferences', exact: true })
+    .click();
+  await expect(
+    page.getByRole('heading', { name: 'Optional analytics' }),
+  ).toBeVisible();
+  await page
+    .getByRole('button', { name: 'Reject analytics', exact: true })
+    .click();
+  expect(
+    await page.evaluate(() => localStorage.getItem('newroniq.analytics.v1')),
+  ).toBe('rejected');
+  await page.reload();
+  await page
+    .getByRole('button', { name: 'Analytics Preferences', exact: true })
+    .click();
+  await expect(page.getByText('Current preference: rejected.')).toBeVisible();
+  expect(external).toEqual([]);
+});
+test('preferences retain keyboard dismissal and reduced motion needs no overrides', async ({
+  page,
+}) => {
+  await page.goto('/');
+  const trigger = page.getByRole('button', {
+    name: 'Analytics Preferences',
+    exact: true,
+  });
+  await trigger.click();
+  await expect(
+    page.getByRole('region', { name: 'Optional analytics' }),
+  ).toBeFocused();
+  await page.keyboard.press('Escape');
+  await expect(
+    page.getByRole('region', { name: 'Optional analytics' }),
+  ).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+  const action = page.locator('.button-primary').first();
+  await expect(action).toHaveCSS('transition-duration', '0s');
+  await expect(page.locator('html')).toHaveCSS('scroll-behavior', 'auto');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await expect(action).toHaveCSS('transition-duration', '0.2s, 0.2s');
+  await expect(page.locator('html')).toHaveCSS('scroll-behavior', 'smooth');
 });
 test('privacy and verified disclosures are accessible', async ({ page }) => {
   await page.goto('/');
@@ -204,7 +239,9 @@ test('brand wordmarks and favicon retain accessible identity and brand colours',
   request,
 }) => {
   await page.goto('/');
-  const wordmarks = page.getByRole('img', { name: 'NEWRONIQ', exact: true });
+  const wordmarks = page
+    .locator('header, footer')
+    .getByText('NEWRONIQ', { exact: true });
   await expect(wordmarks).toHaveCount(2);
   for (const wordmark of await wordmarks.all()) {
     await expect(wordmark.locator('span').nth(0)).toHaveText('NEWRON');
@@ -221,6 +258,21 @@ test('brand wordmarks and favicon retain accessible identity and brand colours',
   await expect(
     page.locator('header').getByRole('link', { name: 'NEWRONIQ', exact: true }),
   ).toHaveAttribute('href', '/');
+  const footer = page.getByRole('contentinfo');
+  await expect(
+    footer.getByText('Think Bold. Build Reality.', { exact: true }),
+  ).toHaveCount(1);
+  await expect(
+    footer
+      .getByText('NEWRONIQ', { exact: true })
+      .locator('xpath=parent::p/following-sibling::*[1]'),
+  ).toHaveText('Think Bold. Build Reality.');
+  await expect(page.locator('h1')).toHaveText(
+    'Enterprise AI Strategy & Architecture',
+  );
+  await expect(footer).not.toContainText(
+    'From AI Ambition to Enterprise Reality.',
+  );
   const icons = page.locator('link[rel="icon"]');
   await expect(icons).toHaveCount(1);
   const icon = await request.get((await icons.getAttribute('href'))!);
@@ -230,4 +282,126 @@ test('brand wordmarks and favicon retain accessible identity and brand colours',
   expect(svg).toContain('#A12027');
   expect(svg).toContain('fill="#fff"');
   expect(svg).not.toContain('<text');
+});
+
+test('hero and six service cards remain aligned across responsive breakpoints', async ({
+  page,
+}) => {
+  for (const width of [320, 375, 390, 768, 1024, 1440]) {
+    await page.setViewportSize({ width, height: 1000 });
+    await page.goto('/');
+    const cards = page.locator('#services article');
+    await expect(cards).toHaveCount(6);
+    await expect(page.locator('h1')).toHaveText(
+      'Enterprise AI Strategy & Architecture',
+    );
+    await expect(page.locator('.homepage-hero-description')).toHaveText(
+      'We help organisations assess AI opportunities, design secure cloud architectures and develop practical roadmaps for implementation.',
+    );
+    const columns = width >= 1024 ? 3 : width >= 768 ? 2 : 1;
+    const boxes = await cards.evaluateAll((elements) =>
+      elements.map((element) => {
+        const rect = element.getBoundingClientRect();
+        return {
+          x: rect.x,
+          y: rect.y,
+          height: rect.height,
+          headingY: element.querySelector('h3')!.getBoundingClientRect().top,
+          descriptionY: element
+            .querySelector('.service-card-description')!
+            .getBoundingClientRect().top,
+          capabilitiesY: element.querySelector('ul')!.getBoundingClientRect()
+            .top,
+          bullets: element.querySelectorAll('li').length,
+        };
+      }),
+    );
+    expect(new Set(boxes.map((box) => box.x)).size).toBe(columns);
+    expect(new Set(boxes.map((box) => box.y)).size).toBe(6 / columns);
+    for (const top of new Set(boxes.map((box) => box.y))) {
+      const row = boxes.filter((box) => box.y === top);
+      expect(
+        Math.max(...row.map((box) => box.height)) -
+          Math.min(...row.map((box) => box.height)),
+      ).toBeLessThan(2);
+      for (const key of ['headingY', 'descriptionY', 'capabilitiesY'] as const)
+        expect(
+          Math.max(...row.map((box) => box[key])) -
+            Math.min(...row.map((box) => box[key])),
+        ).toBeLessThan(2);
+    }
+    expect(boxes.every((box) => box.bullets === 3)).toBe(true);
+    const hero = await page
+      .locator('.homepage-hero-content')
+      .evaluate((element) => {
+        const bounds = [
+          '.eyebrow',
+          'h1',
+          '.homepage-hero-description',
+          '.homepage-hero-actions',
+        ].map((selector) =>
+          element.querySelector(selector)!.getBoundingClientRect(),
+        );
+        return {
+          lefts: bounds.map((rect) => rect.left),
+          ordered: bounds.every(
+            (rect, index) => !index || rect.top > bounds[index - 1].bottom,
+          ),
+        };
+      });
+    expect(new Set(hero.lefts).size).toBe(1);
+    expect(hero.ordered).toBe(true);
+    expect(
+      await page.evaluate(
+        () => document.documentElement.scrollWidth <= innerWidth,
+      ),
+    ).toBe(true);
+  }
+  await page
+    .getByRole('link', {
+      name: 'AI Implementation & Value Realisation',
+      exact: true,
+    })
+    .click();
+  await expect(page).toHaveURL(/\/services\/#implementation$/);
+  await expect(page.locator('#implementation')).toContainText(
+    'optional follow-on',
+  );
+  await expect(page.locator('#implementation')).toContainText(
+    'validation against defined success criteria',
+  );
+});
+
+test('Academy learning content and registration context remain separate from advisory', async ({
+  page,
+}) => {
+  await page.goto('/academy/');
+  await expect(page).toHaveTitle(
+    'Corporate Software Engineering Training | NEWRONIQ Academy',
+  );
+  await expect(page.locator('main > section')).toHaveCount(8);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Engineering Reliable, Production-Ready Software',
+  );
+  for (const heading of [
+    'Java & Backend Engineering',
+    'Software Quality & Security',
+    'Cloud & DevOps Fundamentals',
+    'AI-Assisted Software Engineering',
+  ])
+    await expect(
+      page.getByRole('heading', { name: heading, exact: true }),
+    ).toBeVisible();
+  const registrations = page.getByRole('link', {
+    name: 'Register Your Interest',
+    exact: true,
+  });
+  await expect(registrations).toHaveCount(2);
+  for (const registration of await registrations.all())
+    await expect(registration).toHaveAttribute(
+      'href',
+      '/contact/?inquiry=academy',
+    );
+  await registrations.last().click();
+  await expect(page.getByRole('note')).toContainText('NEWRONIQ Academy');
 });

@@ -1,3 +1,5 @@
+> Historical report for the previous website. For current integration setup and verification, see [INTEGRATIONS.md](INTEGRATIONS.md) and [TRANSFORMATION.md](TRANSFORMATION.md).
+
 # Migration verification
 
 Verified locally on 3 November 2026 using macOS ARM64, Node 25.2.1, npm 11.6.2 and Playwright Chromium 156. CI targets Ubuntu with Node 24 LTS. The source repository's deployment settings and DNS have not been changed, and no remote deployment has been performed.

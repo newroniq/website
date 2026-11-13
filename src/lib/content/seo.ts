@@ -6,6 +6,11 @@ const metadata = z.object({
 });
 export const seoSchema = z.object({
   home: metadata,
+  services: metadata,
+  products: metadata,
+  doptimiser: metadata,
+  about: metadata,
+  academy: metadata,
   privacy: metadata,
   contact: metadata,
   stylepulse: metadata,

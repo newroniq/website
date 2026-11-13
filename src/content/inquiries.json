@@ -1,46 +1,60 @@
 [
   {
+    "id": "strategy",
+    "kind": "service",
+    "label": "AI Strategy & Roadmap"
+  },
+  {
     "id": "architecture",
     "kind": "service",
-    "label": "Enterprise Architecture & Advisory",
-    "subject": "Consulting enquiry — Enterprise Architecture & Advisory"
+    "label": "AI Architecture & Integration"
   },
   {
-    "id": "engineering",
+    "id": "security",
     "kind": "service",
-    "label": "Cloud & Software Engineering",
-    "subject": "Consulting enquiry — Cloud & Software Engineering"
+    "label": "AI Security & Governance"
   },
   {
-    "id": "automation",
+    "id": "agents",
     "kind": "service",
-    "label": "AI, Data & Intelligent Automation",
-    "subject": "Consulting enquiry — AI, Data & Intelligent Automation"
+    "label": "AI Agents & Intelligent Automation"
   },
   {
-    "id": "experience",
+    "id": "cloud",
     "kind": "service",
-    "label": "Digital Experience Engineering",
-    "subject": "Consulting enquiry — Digital Experience Engineering"
+    "label": "AI Cloud Readiness & Scalability"
   },
   {
-    "id": "stylepulse",
+    "id": "implementation",
+    "kind": "service",
+    "label": "Enterprise AI Implementation Support"
+  },
+  {
+    "id": "doptimiser",
     "kind": "product",
-    "label": "StylePulse — Product Interest",
-    "subject": "Product Interest — StylePulse",
-    "productName": "StylePulse"
+    "label": "DOptimiser",
+    "productName": "DOptimiser"
   },
   {
     "id": "iqpublish",
     "kind": "product",
-    "label": "IQPublish — Product Interest",
-    "subject": "Product Interest — IQPublish",
+    "label": "IQPublish",
     "productName": "IQPublish"
+  },
+  {
+    "id": "stylepulse",
+    "kind": "product",
+    "label": "StylePulse",
+    "productName": "StylePulse"
+  },
+  {
+    "id": "academy",
+    "kind": "learning",
+    "label": "NEWRONIQ Academy"
   },
   {
     "id": "general",
     "kind": "general",
-    "label": "General Inquiry",
-    "subject": "General Inquiry — NEWRONIQ"
+    "label": "General Enquiry"
   }
 ]

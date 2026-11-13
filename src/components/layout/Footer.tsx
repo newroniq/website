@@ -1,3 +1,4 @@
+import { AnalyticsPreferences } from '../analytics/AnalyticsPreferences';
 import { Wordmark } from '../common/Wordmark';
 import { url } from '../../lib/urls';
 import { site } from '../../lib/content';
@@ -10,7 +11,10 @@ export function Footer() {
             <p className="text-2xl font-extrabold tracking-tighter mb-4">
               <Wordmark />
             </p>
-            <h2 className="font-bold mb-3">{site.footer.aboutHeading}</h2>
+            <p className="font-bold mb-3">{site.tagline}</p>
+            <p className="text-sm text-gray-600 leading-relaxed mb-3">
+              {site.footer.aboutHeading}
+            </p>
             <p className="text-sm text-gray-600 leading-relaxed">
               {site.footer.about}
             </p>
@@ -35,9 +39,6 @@ export function Footer() {
             <a className="text-link break-words" href={`mailto:${site.email}`}>
               {site.email}
             </a>
-            <p className="text-sm text-gray-600 leading-relaxed mt-5">
-              {site.tagline}
-            </p>
           </div>
         </div>
         <div className="border-t border-gray-200 pt-7 text-sm text-gray-600 leading-relaxed space-y-2">
@@ -52,6 +53,9 @@ export function Footer() {
           <a className="text-link inline-block" href={site.company.registryUrl}>
             {site.company.registryLabel}
           </a>
+          <div>
+            <AnalyticsPreferences />
+          </div>
           <p className="pt-4">{site.footer.copyright}</p>
         </div>
       </div>

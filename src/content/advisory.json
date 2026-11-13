@@ -1,0 +1,95 @@
+{
+  "title": "Enterprise AI Advisory Services",
+  "description": "We provide focused advice on AI strategy, architecture, security and cloud readiness. Our work helps organisations evaluate options and plan implementation with greater clarity.",
+  "services": [
+    {
+      "id": "strategy",
+      "title": "AI Strategy & Roadmap",
+      "cardDescription": "Identify where AI creates value and plan its adoption.",
+      "capabilities": [
+        "Use-case assessment",
+        "Feasibility & value analysis",
+        "AI adoption roadmap"
+      ],
+      "description": "Determine where AI is useful and what it will take to introduce it.",
+      "whatWeDo": "Assess business opportunities, technical feasibility, existing capabilities and investment priorities.",
+      "whatYouReceive": "A prioritised set of AI opportunities, recommendations and an implementation roadmap."
+    },
+    {
+      "id": "architecture",
+      "title": "AI Architecture & Integration",
+      "cardDescription": "Design AI solutions that work with existing enterprise systems.",
+      "capabilities": [
+        "Solution architecture",
+        "Data & API integration",
+        "Technology evaluation"
+      ],
+      "description": "Plan how AI will work within your existing technology environment.",
+      "whatWeDo": "Evaluate application architecture, data access, integration patterns and solution options.",
+      "whatYouReceive": "Architecture recommendations, key design decisions and integration guidance."
+    },
+    {
+      "id": "security",
+      "title": "AI Security & Governance",
+      "cardDescription": "Assess risks and define appropriate security controls.",
+      "capabilities": [
+        "AI risk assessment",
+        "Identity & data protection",
+        "Governance framework"
+      ],
+      "description": "Understand and address the risks of enterprise AI adoption.",
+      "whatWeDo": "Review identity, data protection, access controls, cloud security and governance requirements.",
+      "whatYouReceive": "A security and governance assessment with prioritised recommendations."
+    },
+    {
+      "id": "agents",
+      "title": "AI Agents & Intelligent Automation",
+      "cardDescription": "Evaluate opportunities to automate business workflows.",
+      "capabilities": [
+        "Workflow assessment",
+        "Agent architecture",
+        "Human oversight & controls"
+      ],
+      "description": "Assess where AI agents and automation can support business workflows.",
+      "whatWeDo": "Evaluate candidate processes, integration needs, human oversight and operational risks.",
+      "whatYouReceive": "Use-case recommendations, solution options and a practical validation approach."
+    },
+    {
+      "id": "cloud",
+      "title": "AI Cloud Readiness & Scalability",
+      "cardDescription": "Prepare AWS and Azure environments for AI workloads.",
+      "capabilities": [
+        "Cloud readiness assessment",
+        "Scalability & reliability",
+        "Cost & performance review"
+      ],
+      "description": "Prepare your cloud architecture for AI workloads.",
+      "whatWeDo": "Assess AWS or Azure infrastructure, scalability, reliability, monitoring and cost considerations.",
+      "whatYouReceive": "A cloud readiness review and recommended architecture improvements."
+    },
+    {
+      "id": "implementation",
+      "title": "AI Implementation & Value Realisation",
+      "cardDescription": "Turn agreed AI opportunities into working solutions, with clear success measures and operational readiness.",
+      "capabilities": [
+        "AI solution implementation",
+        "Cloud integration & deployment",
+        "Outcome validation & handover"
+      ],
+      "description": "This service is an optional follow-on to our advisory engagements, supporting clients who need help implementing the recommendations.",
+      "whatWeDo": "Implement agreed AI solutions, integrate them with enterprise systems and prepare them for operation.",
+      "whatYouReceive": "An implemented solution within the agreed scope, deployment documentation and validation against defined success criteria."
+    }
+  ],
+  "blueprint": {
+    "title": "Enterprise AI Transformation Blueprint",
+    "description": "A focused assessment combining AI opportunity evaluation, architecture, security and a phased implementation roadmap.",
+    "deliverables": [
+      "Prioritised AI opportunities.",
+      "Architecture recommendations.",
+      "Security and cloud readiness findings.",
+      "Implementation roadmap.",
+      "Key decisions and next steps."
+    ]
+  }
+}

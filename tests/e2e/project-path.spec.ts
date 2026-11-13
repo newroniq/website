@@ -2,6 +2,11 @@ import { test, expect } from '@playwright/test';
 const base = process.env.SITE_BASE_PATH ?? '/';
 const paths = [
   '',
+  'services/',
+  'products/',
+  'doptimiser/',
+  'about/',
+  'academy/',
   'contact/',
   'privacy/',
   'stylepulse/',
@@ -49,13 +54,13 @@ test('configured deployment base supports every route, refresh, local link and a
   }
   await page.goto(base + 'stylepulse/');
   await page
-    .getByRole('link', { name: 'I’m Interested in StylePulse' })
+    .getByRole('link', { name: 'Register Interest', exact: true })
     .first()
     .click();
   await expect(page).toHaveURL(
     new RegExp(base + 'contact/\\?inquiry=stylepulse$'),
   );
-  await expect(page.getByRole('combobox')).toHaveValue('stylepulse');
+  await expect(page.getByRole('note')).toContainText('StylePulse');
   const sitemap = await request.get(base + 'sitemap.xml');
   expect(sitemap.ok()).toBe(true);
   expect(await sitemap.text()).toContain(

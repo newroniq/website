@@ -1,8 +1,25 @@
 {
   "contact": {
-    "heading": "Let’s talk about your challenge.",
-    "intro": "Tell us what you’re working on, what needs to change and where you would value support. For product interest, select the initiative below so your enquiry reaches us with the right context.",
-    "email": "Email our team",
-    "form_heading": "Start the conversation"
+    "heading": "Let's Discuss Your AI Initiative",
+    "intro": "Tell us a little about your organisation and the challenge you're exploring.",
+    "email": "Alternatively, email us",
+    "form_heading": "Consultation enquiry"
+  },
+  "about": {
+    "heading": "About",
+    "intro": "NEWRONIQ is a UK-based technology consultancy focused on enterprise AI strategy and architecture.",
+    "expertiseIntro": "Our expertise spans enterprise architecture, distributed systems, cloud infrastructure, software engineering and security.",
+    "description": "We work with organisations to assess technology opportunities, evaluate architectural choices and develop practical plans for implementation.",
+    "principles": [
+      "Business first.",
+      "Architecture with purpose.",
+      "Practical recommendations."
+    ],
+    "approach": [
+      "Understand the problem before recommending technology.",
+      "Evaluate options based on security, scalability, cost and maintainability.",
+      "Provide clear decisions, trade-offs and next steps."
+    ],
+    "expertise": "Enterprise Architecture · AI Solution Design · Cloud and Security"
   }
 }

@@ -33,7 +33,7 @@ export function Header() {
             </a>
             <nav
               aria-label="Main"
-              className="hidden md:flex gap-5 lg:gap-8 text-sm font-medium"
+              className="hidden lg:flex gap-5 lg:gap-8 text-sm font-medium"
             >
               {site.navigation.map((link) => (
                 <a
@@ -48,7 +48,7 @@ export function Header() {
             <div className="flex items-center gap-2 sm:gap-3">
               <button
                 ref={toggle}
-                className="md:hidden menu-toggle"
+                className="lg:hidden menu-toggle"
                 type="button"
                 aria-expanded={open}
                 aria-controls="mobile-navigation"
@@ -59,6 +59,8 @@ export function Header() {
               <a
                 href={url('/contact/')}
                 className="button-secondary nav-contact"
+                data-cta-id="header-contact"
+                data-cta-location="header"
               >
                 {site.contactLabel}
               </a>
@@ -68,7 +70,7 @@ export function Header() {
             id="mobile-navigation"
             aria-label="Mobile"
             hidden={!open}
-            className="md:hidden pb-5"
+            className="lg:hidden pb-5"
           >
             {site.navigation.map((link) => (
               <a

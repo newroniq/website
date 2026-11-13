@@ -3,33 +3,80 @@ import userEvent from '@testing-library/user-event';
 import { describe, it, expect, afterEach } from 'vitest';
 import { App } from '../app/App';
 import { Capabilities } from '../components/sections/Capabilities';
-import { home } from '../lib/content/home';
+import { advisory } from '../lib/content/advisory';
+import { ResearchMetadata } from '../components/common/ResearchMetadata';
 import { site } from '../lib/content';
-import { getInquiry } from '../lib/content/inquiries';
 afterEach(() => window.history.replaceState({}, '', '/'));
 describe('content-driven application', () => {
-  it('connects each service to its inquiry and renders editorial benefits', () => {
-    render(
-      <Capabilities
-        items={home.capabilities.map((item, index) =>
-          index === 0
-            ? { ...item, benefits: ['A focused business benefit'] }
-            : item,
-        )}
-      />,
+  it('keeps the original tagline beneath the footer wordmark and separate from the homepage headline', () => {
+    render(<App path="/" />);
+    expect(site.tagline).toBe('Think Bold. Build Reality.');
+    const footer = screen.getByRole('contentinfo');
+    const wordmark = within(footer).getByText('NEWRON', {
+      exact: true,
+    }).parentElement!;
+    expect(wordmark.parentElement?.nextElementSibling).toHaveTextContent(
+      /^Think Bold\. Build Reality\.$/,
     );
+    expect(
+      within(footer).getAllByText('Think Bold. Build Reality.', {
+        exact: true,
+      }),
+    ).toHaveLength(1);
+    expect(
+      within(footer).getByText(
+        'Enterprise AI Strategy & Architecture Advisory',
+        {
+          exact: true,
+        },
+      ),
+    ).toBeVisible();
+    expect(
+      within(footer).queryByText('From AI Ambition to Enterprise Reality.'),
+    ).not.toBeInTheDocument();
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
+      /^Enterprise AI Strategy & Architecture$/,
+    );
+  });
+  it('connects each service to its detail and consultation context', () => {
+    render(<Capabilities />);
     const cards = screen.getAllByRole('article');
-    expect(cards).toHaveLength(4);
+    expect(cards).toHaveLength(6);
     cards.forEach((card, index) => {
+      const service = advisory.services[index];
       expect(within(card).getByRole('heading')).toHaveTextContent(
-        getInquiry(home.capabilities[index].inquiryId).label,
+        service.title,
       );
-      expect(within(card).getByRole('link')).toHaveAttribute(
-        'href',
-        `/contact/?inquiry=${home.capabilities[index].inquiryId}`,
-      );
+      expect(
+        within(card).getByRole('link', { name: service.title }),
+      ).toHaveAttribute('href', `/services/#${service.id}`);
+      expect(within(card).getAllByRole('listitem')).toHaveLength(3);
+      expect(within(card).getByText(service.cardDescription)).toBeVisible();
     });
-    expect(screen.getByText('A focused business benefit')).toBeVisible();
+  });
+  it('limits the homepage to five primary sections', () => {
+    const { container } = render(<App path="/" />);
+    expect(container.querySelectorAll('main > section')).toHaveLength(5);
+    expect(screen.getByRole('heading', { name: 'How We Help' })).toBeVisible();
+    expect(
+      screen.getByRole('heading', { name: 'From Assessment to Action' }),
+    ).toBeVisible();
+  });
+  it.each([
+    [undefined, undefined, ''],
+    ['Contributor', undefined, 'Contributor'],
+    [undefined, '2026-11-06', '2026-11-06'],
+    ['Contributor', '2026-11-06', 'Contributor · 2026-11-06'],
+  ])('renders optional metadata: %s / %s', (author, publishedOn, expected) => {
+    const { container } = render(
+      <ResearchMetadata author={author} publishedOn={publishedOn} />,
+    );
+    expect(container.textContent).toBe(expected);
+    if (publishedOn)
+      expect(container.querySelector('time')).toHaveAttribute(
+        'dateTime',
+        publishedOn,
+      );
   });
   it('closes mobile navigation with Escape and returns keyboard focus', async () => {
     const user = userEvent.setup();
@@ -43,36 +90,24 @@ describe('content-driven application', () => {
         'link',
         { name: 'Services' },
       ),
-    ).toHaveAttribute('href', '/#services');
+    ).toHaveAttribute('href', '/services/');
     await user.keyboard('{Escape}');
     expect(menu).toHaveAttribute('aria-expanded', 'false');
     expect(menu).toHaveFocus();
   });
-  it('preselects product interest and permits changing back to a general inquiry', async () => {
+  it('retains product context without pretending an unconfigured form can submit', () => {
     window.history.replaceState({}, '', '/contact/?inquiry=stylepulse');
-    const user = userEvent.setup();
     render(<App path="/contact/" />);
-    expect(screen.getByRole('combobox')).toHaveValue('stylepulse');
+    expect(screen.getByRole('note')).toHaveTextContent('StylePulse');
     expect(
-      screen.getByRole('textbox', { name: site.form.name }),
-    ).toHaveAttribute('pattern', '.*\\S.*');
-    expect(screen.getByRole('note')).toHaveTextContent(
-      'interest in StylePulse',
-    );
-    expect(
-      screen.getByRole('textbox', { name: site.form.name }),
-    ).toBeRequired();
-    expect(
-      screen.getByRole('textbox', { name: site.form.organisation }),
-    ).not.toBeRequired();
-    await user.selectOptions(screen.getByRole('combobox'), 'general');
-    expect(screen.queryByRole('note')).not.toBeInTheDocument();
-    expect(screen.queryByText('Message Sent.')).not.toBeInTheDocument();
+      screen.getByText(site.form.unavailable, { exact: false }),
+    ).toBeVisible();
+    expect(screen.queryByRole('textbox')).not.toBeInTheDocument();
+    expect(screen.queryByText(site.form.success)).not.toBeInTheDocument();
   });
-  it('treats unknown query values as general inquiries without rendering input', () => {
+  it('ignores arbitrary enquiry parameters', () => {
     window.history.replaceState({}, '', '/contact/?inquiry=%3Cscript%3E');
     render(<App path="/contact/" />);
-    expect(screen.getByRole('combobox')).toHaveValue('general');
     expect(screen.queryByRole('note')).not.toBeInTheDocument();
   });
   it('keeps article routes, genuine references and the insight back link', () => {

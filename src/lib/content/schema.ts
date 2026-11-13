@@ -8,22 +8,22 @@ export const httpsHref = z
   .refine((value) => new URL(value).protocol === 'https:', 'Use an HTTPS URL');
 export const linkSchema = z.object({ label: text, href: localHref });
 export const referenceSchema = z.object({ label: text, href: httpsHref });
+export const serviceIdSchema = z.enum([
+  'strategy',
+  'architecture',
+  'security',
+  'agents',
+  'cloud',
+  'implementation',
+]);
+export const productIdSchema = z.enum([
+  'doptimiser',
+  'iqpublish',
+  'stylepulse',
+]);
 export const inquiryIdSchema = z.enum([
-  'architecture',
-  'engineering',
-  'automation',
-  'experience',
-  'stylepulse',
-  'iqpublish',
+  ...serviceIdSchema.options,
+  ...productIdSchema.options,
+  'academy',
   'general',
-]);
-export const serviceIdSchema = inquiryIdSchema.extract([
-  'architecture',
-  'engineering',
-  'automation',
-  'experience',
-]);
-export const productIdSchema = inquiryIdSchema.extract([
-  'stylepulse',
-  'iqpublish',
 ]);

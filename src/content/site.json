@@ -1,9 +1,11 @@
 {
   "name": "NEWRONIQ",
-  "wordmark": { "primary": "NEWRON", "accent": "IQ" },
+  "wordmark": {
+    "primary": "NEWRON",
+    "accent": "IQ"
+  },
   "url": "https://www.newroniq.com/",
   "email": "info@newroniq.com",
-  "gtmId": "GTM-KXTJW9R8",
   "navigation": [
     {
       "label": "Home",
@@ -11,15 +13,19 @@
     },
     {
       "label": "Services",
-      "href": "/#services"
+      "href": "/services/"
     },
     {
-      "label": "About",
-      "href": "/#about"
+      "label": "Products",
+      "href": "/products/"
     },
     {
       "label": "Insights",
       "href": "/whitepapers/"
+    },
+    {
+      "label": "About",
+      "href": "/about/"
     }
   ],
   "contactLabel": "Contact",
@@ -27,20 +33,12 @@
   "skipLabel": "Skip to content",
   "backToPapers": "All Insights",
   "form": {
-    "name": "Name",
-    "email": "Business email",
-    "organisation": "Organisation (optional)",
-    "type": "What would you like to discuss?",
-    "message": "Short message (optional)",
-    "submit": "Prepare email draft",
-    "notice": "This opens a draft in your email app. Review it and press Send there to contact us. Nothing is submitted to this website.",
-    "handoff": "Your interest has not been registered or sent. Review and send the draft in your email app. If it did not open, use the prepared draft link or email us directly.",
-    "draftLink": "Open prepared email draft",
-    "productContext": "You’re expressing interest in {product}. Tell us what you need; sending the email starts the conversation.",
+    "sensitiveNotice": "Please do not include credentials, confidential client data or sensitive personal information.",
     "privacyLabel": "How we use your information",
     "privacyHref": "/privacy/",
-    "sensitiveNotice": "Please do not include credentials, confidential client data or sensitive personal information.",
-    "nameHint": "Enter your name, not only spaces."
+    "unavailable": "Our enquiry form is not available here yet. Please contact us by email.",
+    "fallbackLabel": "Open the enquiry form directly",
+    "success": "Thank you for contacting NEWRONIQ. Your enquiry has been received."
   },
   "notFound": {
     "title": "Page not found",
@@ -48,30 +46,34 @@
     "homeLabel": "Back to Overview"
   },
   "footer": {
-    "aboutHeading": "Engineering with purpose.",
-    "about": "Engineering-led consulting for enterprise platforms, reliable software and practical AI. Technology decisions grounded in business value and long-term maintainability.",
+    "aboutHeading": "Enterprise AI Strategy & Architecture Advisory",
+    "about": "UK-based technology consultancy focused on enterprise AI strategy and architecture.",
     "navigationLabel": "Explore",
     "contactHeading": "Start a conversation",
     "links": [
       {
         "label": "Services",
-        "href": "/#services"
+        "href": "/services/"
       },
       {
-        "label": "About NEWRONIQ",
-        "href": "/#about"
+        "label": "Products",
+        "href": "/products/"
       },
       {
         "label": "Insights",
         "href": "/whitepapers/"
       },
       {
-        "label": "StylePulse",
-        "href": "/stylepulse/"
+        "label": "About NEWRONIQ",
+        "href": "/about/"
       },
       {
-        "label": "IQPublish",
-        "href": "/iqpublish/"
+        "label": "NEWRONIQ Academy",
+        "href": "/academy/"
+      },
+      {
+        "label": "Contact",
+        "href": "/contact/"
       },
       {
         "label": "Privacy Policy",
@@ -83,7 +85,6 @@
   "favicon": "/favicon.svg",
   "legalName": "NEWRONIQ LTD",
   "tagline": "Think Bold. Build Reality.",
-  "analyticsEnabled": false,
   "company": {
     "number": "17181252",
     "registeredIn": "England and Wales",
