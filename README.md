@@ -29,7 +29,7 @@ For exact static routing and 404 behavior, run `node --import tsx scripts/serve-
 - `src/content/` contains business copy and metadata; `src/lib/content/` validates it with Zod. Invalid content fails the build.
 - `advisory.json` owns the six services and Transformation Blueprint. `home.json` owns homepage sections.
 - `products.json` owns three initiatives with individual status and planned capability descriptions. `research.json` retains the three published articles; authors and dates remain optional and must be genuine.
-- `site.json` owns the wordmark, navigation, verified company details and public email. `pages.json` owns contact, about and Academy copy; `privacy.json` owns the privacy notice.
+- `site.json` owns the wordmark, navigation, verified company details and public email. `pages.json` owns contact and about copy; `academy.json` owns the Academy learning content; `privacy.json` owns the privacy notice.
 - `src/app/routes.ts` defines public routes. Existing `/whitepapers/` and article URLs remain; new routes are `/services/`, `/products/`, `/doptimiser/`, `/about/` and `/academy/`.
 - `src/lib/analytics.ts` is the single analytics gateway. `src/lib/tally.ts` handles form links and message validation. Components never send form answers to analytics.
 - `scripts/prerender.tsx` generates route-specific HTML, metadata, canonical URLs, JSON-LD, robots, sitemap and the static 404. Fonts remain self-hosted under `public/fonts/` with their licence.

@@ -24,5 +24,6 @@ export const productIdSchema = z.enum([
 export const inquiryIdSchema = z.enum([
   ...serviceIdSchema.options,
   ...productIdSchema.options,
+  'academy',
   'general',
 ]);

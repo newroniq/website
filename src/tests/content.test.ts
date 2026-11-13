@@ -1,3 +1,4 @@
+import { academy, academySchema } from '../lib/content/academy';
 import { advisory, advisorySchema } from '../lib/content/advisory';
 import { tallyUrl } from '../lib/tally';
 import { structuredData } from '../lib/structured-data';
@@ -31,7 +32,7 @@ describe('content and inquiry contracts', () => {
         .success,
     ).toBe(false);
   });
-  it('requires the advisory services, ten inquiry choices and three distinct products', () => {
+  it('requires the advisory services, eleven inquiry choices and three distinct products', () => {
     expect(
       homeSchema.safeParse({
         ...home,
@@ -60,7 +61,7 @@ describe('content and inquiry contracts', () => {
         ),
       }).success,
     ).toBe(false);
-    expect(inquiries).toHaveLength(10);
+    expect(inquiries).toHaveLength(11);
     expect(inquiriesSchema.safeParse(inquiries.slice(0, 4)).success).toBe(
       false,
     );
@@ -78,6 +79,21 @@ describe('content and inquiry contracts', () => {
     expect(getInquiry('engineering').id).toBe('implementation');
     expect(getInquiry('automation').id).toBe('agents');
     expect(getInquiry('__proto__').id).toBe('general');
+  });
+  it('validates Academy learning areas and registration context', () => {
+    expect(
+      academySchema.safeParse({
+        ...academy,
+        learning: {
+          ...academy.learning,
+          areas: academy.learning.areas.slice(1),
+        },
+      }).success,
+    ).toBe(false);
+    expect(contactHref('academy')).toBe('/contact/?inquiry=academy');
+    const target = new URL(tallyUrl('testForm', 'academy', true));
+    expect(target.searchParams.get('interest_context')).toBe('academy');
+    expect(target.searchParams.get('interest_label')).toBe('NEWRONIQ Academy');
   });
   it('passes only the allowlisted interest category to Tally', () => {
     expect(contactHref('iqpublish')).toBe('/contact/?inquiry=iqpublish');

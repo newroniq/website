@@ -25,6 +25,7 @@ The configured public form is https://tally.so/r/xVMoPv (`xVMoPv`), set in `.env
    - DOptimiser
    - IQPublish
    - StylePulse
+   - NEWRONIQ Academy
    - General Enquiry
 4. Beneath the description, add **Please do not include credentials, confidential client data or sensitive personal information.** Include a link to `https://www.newroniq.com/privacy/`.
 5. Add hidden fields named exactly `interest_context` and `interest_label`. In the Area of interest field settings, enable **Default answer** and select `interest_label`. It must match an option exactly. Visitors can change the selected interest. The hidden context records the originating CTA category, not the final answer.
@@ -94,3 +95,9 @@ npm run build
 ```
 
 The last command restores the normal production build. Never deploy the fake integration build. The test intercepts every HTTPS request, serves a synthetic Tally event fixture and captures the real SDK's outgoing requests locally, including its EU project configuration request. It simulates a normal browser only within that intercepted fixture so the production SDK's bot filter remains enabled. These checks prove sender validation, consent independence, sanitised outgoing payloads, duplicate prevention, withdrawal and CTA navigation behavior. They do not prove live Tally persistence, field setup, notifications or real PostHog dashboard receipt.
+
+## Academy registration context
+
+Academy registration links use `/contact/?inquiry=academy`. The existing Tally URL builder sends the allowlisted `interest_context=academy` and `interest_label=NEWRONIQ Academy`; it does not select or verify fields within the cross-origin form.
+
+Manual update required in Tally form `xVMoPv`: add **NEWRONIQ Academy** to the required **Area of interest** dropdown. Retain hidden fields `interest_context` and `interest_label`, and set the dropdown default answer from `interest_label`. Publish the form and verify preselection, required-field validation and a clearly marked owner test submission. This account-side configuration has not been changed or verified; visitors can manually select their area of interest.

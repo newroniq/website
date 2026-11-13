@@ -5,7 +5,7 @@ export const inquiriesSchema = z
   .array(
     z.object({
       id: inquiryIdSchema,
-      kind: z.enum(['service', 'product', 'general']),
+      kind: z.enum(['service', 'product', 'learning', 'general']),
       label: text,
       productName: text.optional(),
     }),

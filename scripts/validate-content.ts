@@ -1,3 +1,4 @@
+import { academy } from '../src/lib/content/academy';
 import { advisory } from '../src/lib/content/advisory';
 import { products } from '../src/lib/content/products';
 import { inquiries } from '../src/lib/content/inquiries';
@@ -16,4 +17,8 @@ console.log(`Validated ${research.papers.length} research cards.`);
 
 console.log(
   `Validated ${products.products.length} product initiatives, ${inquiries.length} inquiry types and ${privacy.title}. Advisory services: ${advisory.services.length}`,
+);
+
+console.log(
+  `Validated Academy: ${academy.learning.areas.length} learning areas.`,
 );

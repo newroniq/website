@@ -48,6 +48,11 @@
     "productName": "StylePulse"
   },
   {
+    "id": "academy",
+    "kind": "learning",
+    "label": "NEWRONIQ Academy"
+  },
+  {
     "id": "general",
     "kind": "general",
     "label": "General Enquiry"

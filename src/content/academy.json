@@ -1,0 +1,137 @@
+{
+  "hero": {
+    "eyebrow": "NEWRONIQ ACADEMY",
+    "title": "Engineering Reliable, Production-Ready Software",
+    "description": "Learn how professional software is designed, built, tested and deployed—with AI as a development tool, not a substitute for engineering judgement.",
+    "action": "Register Your Interest"
+  },
+  "values": {
+    "eyebrow": "Why NEWRONIQ Academy?",
+    "title": "Beyond Learning to Code",
+    "paragraphs": [
+      "Writing code is only one part of software engineering. Building dependable applications requires sound design, testing, security, debugging and deployment practices.",
+      "Our programme focuses on helping learners understand how these responsibilities fit together in real software development."
+    ],
+    "items": [
+      {
+        "title": "Practical Engineering",
+        "description": "Apply concepts through guided development exercises and realistic engineering scenarios."
+      },
+      {
+        "title": "AI-Assisted Development",
+        "description": "Learn to use AI coding assistants while reviewing, testing and validating their output."
+      },
+      {
+        "title": "Production Mindset",
+        "description": "Understand reliability, security, maintainability and operational requirements from the beginning."
+      }
+    ]
+  },
+  "learning": {
+    "title": "What You'll Learn",
+    "areas": [
+      {
+        "title": "Java & Backend Engineering",
+        "items": [
+          "Core Java and object-oriented design",
+          "Spring Boot and REST APIs",
+          "Databases and enterprise integration"
+        ]
+      },
+      {
+        "title": "Software Quality & Security",
+        "items": [
+          "Unit and integration testing",
+          "Debugging, code reviews and refactoring",
+          "API security, error handling and clean code"
+        ]
+      },
+      {
+        "title": "Cloud & DevOps Fundamentals",
+        "items": [
+          "Git and collaborative development",
+          "Docker and CI/CD pipelines",
+          "Cloud deployment concepts using AWS or Azure"
+        ]
+      },
+      {
+        "title": "AI-Assisted Software Engineering",
+        "items": [
+          "AI-supported code generation",
+          "Reviewing and correcting generated code",
+          "Testing, security and responsible AI usage"
+        ]
+      }
+    ]
+  },
+  "method": {
+    "eyebrow": "How You'll Learn",
+    "title": "Learn. Build. Review. Improve.",
+    "steps": [
+      {
+        "title": "Understand",
+        "description": "Learn engineering concepts and how they are applied."
+      },
+      {
+        "title": "Build",
+        "description": "Implement features through structured, hands-on exercises."
+      },
+      {
+        "title": "Review",
+        "description": "Analyse code quality, identify defects and improve implementations."
+      },
+      {
+        "title": "Deliver",
+        "description": "Practise testing, packaging and deployment using modern development tools."
+      }
+    ]
+  },
+  "experience": {
+    "eyebrow": "Practical Learning Experience",
+    "title": "Apply What You Learn",
+    "description": "The programme is designed around a guided software application, allowing learners to practise:",
+    "items": [
+      "Designing and implementing REST APIs.",
+      "Integrating application and database components.",
+      "Writing and running automated tests.",
+      "Reviewing and improving AI-generated code.",
+      "Managing code using Git.",
+      "Understanding build pipelines and cloud deployment."
+    ]
+  },
+  "audience": {
+    "eyebrow": "Who Is This For?",
+    "title": "Designed for Aspiring Software Engineers",
+    "items": [
+      {
+        "title": "Computer Science & Engineering Graduates",
+        "description": "Develop practical software engineering skills beyond academic assignments."
+      },
+      {
+        "title": "Early-Career Developers",
+        "description": "Strengthen backend development, testing and delivery practices."
+      },
+      {
+        "title": "Developers Exploring AI-Assisted Engineering",
+        "description": "Learn to use AI coding tools responsibly without losing engineering fundamentals."
+      }
+    ]
+  },
+  "objectives": {
+    "eyebrow": "What You'll Work Towards",
+    "title": "Skills That Extend Beyond Writing Code",
+    "description": "By the end of the learning activities, participants should be better equipped to:",
+    "items": [
+      "Build and explain a structured backend application.",
+      "Write, test and debug Java services.",
+      "Evaluate AI-generated code critically.",
+      "Understand common cloud deployment workflows.",
+      "Explain architectural and engineering decisions."
+    ]
+  },
+  "finalAction": {
+    "title": "Build Stronger Software Engineering Skills",
+    "description": "Interested in practical software engineering training?",
+    "action": "Register Your Interest"
+  }
+}

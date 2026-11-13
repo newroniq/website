@@ -371,3 +371,37 @@ test('hero and six service cards remain aligned across responsive breakpoints', 
     'validation against defined success criteria',
   );
 });
+
+test('Academy learning content and registration context remain separate from advisory', async ({
+  page,
+}) => {
+  await page.goto('/academy/');
+  await expect(page).toHaveTitle(
+    'Corporate Software Engineering Training | NEWRONIQ Academy',
+  );
+  await expect(page.locator('main > section')).toHaveCount(8);
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText(
+    'Engineering Reliable, Production-Ready Software',
+  );
+  for (const heading of [
+    'Java & Backend Engineering',
+    'Software Quality & Security',
+    'Cloud & DevOps Fundamentals',
+    'AI-Assisted Software Engineering',
+  ])
+    await expect(
+      page.getByRole('heading', { name: heading, exact: true }),
+    ).toBeVisible();
+  const registrations = page.getByRole('link', {
+    name: 'Register Your Interest',
+    exact: true,
+  });
+  await expect(registrations).toHaveCount(2);
+  for (const registration of await registrations.all())
+    await expect(registration).toHaveAttribute(
+      'href',
+      '/contact/?inquiry=academy',
+    );
+  await registrations.last().click();
+  await expect(page.getByRole('note')).toContainText('NEWRONIQ Academy');
+});
