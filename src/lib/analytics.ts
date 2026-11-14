@@ -103,6 +103,7 @@ async function initialize() {
       if (consent !== 'accepted' || version !== generation) return;
       posthog.init(posthogKey, {
         api_host: posthogHost,
+        defaults: '2026-08-30',
         autocapture: false,
         capture_pageview: false,
         capture_pageleave: false,

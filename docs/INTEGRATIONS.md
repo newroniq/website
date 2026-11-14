@@ -45,7 +45,7 @@ References: [standard embeds](https://developers.tally.so/widgets/embeds), [even
 
 ## PostHog Cloud EU
 
-Use the existing PostHog **EU** project (ID `346547`). Its public browser token is not stored locally; retain the deployment variable. Add its **public project key** (`phc_…`) and `https://eu.i.posthog.com` to the public build settings. Never use a personal/secret API key. Configure project-level IP discard and review event retention, account access and subprocessors. Do not enable replay, autocapture, surveys, or automatic identification in project settings. Use free usage allowances and review account limits; the website requires no paid feature.
+Use the existing PostHog **EU** project (ID `346547`). Its supplied public browser token is configured centrally in `.env.production`, with the EU host. Non-empty deployment variables override these defaults. Add its **public project key** (`phc_…`) and `https://eu.i.posthog.com` to the public build settings. Never use a personal/secret API key. Configure project-level IP discard and review event retention, account access and subprocessors. Do not enable replay, autocapture, surveys, or automatic identification in project settings. Use free usage allowances and review account limits; the website requires no paid feature.
 
 The official `posthog-js` SDK is loaded dynamically after consent, only in a configured production build. No SDK initialisation or events occur before consent or after rejection. Development, test mode and builds without a key remain inactive. The application does not use cookieless tracking on rejection.
 
@@ -86,7 +86,7 @@ Review the configured form's real browser network/storage behaviour. Tally's gen
 
 ## Repeatable isolated browser integration checks
 
-The normal browser suite runs against an offline build: `VITE_PUBLIC_TALLY_FORM_ID= npm run build`. CI also runs the isolated fixture checks before building the project-path variant. For a separate controlled integration check, use the following **fake** identifiers only for the test build:
+The normal browser suite runs against an offline build: `VITE_PUBLIC_TALLY_FORM_ID= VITE_PUBLIC_POSTHOG_KEY= npm run build`. CI also runs the isolated fixture checks before building the project-path variant. For a separate controlled integration check, use the following **fake** identifiers only for the test build:
 
 ```sh
 VITE_PUBLIC_TALLY_FORM_ID=newroniqTestForm VITE_PUBLIC_POSTHOG_KEY=phc_test_public npm run build
@@ -101,3 +101,5 @@ The last command restores the normal production build. Never deploy the fake int
 Academy registration links use `/contact/?inquiry=academy`. The existing Tally URL builder sends the allowlisted `interest_context=academy` and `interest_label=NEWRONIQ Academy`; it does not select or verify fields within the cross-origin form.
 
 Manual update required in Tally form `xVMoPv`: add **NEWRONIQ Academy** to the required **Area of interest** dropdown. Retain hidden fields `interest_context` and `interest_label`, and set the dropdown default answer from `interest_label`. Publish the form and verify preselection, required-field validation and a clearly marked owner test submission. This account-side configuration has not been changed or verified; visitors can manually select their area of interest.
+
+The SDK defaults snapshot is pinned to `2026-08-30`. Explicit opt-in, manual pageviews, disabled autocapture/replay/person profiles and outgoing-property filtering override SDK defaults. No duplicate HTML snippet or user identification was added. The repository defines no Content-Security-Policy restriction blocking EU ingestion; hosting response headers have not been verified. If a CSP is introduced later, review the required EU endpoints without enabling optional SDK extensions. Live dashboard receipt remains pending after deployment and an authorised consented visit.

@@ -8,6 +8,7 @@ jobs:
   validate:
     env:
       VITE_PUBLIC_TALLY_FORM_ID: ''
+      VITE_PUBLIC_POSTHOG_KEY: ''
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6

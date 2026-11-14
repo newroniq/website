@@ -60,8 +60,14 @@ describe('consented explicit analytics', () => {
     expect(sdk.capture).not.toHaveBeenCalled();
     expect(localStorage.getItem(analytics.consentKey)).toBe('rejected');
   });
-  it('disables real analytics in development and test environments', async () => {
-    vi.stubEnv('PROD', false);
+  it.each([
+    ['development', false, 'development', 'phc_test_public'],
+    ['test', true, 'test', 'phc_test_public'],
+    ['offline build', true, 'production', ''],
+  ])('disables analytics in %s', async (_label, production, mode, key) => {
+    vi.stubEnv('PROD', production);
+    vi.stubEnv('MODE', mode);
+    vi.stubEnv('VITE_PUBLIC_POSTHOG_KEY', key);
     const analytics = await import('../lib/analytics');
     dispose = analytics.startAnalytics();
     analytics.setConsent('accepted');
@@ -77,6 +83,7 @@ describe('consented explicit analytics', () => {
     ).toHaveLength(1);
     expect(sdk.init.mock.calls[0][1]).toMatchObject({
       api_host: 'https://eu.i.posthog.com',
+      defaults: '2026-08-30',
       autocapture: false,
       capture_pageview: false,
       capture_pageleave: false,

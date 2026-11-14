@@ -42,7 +42,7 @@ VITE_PUBLIC_POSTHOG_KEY=
 VITE_PUBLIC_POSTHOG_HOST=https://eu.i.posthog.com
 ```
 
-Production builds use the public Tally ID in `.env.production`; deployment variables can override it. An explicit empty ID disables the embed for offline checks. Without provider settings, the Contact page offers the public email and analytics remains inactive. A configured Tally form works independently of analytics consent. A build must be repeated after changing public variables. Vite and the prerender script both load the same public configuration.
+Production builds use the public Tally ID, PostHog project token and EU host in `.env.production`; deployment variables can override them. An explicit empty ID disables the embed for offline checks. Without provider settings, the Contact page offers the public email and analytics remains inactive. A configured Tally form works independently of analytics consent. A build must be repeated after changing public variables. Vite and the prerender script both load the same public configuration.
 
 See [integration setup](docs/INTEGRATIONS.md) for the exact form, notifications, consent behavior and PostHog dashboard instructions. See [transformation verification](docs/TRANSFORMATION.md) for actual checks and outstanding manual work.
 
@@ -54,7 +54,7 @@ npm run format:check
 npm run typecheck
 npm run validate:content
 npm test
-VITE_PUBLIC_TALLY_FORM_ID= npm run build
+VITE_PUBLIC_TALLY_FORM_ID= VITE_PUBLIC_POSTHOG_KEY= npm run build
 npm run test:smoke
 PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright npx playwright install chromium
 PLAYWRIGHT_BROWSERS_PATH=.cache/ms-playwright npm run test:e2e
@@ -97,3 +97,7 @@ The last command restores custom-domain output. The build prefixes links/assets 
 The homepage has five sections: Hero, Services, Approach, Products and Contact. Legacy `roadmap` enquiry links and the Services fragment resolve to AI Strategy & Roadmap. PostHog retains its existing `$pageview` event; no duplicate `pageview` event is sent.
 
 Implementation & Value Realisation is an optional follow-on service. Its Services anchor is `/services/#implementation`; the existing Tally category and analytics identifier remain `implementation`.
+
+PostHog initialises once after analytics consent with the `2026-08-30` defaults snapshot and explicit privacy overrides. Empty GitHub Actions PostHog variables fall back to `.env.production`; non-empty variables override it. The committed token is a browser-visible project identifier, not a secret personal API key. Development and test modes disable analytics. For automated browser checks, use the offline build command above or the documented intercepted fixture; never browse a live-token preview for automated analytics tests. No live dashboard receipt has been verified.
+
+An empty `VITE_PUBLIC_POSTHOG_KEY` in `.env.local` intentionally disables analytics, even when `.env.production` contains the public token. Remove that local override to use the configured production token.
